@@ -1,1 +1,89 @@
 @charset "UTF-8";
+/* wrapperクラス */
+.wrapper {
+  margin: 0 auto 0 auto;  /* 中央揃え */
+  width: 320px;     /* 幅を固定 */
+}
+/* bodyタグ*/
+body {
+  font-family: "Century Gothic";
+  margin: 0 0 0 0;
+  background-color: #FFF7EF;
+}
+a:link {
+  color: #000000;
+}
+a:hover {
+  color: #008080;
+}
+/* 中央配置 */
+.exit {
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+.title {
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+/* id="footer" */
+#footer {
+  background-image: url(../img/footer.png);
+  background-repeat: repeat-x;
+  margin-top: 100px;
+  padding: 20px 0px 20px 0px;
+  font-size: smaller;
+  color: black;
+}
+
+/* ハンバーガーメニュー */
+
+.ham {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #FFF7EF;
+}
+.ham_line {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 3px;
+  background-color: #000000;
+  transition: all 0.3s;
+}
+.ham_line1 {
+  top: 10px;
+}
+.ham_line2 {
+  top: 18px;
+}
+.ham_line3 {
+  top: 26px;
+}
+
+/* ×ボタンに変化 */
+.clicked .ham_line1 {
+  transform: rotate(45deg);
+  top: 20px;
+}
+.clicked .ham_line2 {
+  width: 0px;
+}
+.clicked .ham_line3 {
+  transform: rotate(-45deg);
+  top: 20px;
+}
+/* メニューを表示 */
+.menu {
+  position: fixed;
+  width: 320px;
+  height: 400px;
+  left: -400px;
+  background-color: #d3d3d3;
+  transition: all 0.3s;
+}
+.clicked .menu {
+  left: 0px;
+}
