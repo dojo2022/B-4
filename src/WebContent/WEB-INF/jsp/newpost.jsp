@@ -38,6 +38,10 @@
 	<main>
 		<h1 class = "title">新規投稿</h1>
 		<table>
+			<!-- タイトル -->
+			<tr><td><label>
+				<input type="text" name="posttitle">投稿タイトル
+			</label></td></tr>
 			<!-- 写真・画像のアップロード -->
 			<tr><td><label>
 				画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
@@ -49,13 +53,11 @@
 				<input type="radio" name="cat" value="猫"> 猫
 				<input type="radio" name="dog" value="犬"> 犬
 			</label></td></tr>
-			<!-- タイトル -->
-			<tr><td><label>
-				<input type="text" name="posttitle">投稿タイトル
-			</label></td></tr>
 			<!-- 説明欄 -->
+
 			<tr><td><label>
-				<textarea rows="4" cols="30" name="postcomment"></textarea>
+				<textarea rows="4" cols="30" name="postcomment"
+				placeholder="魅力を伝えましょう!#で詳細検索が可能になります!"></textarea>
 			</label></td></tr>
 		</table>
 	</main>
