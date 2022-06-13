@@ -20,10 +20,10 @@
 		<form id="login_form" method="POST" action="/dotchiha/LoginServlet">
 			<table >
 				<tr><td><label>
-					メールアドレス<br><input type="text" name="ID">
+					メールアドレス<br><input type="text" name="id">
 				</label></td></tr>
 				<tr><td><label>
-					Password<br><input type="password" name="PW">
+					Password<br><input type="password" name="pw">
 				</label></td></tr>
 				<tr><td>
 					<input type="submit" name="LOGIN" value="ログイン">
