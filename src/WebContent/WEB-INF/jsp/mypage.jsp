@@ -47,20 +47,14 @@
 								<p>東京都</p>
 								<strong>猫の青山</strong>
 ​
-								<table>
-								<tr>
-								<td>
+								<div class="fbox">
 								フォロー数 10人
-								</td>
-								</tr>
-								<tr>
-								<td>
+								</div>
+								<div class="fbox">
 								フォロワー数 15人
-								</td>
-								</tr>
-								</table>
-​
-								<form>
+								</div>
+						​
+								<form class="box">
 								自宅で猫ちゃんを三匹飼っています。よろしくお願いします。
 								</form>
 ​

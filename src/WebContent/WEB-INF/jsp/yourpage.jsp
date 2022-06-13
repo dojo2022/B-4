@@ -46,51 +46,23 @@
 								<strong>猫の青山</strong>
 
 
-								<label for="follow">フォロー数 10人</label>
-								<input type="checkbox" id="follow">
-								<ul class="dropdown">
-								<li>猫山</li>
-								<li>犬山</li>
-								<li>no neko no life</li>
-								<li>猫</li>
-								<li>inu</li>
-								<li>cat</li>
-								<li>pet</li>
-								<li>dog</li>
-								<li>neko</li>
-								<li>innu</li>
-								</ul>
-
-								<label for="follower">フォロワー数 15人</label>
-								<input type="checkbox" id="follower">
-								<ul class="dropdown">
-								<li>猫山</li>
-								<li>犬山</li>
-								<li>no neko no life</li>
-								<li>猫</li>
-								<li>inu</li>
-								<li>cat</li>
-								<li>pet</li>
-								<li>dog</li>
-								<li>neko</li>
-								<li>innu</li>
-								<li>in</li>
-								<li>inu</li>
-								<li>innnu</li>
-								<li>ivu</li>
-								<li>inubu</li>
-								</ul>
+								<div class="fbox">
+								フォロー数 10人
+								</div>
+								<div class="fbox">
+								フォロワー数 15人
+								</div>
 ​
-								<form>
+								<form class="box">
 								自宅で猫ちゃんを三匹飼っています。よろしくお願いします。
 								</form>
 ​
-								<table>
-								<tr><td>投稿タイトル一覧</td></tr>
-								<tr><td><a href="/dotchiha/ViewPostServlet">・昼下がりの猫</a>
-								</td></tr>
-								<tr><td>・</td></tr>
-								</table>
+								<div class="bbox">
+								<h3>投稿タイトル一覧</h3>
+								<ul>
+								<li><a href="/dotchiha/ViewPostServlet">昼下がりの猫</a></li>
+								</ul>
+								</div>
 
 ​
 								<!--戻るボタン--->
