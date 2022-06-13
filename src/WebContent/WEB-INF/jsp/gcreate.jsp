@@ -7,7 +7,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<!--<link rel="stylesheet" href="/dotchiha/css/.css">-->
+<link rel="stylesheet" href="/dotchiha/css/chat.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -42,7 +42,8 @@
 				<br>
 				<br>
 				<form>
-				<textarea name="groupname"></textarea>
+				<div class="on">
+				<textarea name="groupname"></textarea></div>
 				<br>
 				<br>
 				<input type ="submit" name = "gcreate" value = "作成">

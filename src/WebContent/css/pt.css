@@ -10,7 +10,7 @@ pms_messages_containerの方で、縦横いっぱいに広がってくれるの�
 
 /* チャットの外側部分① */
 #pms_messages_container{
-	height: 85%;/*your_containerに対して100%になる */
+	height: 100%;/*your_containerに対して100%になる */
 	width: 95%;/*your_containerに対して100%になる */
 	background-color: #fff7ef;
 }

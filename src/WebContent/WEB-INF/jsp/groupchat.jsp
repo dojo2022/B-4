@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
-<!--<link rel="stylesheet" href="/dotchiha/css/common.css">-->
+<link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/gt.css">
 <!-- <link rel="stylesheet" href="gt.css"> -->
@@ -15,7 +15,7 @@
 	<!--  ヘッダーここから  -->
 	<header class="header">
 		<h1 id="logo" >
-			<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/titile_logo.png" width="300" height="" alt="今日はどっち派？"></a>
+			<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a>
 		</h1>
 			</header>
 	<!--  ヘッダーここまで  -->
