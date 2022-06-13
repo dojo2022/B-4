@@ -3,32 +3,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ログイン|今日はどっち派？</title>
+	<meta charset="UTF-8">
+	<title>ログイン|今日はどっち派？</title>
+	<link rel="stylesheet" href="/dotchiha/css/common.css">
+	<link rel="stylesheet" href="/dotchiha/css/login.css">
 </head>
 <body>
-<!-- ヘッダー -->
-<h1>今日はどっち派？</h1>
-
-<!-- メイン -->
-
-<!-- <p class=cen>※ID=DOJO, PW=password でログインできます。</p> -->
-<hr>
-<form id="login_form" method="POST" action="/simpleBC/LoginServlet">
-	<table >
-		<tr><td><label>
-			Users ID<br><input type="text" name="ID">
-		</label></td></tr>
-		<tr><td><label>
-			Password<br><input type="password" name="PW">
-		</label></td></tr>
-		<tr><td>
-			<input type="submit" name="LOGIN" value="ログイン">
-		</td></tr>
-		<tr><td>
-			新規アカウント登録<input type="submit" name="NewLogin">
-	</table>
-</form>
-<!-- フッター -->
+	<div class ="wrapper">
+		<!--  ヘッダーここから  -->
+		<header class="header">
+			<h1 id="logo" >
+				<img src="/dotchiha/img/title_logo.png" width="300" height="" alt="今日はどっち派？">
+			</h1>
+		</header>
+		<!-- メイン -->
+		<form id="login_form" method="POST" action="/dotchiha/LoginServlet">
+			<table >
+				<tr><td><label>
+					メールアドレス<br><input type="text" name="ID">
+				</label></td></tr>
+				<tr><td><label>
+					Password<br><input type="password" name="PW">
+				</label></td></tr>
+				<tr><td>
+					<input type="submit" name="LOGIN" value="ログイン">
+				</td></tr>
+			</table>
+		</form>
+		<!-- 新規アカウント登録 -->
+		<a href="/dotchiha/NewRegisterSrevlet">新規アカウント登録</a>
+		<!-- フッター -->
+		<div id="footer">
+			 <footer>
+				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+			 </footer>
+		</div>
+	</div>
 </body>
 </html>
