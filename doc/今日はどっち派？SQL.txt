@@ -1,0 +1,236 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/dojo6Data
+
+※データベース作成のエラーが表示された場合は、
+https://sukkiri.jp/technologies/ides/eclipse/h2-createdb.html
+を参照してください。
+
+※H2 Consoleは、Webブラウザを閉じても終了しないので、Windowsの
+タスクバーの右側にある「＾」をクリックして、表示されたアイコン
+から黄色いドラム缶のアイコンの「H2 Database Engine」を右クリッ
+クし、表示されたメニューから「Exit」を選択してください。
+
+【ユーザー名】	【パスワード】
+sa		（なし）
+
+//もともとあるBcテーブルを削除する
+DROP TABLE テーブル名
+
+//データを確認する
+SELECT * FROM　テーブル名
+
+
+
+①
+【Userテーブルを作成・登録するSQL文】
+CREATE TABLE User (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(60) NOT NULL,
+  user_name VARCHAR(10) NOT NULL,
+  prefecture VARCHAR(10),
+  icon VARCHAR(50) DEFAULT '/dotchiha/img/icon.jpg',
+  freespace VARCHAR(30),
+  pw VARCHAR(20) NOT NULL
+);
+
+INSERT INTO User (user_id ,user_name ,prefecture ,freespace ,pw ) VALUES ('nekozuki75@gmail.com', '猫大好き', '滋賀県', '猫しか勝たん!', 'nekoneko2222');
+INSERT INTO User (user_id ,user_name ,prefecture ,freespace ,pw ) VALUES ('inuzuki18@gmail.com', '犬大好き ', '兵庫県', '犬しか勝たん!', 'inuinu1111');
+INSERT INTO User (user_id ,user_name ,prefecture ,freespace ,pw ) VALUES ('tamaki0427@gmail.com', 'タマチャン', '埼玉県', '犬猫そっちもかわいい！', 'tamaki0427');
+INSERT INTO User (user_id ,user_name ,prefecture ,freespace ,pw ) VALUES ('ryouko-tanaka918.gmail.com', 'スズ', '山梨県', '癒しを求めています', 'tanaryou918');
+INSERT INTO User (user_id ,user_name ,prefecture ,icon ,freespace ,pw ) VALUES ('nekoinu1122@gmail.com', 'レオ', '神奈川県', '/dotchiha/img/neko,jpg', '大型犬飼ってます！お話しましょう！', 'reodaisuki1122');
+
+
+②
+【Feelingテーブルを作成・登録するSQL文】
+CREATE TABLE Feeling (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(60) NOT NULL,
+  feeling INT NOT NULL
+);
+
+INSERT INTO Feeling (user_id,feeling) VALUES ('nekozuki75@gmail.com','0');
+INSERT INTO Feeling (user_id,feeling) VALUES ('inuzuki18@gmail.com','1');
+INSERT INTO Feeling (user_id,feeling) VALUES ('tamaki0427@gmail.com','0');
+INSERT INTO Feeling (user_id,feeling) VALUES ('ryouko-tanaka918.gmail.com','1');
+INSERT INTO Feeling (user_id,feeling) VALUES ('nekoinu1122@gmail.com','1');
+
+
+
+③
+【Postテーブルを作成・登録するSQL文】
+CREATE TABLE Post (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(60) NOT NULL,
+  image	VARCHAR	(50) NOT NULL,
+  title	VARCHAR	(25),
+  text VARCHAR	(140),
+  dorc INT NOT NULL,
+  date DATE DEFAULT CURRENT_date	
+);
+
+INSERT INTO Post (user_id,image,title,text,dorc) VALUES ('nekoinu1122@gmail.com', '/dotchiha/img/0812045030.jpg ', 'あくび', '眠いのかな？', '1');
+INSERT INTO Post (user_id,image,title,text,dorc) VALUES ('nekozuki75@gmail.com', '/dotchiha/img/4506970902_96cd8ae739.jpg', '気になる', '何やら外が気になるご様子', '0');
+INSERT INTO Post (user_id,image,title,text,dorc) VALUES ('tamaki0427@gmail.com', '/dotchiha/img/0812110532.jpg', '視線の先には…?', 'みんなで同じ方を向いてるのが可愛い一枚', '2');
+INSERT INTO Post (user_id,image,title,text,dorc) VALUES ('nekozuki75@gmail.com', '/dotchiha/img/4835109188_725430edf5.jpg', 'スヤスヤ', 'ぐっすり眠ってるうちの子', '0');
+INSERT INTO Post (user_id,image,title,text,dorc) VALUES ('inuzuki18@gmail.com', '/dotchiha/img/ Dog110229.mp4', 'もぐもぐ', '美味しいかな？', '1');
+
+
+④
+【PostRテーブルを作成・登録するSQL文】
+CREATE TABLE PostR (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  post_id INT NOT NULL,
+  sender_id VARCHAR(60) NOT NULL
+);
+
+INSERT INTO PostR (post_id,sender_id) VALUES ('1', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('1', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('5', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('2', 'tamaki0427@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('4', 'ryouko-tanaka918.gmail.com');
+
+
+⑤
+【PostHテーブルを作成・登録するSQL文】
+CREATE TABLE PostH (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  post_id INT NOT NULL,
+  hashtag VARCHAR(25) NOT NULL
+);
+
+INSERT INTO PostH (post_id,hashtag) VALUES ('1', '犬');
+INSERT INTO PostH (post_id,hashtag) VALUES ('1', '柴犬');
+INSERT INTO PostH (post_id,hashtag) VALUES ('3', 'トイプードル');
+INSERT INTO PostH (post_id,hashtag) VALUES ('3', 'スコティッシュフォールド');
+INSERT INTO PostH (post_id,hashtag) VALUES ('4', 'ロシアンブルー');
+
+
+⑥
+【Followテーブルを作成・登録するSQL文】
+CREATE TABLE Follow (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  follow_id VARCHAR(60) NOT NULL,
+  followed_id VARCHAR(60) NOT NULL
+);
+
+INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'nekoinu1122@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'tamaki0427@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('nekoinu1122@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('ryouko-tanaka918.gmail.com', 'nekozuki75@gmail.com');
+
+
+⑦
+【Boardテーブルを作成・登録するSQL文】
+CREATE TABLE Board (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(60) NOT NULL,
+  title	VARCHAR(40) NOT NULL,
+  text VARCHAR(250) NOT NULL,
+  date DATE DEFAULT CURRENT_date,
+  dorc INT NOT NULL
+);
+
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekoinu1122@gmail.com', 'ワンちゃんオフ会開催について', '自慢のワンちゃんと交流しましょう！７月１４日開催予定です。', '1');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekozuki75@gmail.com', 'Zoom会開催します', '自慢のペットをZoomで見せ合いましょう。観覧だけも大歓迎です！', '2');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekoinu1122@gmail.com', '里親募集中', '子猫をもらってくれる方を大募集しています。場所は関東でお願いします。', '0');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekozuki75@gmail.com', '猫ちゃんオフ会', '猫ちゃんを連れて猫カフェに行きましょう！', '0');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('inuzuki18@gmail.com', 'うちの子見てください', 'うちのかわいいワンちゃんをお見せしたいと思います。ZoomURLはこちらです。', '1');
+
+
+⑧
+【BoardCテーブルを作成・登録するSQL文】
+CREATE TABLE BoardC (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  board_id INT NOT NULL,
+  sender_id VARCHAR(60) NOT NULL,
+  comment VARCHAR(100) NOT NULL,
+ date DATE DEFAULT CURRENT_date
+);
+
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('3', 'nekozuki75@gmail.com', '興味あるのでお話お伺いしたいです。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('5', 'ryouko-tanaka918.gmail.com', '参加したいです！かわいいワンちゃん見せてください。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'tamaki0427@gmail.com', '観覧のみですが、参加したいです。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'nekoinu1122@gmail.com', 'うちのペットもお見せしたいです。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'ryouko-tanaka918.gmail.com', '私も参加したいです。');
+
+⑨
+【BoardSテーブルを作成・登録するSQL文】
+CREATE TABLE BoardS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  board_id INT NOT NULL,
+  sender_id VARCHAR(60) NOT NULL
+);
+
+INSERT INTO BoardS (board_id,sender_id) VALUES ('3', 'nekozuki75@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('5', 'nekozuki75@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'nekoinu1122@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'ryouko-tanaka918.gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('5', 'ryouko-tanaka918.gmail.com');
+
+
+⑩
+【Croomテーブルを作成・登録するSQL文】
+CREATE TABLE Croom (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  room_name VARCHAR(25)
+);
+
+INSERT INTO Croom (room_name) VALUES ('コスパいいおやつ');
+INSERT INTO Croom (room_name) VALUES ('うちの子世界一');
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES ('猫好き');
+INSERT INTO Croom (room_name) VALUES (null);
+
+
+⑪
+【Cmemberテーブルを作成・登録するSQL文】
+CREATE TABLE Cmember (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  room_id INT NOT NULL,
+  user_id VARCHAR(60) NOT NULL
+);
+
+INSERT INTO Cmember (room_id,user_id) VALUES ('1', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('1', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('1', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('2', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('2', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('2', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('2', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('3', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('3', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('5', 'inuzuki18@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('5', 'nekoinu1122@gmail.com');
+
+
+⑫
+【Cmessageテーブルを作成・登録するSQL文】
+CREATE TABLE Cmessage (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  message VARCHAR(200) NOT NULL,
+  room_id INT NOT NULL,
+  sender_id VARCHAR(60) NOT NULL,
+  date DATE DEFAULT CURRENT_date,
+  time TIME DEFAULT CURRENT_time
+);
+
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('チュールが最高','1','nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('コスパは正直わからんけどわかる', '1', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('今日の天気はどうですか？', '3', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('曇りです。', '3', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('おはよう', '4', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('おはよう', '4', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('猫かわいいよね', '4', 'tamaki0427@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('うちの子かわいいです', '2', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('かわいいですね', '2', 'tamaki0427@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ほんとですね！', '2', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ありがとうございます。', '2', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('初めまして', '5', 'inuzuki18@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('よろしくお願いします。', '5', 'nekoinu1122@gmail.com');

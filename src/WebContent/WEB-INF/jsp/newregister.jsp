@@ -4,8 +4,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>今日はどっち派？</title>
+	<title>新規アカウント登録|今日はどっち派？</title>
 	<link rel="stylesheet" href="/dotchiha/css/common.css">
+	<link rel="stylesheet" href="/dotchiha/css/login.css">
 </head>
 <body>
 	<div class="wrapper">
@@ -34,7 +35,7 @@
 				<!-- メールアドレス入力(ユーザーID) -->
 				<tr><td><label>
 					メールアドレス
-					<input type="text" name="user_id">
+					<input type="email" name="id">
 				</label></td></tr>
 				<!-- 住所(プルダウン) -->
 				<tr><td><label>
