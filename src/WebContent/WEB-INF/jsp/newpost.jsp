@@ -51,7 +51,7 @@
 			</label></td></tr>
 			<!-- タイトル -->
 			<tr><td><label>
-				<input type="text" name="posttitle" value="投稿タイトル">投稿タイトル
+				<input type="text" name="posttitle">投稿タイトル
 			</label></td></tr>
 			<!-- 説明欄 -->
 			<tr><td><label>
