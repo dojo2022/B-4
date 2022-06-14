@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>ログイン|今日はどっち派？</title>
+	<title>今日はどっち派？</title>
 	<link rel="stylesheet" href="/dotchiha/css/common.css">
 	<link rel="stylesheet" href="/dotchiha/css/login.css">
 </head>
