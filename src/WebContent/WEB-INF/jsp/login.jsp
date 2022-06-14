@@ -31,7 +31,7 @@
 			</table>
 		</form>
 		<!-- 新規アカウント登録 -->
-		<a href="/dotchiha/NewRegisterSrevlet">新規アカウント登録</a>
+		<a href="/dotchiha/NewRegisterServlet">新規アカウント登録</a>
 		<!-- フッター -->
 		<div id="footer">
 			 <footer>
