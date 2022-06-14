@@ -7,7 +7,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<!--<link rel="stylesheet" href="/dotchiha/css/.css">-->
+<link rel="stylesheet" href="/dotchiha/css/chat.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -44,8 +44,10 @@
 				<form>
 				<input type = "submit" name = "pstart" value = "会話を始める">
 				<!-- onsubmitで相互フォローの人の一覧表示 script? -->
+				</form>
 				<br>
 				<br>
+				<form method="GET" action="/dotchiha/PrivateChatServlet" id="cselect2">
 				<input type = "submit" name = "private" value = "猫の青山">
 				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
 				<br>

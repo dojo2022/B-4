@@ -7,7 +7,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<!--<link rel="stylesheet" href="/dotchiha/css/.css">-->
+<link rel="stylesheet" href="/dotchiha/css/chat.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -41,11 +41,13 @@
 		<h1 class = "title">グループチャット</h1>
 				<br>
 				<br>
-				<form>
+				<form method="GET" action="/dotchiha/GCreateServlet" id="gcstart">
 				<input type = "submit" name = "gstart" value = "会話を始める">
 				<!-- onsubmitでgcreate.jspへ飛ぶ -->
+				</form>
 				<br>
 				<br>
+				<form method="GET" action="/dotchiha/GroupChatServlet" id="gc">
 				<button type="submit">
    				<span style="font-weight:bold;">コスパいいおやつ選手権</span>
 				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">15人

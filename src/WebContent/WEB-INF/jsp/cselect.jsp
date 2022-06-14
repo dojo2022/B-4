@@ -7,7 +7,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<!--<link rel="stylesheet" href="/dotchiha/css/.css">-->
+<link rel="stylesheet" href="/dotchiha/css/chat.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -41,12 +41,14 @@
 		<h1 class = "title">チャット</h1>
 			<br>
 			<br>
-			<form>
-			<input type = "submit" name = "group" value = "グループ"> <!-- onsubmitでglist.jspへ飛ぶ -->
+			<form method="GET" action="/dotchiha/GListServlet" id="cselect1">
+			<input type = "submit" name = "group" value = "グループ"> <!-- onsubmitでglistへ飛ぶ -->
+			</form>
 			<br>
 			<br>
 			<br>
-			<input type = "submit" name = "private" value = "個人"> <!-- onsubmitでplist.jspへ飛ぶ -->
+			<form method="GET" action="/dotchiha/PListServlet" id="cselect2">
+			<input type = "submit" name = "private" value = "個人"><!-- onsubmitでplistへ飛ぶ -->
 			</form>
 			<br>
 			<br>
