@@ -60,4 +60,90 @@ public class UserDao {
 		// 結果を返す
 		return loginResult;
 	}
+//引数idpwで指定されたレコードを登録し、成功したらtrueを返す
+		public boolean insert(User User) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC","sa","");
+
+				// SQL文を準備する
+				String sql = "INSERT into User (id,user_id,user_name,address,image,comment,pw) values (?,?,?,?,?,?,?)";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				if (User.getId() != null && !User.getId().equals("")) {
+					pStmt.setString(1, User.getId());
+				}
+				else {
+					pStmt.setString(1, null);
+				}
+				if (User.getUser_id() != null && !User.getUser_id().equals("")) {
+					pStmt.setString(2, User.getUser_id());
+				}
+				else {
+					pStmt.setString(2, null);
+				}
+				if (User.getUser_name() != null && !User.getUser_name().equals("")) {
+					pStmt.setString(3, User.getUser_name());
+				}
+				else {
+					pStmt.setString(3, null);
+				}
+				if (User.getAddress() != null && !User.getAddress().equals("")) {
+					pStmt.setString(4, User.getAddress());
+				}
+				else {
+					pStmt.setString(4, null);
+				}
+				if (User.getImage() != null && !User.getImage().equals("")) {
+					pStmt.setString(5, User.getImage());
+				}
+				else {
+					pStmt.setString(5, null);
+				}
+				if (User.getComment() != null && !User.getComment().equals("")) {
+					pStmt.setString(6, User.getComment());
+				}
+				else {
+					pStmt.setString(6, null);
+				}
+				if (User.getPw() != null && !User.getPw().equals("")) {
+					pStmt.setString(7, User.getPw());
+				}
+				else {
+					pStmt.setString(7, null);
+				}
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
 }
