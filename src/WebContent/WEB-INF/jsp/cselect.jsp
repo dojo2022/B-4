@@ -42,13 +42,12 @@
 			<br>
 			<br>
 			<form method="GET" action="/dotchiha/GListServlet" id="cselect1">
-			<input type = "submit" name = "group" value = "グループ"> <!-- onsubmitでglistへ飛ぶ -->
+			<input type = "submit" name = "group" value = "グループ" class="button"> <!-- onsubmitでglistへ飛ぶ -->
 			</form>
 			<br>
 			<br>
-			<br>
 			<form method="GET" action="/dotchiha/PListServlet" id="cselect2">
-			<input type = "submit" name = "private" value = "個人"><!-- onsubmitでplistへ飛ぶ -->
+			<input type = "submit" name = "private" value = "個人" class="button"><!-- onsubmitでplistへ飛ぶ -->
 			</form>
 			<br>
 			<br>

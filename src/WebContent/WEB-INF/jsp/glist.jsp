@@ -42,28 +42,52 @@
 				<br>
 				<br>
 				<form method="GET" action="/dotchiha/GCreateServlet" id="gcstart">
-				<input type = "submit" name = "gstart" value = "会話を始める">
+				<input type = "submit" name = "gstart" value = "会話を始める" class="button">
 				<!-- onsubmitでgcreate.jspへ飛ぶ -->
 				</form>
 				<br>
 				<br>
+				<div id="glist">
 				<form method="GET" action="/dotchiha/GroupChatServlet" id="gc">
-				<button type="submit">
-   				<span style="font-weight:bold;">コスパいいおやつ選手権</span>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">コスパいいおやつ選手権</span><br>
 				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">15人
 				</button>
 				<!-- onsubmitでgroupchat.jspへ飛ぶ -->
 				<br>
-				<button type="submit">
-   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
 				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
 				</button>
 				<!-- onsubmitでgroupchat.jspへ飛ぶ -->
 				<br>
-				<!-- 人数いらない時用
-				<input type = "submit" name = "groupname" value = "コスパいいおやつ選手権">
-				<input type = "submit" name = "groupname" value = "東京でおすすめの動物病院教えて"> -->
-				</form>
+				<br>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
+				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
+				</button>
+				<br>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
+				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
+				</button>
+				<br>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
+				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
+				</button>
+				<br>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
+				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
+				</button>
+				<br>
+				<button type="submit" class="buttontag">
+   				<span style="font-weight:bold;">東京でおすすめの動物病院教えて</span><br>
+				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">20人
+				</button>
+				</form></div>
+				<br>
 				<!--戻るボタン--->
 				<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 

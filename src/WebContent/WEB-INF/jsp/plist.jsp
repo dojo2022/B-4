@@ -42,13 +42,49 @@
 				<br>
 				<br>
 				<form>
-				<input type = "submit" name = "pstart" value = "会話を始める">
+				<input type = "submit" name = "pstart" value = "会話を始める" class="button">
 				<!-- onsubmitで相互フォローの人の一覧表示 script? -->
 				</form>
 				<br>
 				<br>
+				<div id="plist">
+				<!-- フォローしている人の一覧表示 -->
+				<!-- 会話をしたしていないで区別するかも -->
 				<form method="GET" action="/dotchiha/PrivateChatServlet" id="cselect2">
-				<input type = "submit" name = "private" value = "猫の青山">
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
+				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<br>
+				<input type = "submit" name = "private" value = "猫の青山" class="button">
 				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
 				<br>
 
@@ -56,12 +92,11 @@
 				<button type="submit">
 					<img src="  " width="30" height="30" alt="アイコン">
    					<span style="font-weight:bold;">犬鈴木</span>
-				</button> -->
+				</button>
+				<br> -->
 
+				</form></div>
 				<br>
-				<br>
-				</form>
-
 				<!--戻るボタン--->
 				<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 	</main>

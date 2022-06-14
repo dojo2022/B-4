@@ -51,10 +51,10 @@
 			<div id="gms_messages">
 					<!-- メッセージ1（左側） -->
 					<div class="gms_message gms_left">
+					<div class="gms_message_senderl">猫大好き</div>
 						<div class="gms_message_box">
 							<div class="gms_message_content">
-								<div class="gms_message_text">チュール
-								</div>
+								<div class="gms_message_text">チュール</div>
 							</div>
 						</div>
 					</div>
@@ -62,6 +62,7 @@
 
 					<!-- メッセージ2（右側） -->
 					<div class="gms_message gms_right">
+					<div class="gms_message_senderr"></div>
 						<div class="gms_message_box">
 							<div class="gms_message_content">
 								<div class="gms_message_text">同じく</div>

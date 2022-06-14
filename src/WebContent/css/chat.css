@@ -1,5 +1,44 @@
 @charset "UTF-8";
 
+/*メインに適用 */
 main{
 	text-align: center;
+}
+
+/* inputタグのbuttonクラスに適用 */
+.button
+{
+	height:30px;
+	width:200px;
+	background: #ffffff; /* 背景色 */
+	border: 2px solid #4d4a48; /* 枠の指定 */
+	box-shadow: 2px 2px 3px #d3d3d3; /* 影の設定 */
+}
+
+/* glistのボタンタグに適用 */
+.buttontag{
+	height:60px;
+	width:200px;
+	background: #ffffff; /* 背景色 */
+	border: 2px solid #4d4a48; /* 枠の指定 */
+	box-shadow: 2px 2px 3px #d3d3d3; /* 影の設定 */
+	white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
+}
+
+/* gcreateのテキストエリアに適用 */
+textarea{
+	height:60px;
+	width:200px;
+}
+
+/* glistとplist スクロールを効かせつつ外に出ないようにする */
+#glist{
+	overflow: auto;
+/* スクロールを効かせつつ外に出ないようにする */
+	height:250px;/*テキストエリアが下に張り付く様にする*/
+}
+#plist{
+	overflow: auto;
+/* スクロールを効かせつつ外に出ないようにする */
+	height:250px;/*テキストエリアが下に張り付く様にする*/
 }

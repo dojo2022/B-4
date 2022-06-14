@@ -63,7 +63,7 @@ padding: 6px;/*隙間調整*/
 	white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
 }
 .gms_message_box{
-	margin-top: 10px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
+	margin-top: 5px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
 	max-width: 100%;/*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
 	font-size: 14px;
 }
@@ -72,10 +72,27 @@ padding: 6px;/*隙間調整*/
 	 padding: 10px;/*文字や画像（コンテンツ）の外側に隙間を入れる*/
 }
 
+/* 送信者の名前を表示する */
+.gms_message_senderl{
+	font-size: 5px;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+/* 送信者の名前を表示する */
+.gms_message_senderr{
+	font-size: 5px;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+}
+
+
 /* メッセージ１（左側） */
 .gms_left {
 	float: left;/*吹き出しをgms_messagesに対して左寄せ*/
-	line-height: 1.3em;
+	line-height: 1.2em;
 }
 
 .gms_left .gms_message_box {
@@ -89,7 +106,7 @@ padding: 6px;/*隙間調整*/
 /* メッセージ２（右側） */
 .gms_right {
 	float: right;/*吹き出しをgms_messagesに対して右寄せ*/
-	line-height: 1.3em;
+	line-height: 1.2em;
 }
 
 .gms_right .gms_message_box {

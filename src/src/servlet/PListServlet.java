@@ -28,6 +28,13 @@ public class PListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//フォローしている人の一覧のデータを保存するjavabeansをオブジェクト化
+
+		//フォローしている人のデータを取得dao
+
+		//フォローしている人のデータをリクエストスコープに格納
+
+
 
 		//リクエストが来たらplist.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/plist.jsp");
