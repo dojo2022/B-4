@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規投稿|今日はどっち派？</title>
+<title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 </head>
 
