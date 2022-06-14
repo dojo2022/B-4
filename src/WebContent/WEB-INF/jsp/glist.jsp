@@ -50,7 +50,7 @@
 				<div id="glist">
 				<form method="GET" action="/dotchiha/GroupChatServlet" id="gc">
 				<button type="submit" class="buttontag">
-   				<span style="font-weight:bold;">コスパいいおやつ選手権</span><br>
+   				<span style="font-weight:bold;">${e.room_name}</span><br>
 				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">15人
 				</button>
 				<!-- onsubmitでgroupchat.jspへ飛ぶ -->
