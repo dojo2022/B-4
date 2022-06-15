@@ -1,1 +1,30 @@
 @charset "UTF-8";
+
+/*投稿一覧、お気に入り投稿、保存した掲示板一覧のボックス指定*/
+.bbox {
+    border: #000000 1px solid; /*境界線の指定*/
+    padding:10px;
+    width: fit-content;
+}
+
+
+.box {
+border: #000000 1px solid; /*境界線の指定*/
+padding:10px;
+width: fit-content;
+}
+.box p {
+margin:0;
+padding:0;
+}
+.fbox {
+  border: #000000 1px solid; /*境界線の指定*/
+  padding:10px;
+  width: 200px;
+  text-align: center;
+  }
+.fbox p {
+  margin:0;
+  padding:0;
+}
+

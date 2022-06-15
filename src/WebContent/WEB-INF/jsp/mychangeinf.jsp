@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>今日はどっち派？｜マイページ｜情報の変更</title>
+<title>マイページ｜情報の変更</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/mypage.css">

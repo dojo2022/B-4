@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>リアクションした投稿｜マイページ｜今日はどっち派？</title>
+<title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/mypage.css">

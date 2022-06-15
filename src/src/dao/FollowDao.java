@@ -1,5 +1,255 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.MypageUser;
+import model.TList;
+
 public class FollowDao {
+	   //DBからicon,prefecture,user_name,freespace,titleのデータを取得
+		// 引数user_idで検索項目を指定し、検索結果のリストを返す
+		public List<MypageUser> select_user(String id) {
+			Connection conn = null;
+			List<MypageUser> cardFollowList = new ArrayList<MypageUser>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+				// SQL文を準備する
+				String sql = "select u.icon,u.prefecture,u.user_name, u.freespace from USER as u "
+						+ "WHERE u.user_id = ?";
+
+
+
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+					pStmt.setString(1, id);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				while (rs.next()) {
+					MypageUser card = new MypageUser(
+					rs.getString("icon"),
+					rs.getString("prefecture"),
+					rs.getString("user_name"),
+					rs.getString("freespace")
+					);
+					cardFollowList.add(card);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				cardFollowList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				cardFollowList = null;
+			}
+
+
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						cardFollowList = null;
+					}
+				}
+			}
+
+
+			// 結果を返す
+			return cardFollowList;
+		}
+
+		//DBから投稿したタイトルのデータを取得
+		public List<TList> select_title(String id) {
+			Connection conn = null;
+			List<TList> cardTList = new ArrayList<TList>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+				// SQL文を準備する
+				String sql = "select p.title from USER as u + LEFT JOIN POST as p on u.user_id = p.user_id WHERE u.user_id = ?";
+
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setString(1, id);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				while (rs.next()) {
+					TList card = new TList(
+					rs.getString("title")
+					);
+					cardTList.add(card);
+				}
+
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+			}
+
+
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+
+			// 結果を返す
+			return cardTList;
+		}
+
+
+		//DBからfollowのデータを取得
+		// 引数user_idで検索項目を指定し、検索結果のリストを返す
+
+			// SQL文を準備する
+		public int select_follow(String id) {
+			Connection conn = null;
+			int follow_count=0;
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+				// SQL文を準備する
+				String sql = "select count(follow_id) from Follow where followed_id = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+					pStmt.setString(1, id);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする
+				rs.next();
+				follow_count=rs.getInt("count(follow_id)");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
+
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+
+			// 結果を返す
+			return follow_count;
+		}
+
+
+		//DBからfollowedのデータを取得
+		// 引数user_idで検索項目を指定し、検索結果のリストを返す
+		// SQL文を準備する
+	public int select_followed(String id) {
+		Connection conn = null;
+		int followed_count=0;
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select count(followed_id) from Follow where follow_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+				pStmt.setString(1, id);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			rs.next();
+			followed_count=rs.getInt("count(followed_id)");
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+		// 結果を返す
+		return followed_count;
+	}
+
 
 }
+
+
+
+
+
+

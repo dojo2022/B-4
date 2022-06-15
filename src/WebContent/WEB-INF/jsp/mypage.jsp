@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
 
 <head>
 <meta charset="UTF-8">
-<title>マイページ｜今日はどっち派？</title>
+<title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/mypage.css">
@@ -43,28 +44,32 @@
 		<h1 class = "title">マイページ</h1>
 								<br>
 								<br>
-								<img src="" alt="アイコン">
-								<p>東京都</p>
-								<strong>猫の青山</strong>
-​
+								<c:forEach var="e" items="${cardFollowList}" >
+								<img src="${e.icon}" alt="アイコン" name="icon"><br>
+								<p>📍${e.prefecture}</p><br>
+								<strong>${e.user_name}</strong><br><br>
+								</c:forEach>
 								<div class="fbox">
-								フォロー数 10人
+								フォロー数 ${follow_count}
 								</div>
 								<div class="fbox">
-								フォロワー数 15人
+								フォロワー数 ${followed_count}
 								</div>
-						​
+								<c:forEach var="e" items="${cardFollowList}" >​
 								<form class="box">
-								自宅で猫ちゃんを三匹飼っています。よろしくお願いします。
+								${e.freespace}
 								</form>
-​
+								</c:forEach>
+​								<br>
 								<a href="/dotchiha/MyChangeInfServlet">情報の変更</a>
 ​
 
 								<div class="bbox">
 								<h3>投稿タイトル一覧</h3>
 								<ul>
-								<li><a href="/dotchiha/ViewPostServlet">昼下がりの猫</a></li>
+								<c:forEach var="e" items="${cardTList}" >
+								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
+								</c:forEach>
 								</ul>
 								</div>
 ​
@@ -75,9 +80,8 @@
 								<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
 								</div>
 ​
-								<!--戻るボタン--->
+								<!-- 戻るボタン -->
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
-​
 	</main>
 ​
 	<!--メインここまで-->

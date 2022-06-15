@@ -1,5 +1,11 @@
 package model;
 
-public class Follow {
+import java.io.Serializable;
+
+public class Follow implements Serializable{
+
 
 }
+
+
+
