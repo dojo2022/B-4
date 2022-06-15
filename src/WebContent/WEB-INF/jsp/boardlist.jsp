@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -43,13 +43,23 @@
     <br>
     <br>
     <!-- 犬猫選択ボタン -->
-
+    <form action="/dotchiha/BoardListServlet" method="post">
+		  <input type="radio" name="dorc" value="0">
+		  <label>猫</label>
+		  <input type="radio" name="dorc" value="1">
+		  <label>犬</label>
+			<input type="submit" value="検索">
+		</form>
     <!-- 掲示板一覧表示 -->
+    <table id="list">
+      <c:forEach var="e" items="${cardList}" >
+      <tr id="${e.id}"><td><a href = "/dotchiha/ViewBoardServlet">${e.title}</a></td></tr>
+      </c:forEach>
+    </table>
 
     <!-- 新規掲示板作成ボタン -->
+    <button class ="boardpost" type = "button" onclick="location.href='/dotchiha/BoardPostServlet'">新規掲示板作成</button>
 
-                <!--戻るボタン--->
-                <button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 
   </main>
 
