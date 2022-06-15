@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,30 +40,41 @@
 	<!--メインここから-->
 	<main>
 		<h1 class = "title">相手のページ</h1>
-								<img src="" alt="アイコン">
+		<br>
+		<br>
+								<c:forEach var="e" items="${cardFollowList}" >
+								<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
 								<input type="submit" name="follow" value="フォローする">
 								<br>
 								<br>
-								<strong>猫の青山</strong>
+								<p class="uname"><strong>${e.user_name}</strong></p>
+								<br>
+								<br>
+								</c:forEach>
 
 
 								<div class="fbox">
-								フォロー数 10人
+								フォロー数 ${follow_count}
 								</div>
+								<br>
 								<div class="fbox">
-								フォロワー数 15人
+								フォロワー数 ${followed_count}
 								</div>
-​
+​								<c:forEach var="e" items="${cardFollowList}" >
 								<form class="box">
-								自宅で猫ちゃんを三匹飼っています。よろしくお願いします。
+								${e.freespace}
 								</form>
-​
+​                                </c:forEach>
+
 								<div class="bbox">
 								<h3>投稿タイトル一覧</h3>
 								<ul>
-								<li><a href="/dotchiha/ViewPostServlet">昼下がりの猫</a></li>
+								<c:forEach var="e" items="${cardTList}" >
+								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
+								</c:forEach>
 								</ul>
 								</div>
+
 
 ​
 								<!--戻るボタン--->

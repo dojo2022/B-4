@@ -1,17 +1,29 @@
 @charset "UTF-8";
 
+.icon{
+ width:60%;
+ height:30%;
+ position:relative;
+}
+/*配置の指定*/
+.uname{
+	float:right;
+	align-items:flex-start;
+}
 /*投稿一覧、お気に入り投稿、保存した掲示板一覧のボックス指定*/
 .bbox {
     border: #000000 1px solid; /*境界線の指定*/
     padding:10px;
-    width: fit-content;
+    width: 400px;
+
 }
 
 
 .box {
 border: #000000 1px solid; /*境界線の指定*/
 padding:10px;
-width: fit-content;
+width: 200px;
+text-align:center;
 }
 .box p {
 margin:0;
@@ -20,8 +32,9 @@ padding:0;
 .fbox {
   border: #000000 1px solid; /*境界線の指定*/
   padding:10px;
-  width: 200px;
+  width: 150px;
   text-align: center;
+
   }
 .fbox p {
   margin:0;
