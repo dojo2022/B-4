@@ -7,7 +7,7 @@
 <title>リアクションした投稿｜マイページ｜今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/style.css">
+<link rel="stylesheet" href="/dotchiha/css/list.css">
 </head>
 <body>
 <div class ="wrapper">
