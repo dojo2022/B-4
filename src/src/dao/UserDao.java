@@ -70,10 +70,10 @@ public class UserDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC","sa","");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 				// SQL文を準備する
-				String sql = "INSERT into User (id,user_id,user_name,address,image,comment,pw) values (?,?,?,?,?,?,?)";
+				String sql = "INSERT into User (id,user_id,user_name,address,icon,freespace,pw) values (?,?,?,?,?,?,?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -101,14 +101,14 @@ public class UserDao {
 				else {
 					pStmt.setString(4, null);
 				}
-				if (User.getImage() != null && !User.getImage().equals("")) {
-					pStmt.setString(5, User.getImage());
+				if (User.getIcon() != null && !User.getIcon().equals("")) {
+					pStmt.setString(5, User.getIcon());
 				}
 				else {
 					pStmt.setString(5, null);
 				}
-				if (User.getComment() != null && !User.getComment().equals("")) {
-					pStmt.setString(6, User.getComment());
+				if (User.getFreespace() != null && !User.getFreespace().equals("")) {
+					pStmt.setString(6, User.getFreespace());
 				}
 				else {
 					pStmt.setString(6, null);
