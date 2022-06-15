@@ -74,8 +74,10 @@
 
 			<!-- テキストボックス、送信ボタン -->
 			<div id="gms_send">
-				<textarea id="gms_send_message"></textarea>
-				<div id="gms_send_btn">送信</div>
+			<form  method="POST" action="/dotchiha/GroupChatServlet">
+				<textarea name="message" id="gms_send_message"></textarea>
+				<input type ="submit" name = "send" value = "送信" id="gms_send_btn">
+			</form>
 			</div>
 		</div>
 	</div>
