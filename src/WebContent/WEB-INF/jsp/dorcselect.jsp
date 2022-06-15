@@ -24,8 +24,10 @@
 	<!--メインここから-->
 	<main>
 		<h2 id="dorcselect">今日の気分は？</h2>
-		<a href="//Servret?select=0"><img src="img/selectingcat.jpg" alt="猫選択" class="dorcselect_img"></a>
-		<a href="//Servret?select=1"><img src="img/selectingdog.jpg" alt="犬選択" class="dorcselect_img"></a>
+		<form method="POST" action="/dotchiha/CorDSelectServlet">
+			<input type="image" name="FEELING" src="img/selectingcat.jpg" alt="猫選択" value="0" class="dorcselect_img">
+			<input type="image" name="FEELING" src="img/selectingdog.jpg" alt="犬選択" value="1" class="dorcselect_img">
+		</form>
 	</main>
 
 	<!--メインここまで-->

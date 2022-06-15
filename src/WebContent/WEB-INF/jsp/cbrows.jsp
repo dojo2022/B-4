@@ -40,6 +40,7 @@
 
 	<!--メインここから-->
 	<main>
+	<div id="test"></div>
 	<!-- 仮組、後でjavascriptで記述する  -->
 		<table>
 			<tr>
@@ -70,6 +71,9 @@
 	</div>
 	<!--フッターここまで-->
 	<!-- javascriptここから-->
+	<script>
+	document.getElementById('test').innerHTML= sfeeling;
+	</script>
 	<script src ="/dotchiha/js/common.js"></script>
 	<!-- javascriptここまで -->
 </div>
