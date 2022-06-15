@@ -20,7 +20,7 @@
 		<form id="login_form" method="POST" action="/dotchiha/LoginServlet">
 			<table >
 				<tr><td><label>
-					メールアドレス<br><input type="text" name="id">
+					メールアドレス<br><input type="text" name="user_id">
 				</label></td></tr>
 				<tr><td><label>
 					Password<br><input type="password" name="pw">
@@ -31,7 +31,7 @@
 			</table>
 		</form>
 		<!-- 新規アカウント登録 -->
-		<a href="/dotchiha/NewRegisterSrevlet">新規アカウント登録</a>
+		<a href="/dotchiha/NewRegisterServlet">新規アカウント登録</a>
 		<!-- フッター -->
 		<div id="footer">
 			 <footer>

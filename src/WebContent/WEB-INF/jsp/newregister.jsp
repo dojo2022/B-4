@@ -23,7 +23,7 @@
 			<table>
 				<!-- アイコン表示 -->
 				<tr><td><label>
-					画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+					画像:<input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 					<input type="submit" value="送信">
 				</label></td></tr>
@@ -35,7 +35,7 @@
 				<!-- メールアドレス入力(ユーザーID) -->
 				<tr><td><label>
 					メールアドレス
-					<input type="email" name="id">
+					<input type="email" name="user_id">
 				</label></td></tr>
 				<!-- 住所(プルダウン) -->
 				<tr><td><label>

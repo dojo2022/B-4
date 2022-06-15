@@ -46,7 +46,7 @@
 				<textarea name="groupname"></textarea></div>
 				<br>
 				<br>
-				<input type ="submit" name = "gcreate" value = "作成">
+				<input type ="submit" name = "gcreate" value = "作成" class="button">
 				<!-- onsubmitでグループ作成される（creategroup?）groupchat.jspに表示する -->
 				</form>
 				<br>
