@@ -40,6 +40,7 @@
 
 	<!--メインここから-->
 	<main>
+	<!-- 仮組、後でjavascriptで記述する  -->
 		<table>
 			<tr>
 				<td><a href="//Servret?postid=X"><img src="img/0812045030.jpg" alt="投稿画像" class="brows_img"></a></td>
