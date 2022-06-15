@@ -21,23 +21,31 @@
   <!--  ヘッダーここまで  -->
   <!--メインここから-->
   <main>
-    <h1 class = "title">掲示板</h1>
+    <h1 class = "title">新規掲示板</h1>
     <br>
     <br>
-    <!-- アイコン＆ユーザー名 -->
-
-    <!-- タイトル -->
-
-    <!-- 投稿内容 -->
-
-    <!-- 保存ボタン -->
-
-    <!-- コメント -->
-
-    <!-- コメント送信ボタン -->
+    <form method="POST" action="/simpleBC/RegistServlet">
+      <!-- タイトル -->
+      <p>タイトル</p>
+      <input type="text" name="title"><br>
+      <!-- 投稿内容 -->
+      <p>投稿内容</p>
+      <input type="text" name="text"><br>
+      <br>
+      <!-- 犬猫選択ボタン -->
+      <input type="radio" name="dorc" value="0">
+      <label>猫</label>
+      <input type="radio" name="dorc" value="1">
+      <label>犬</label><br>
+      <br>
+      <!-- 投稿ボタン -->
+      <input type="submit"  onclick="return confirm('下記の内容で登録します。よろしいですか？')"class="button" name="REGIST" value="投稿">
+    </form>
+    <br>
+    <br>
 
     <!--戻るボタン--->
-    <button class ="exit" type = "button" onclick ="history.back()">戻る</button>
+    <button class ="exit" type = "button" onclick ="history.back()">やめる</button>
 
   </main>
 
