@@ -24,7 +24,7 @@
     <h1 class = "title">新規掲示板</h1>
     <br>
     <br>
-    <form method="POST" action="/simpleBC/RegistServlet">
+    <form method="POST" action="/dotchiha/BoardPostServlet">
       <!-- タイトル -->
       <p>タイトル</p>
       <input type="text" name="title"><br>
@@ -39,7 +39,7 @@
       <label>犬</label><br>
       <br>
       <!-- 投稿ボタン -->
-      <input type="submit"  onclick="return confirm('下記の内容で登録します。よろしいですか？')"class="button" name="REGIST" value="投稿">
+      <input type="submit"  onclick="return confirm('下記の内容で登録します。よろしいですか？')" class="button" name="POST" value="投稿">
     </form>
     <br>
     <br>

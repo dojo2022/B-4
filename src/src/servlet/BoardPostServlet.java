@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BoardDao;
+import model.Bc;
+import model.Result;
+
 /**
  * Servlet implementation class BoardPostServlet
  */
@@ -44,8 +48,33 @@ public class BoardPostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+//		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/simpleBC/LoginServlet");
+//			return;
+//		}
+
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String title = request.getParameter("title");
+		String text = request.getParameter("text");
+		String  dorc= request.getParameter("dorc");
+
+		// 登録処理を行う
+		BoardDao bDao = new BoardDao();
+		if (bDao.insert(new Bc(number,name,company,division,date,tel,mail,postal,address))) {	// 登録成功
+			request.setAttribute("result",
+			new Result("登録成功！", "レコードを登録しました。", "/simpleBC/MenuServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
+		}
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

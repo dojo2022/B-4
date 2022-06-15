@@ -80,4 +80,68 @@ public class BoardDao {
 		// 結果を返す
 			return cardList;
 	}
+	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
+	public boolean insert(Board card) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			//id,user_id,title,text,date,dorc
+
+			// SQL文を準備する
+			String sql = "INSERT into Board (title,text,dorc) values ( ?, ?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (card.getTitle() != null && !card.getTitle().equals("")) {
+				pStmt.setString(1, card.getTitle());
+			}
+			else {
+				pStmt.setString(1, null);
+			}
+			if (card.getText() != null && !card.getText().equals("")) {
+				pStmt.setString(2, card.getText());
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+			if (card.getDorc() != null && !card.getDorc().equals("")) {
+				pStmt.setString(3, card.getDorc());
+			}
+			else {
+				pStmt.setString(3, null);
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 }
