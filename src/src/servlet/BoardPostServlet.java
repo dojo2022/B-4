@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BoardDao;
-import model.Bc;
-import model.Result;
+import model.Board;
 
 /**
  * Servlet implementation class BoardPostServlet
@@ -55,6 +55,10 @@ public class BoardPostServlet extends HttpServlet {
 //			return;
 //		}
 
+		//セッションIDを取得する
+		HttpSession session = request.getSession();
+		String user_id = session.getId();
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
@@ -63,17 +67,11 @@ public class BoardPostServlet extends HttpServlet {
 
 		// 登録処理を行う
 		BoardDao bDao = new BoardDao();
-		if (bDao.insert(new Bc(number,name,company,division,date,tel,mail,postal,address))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("登録成功！", "レコードを登録しました。", "/simpleBC/MenuServlet"));
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
-		}
+		bDao.insert(new Board("",user_id,title,text,"",dorc)); // 登録成功
 
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+
+		// 掲示板一覧ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/boardlist.jsp");
 		dispatcher.forward(request, response);
 	}
 

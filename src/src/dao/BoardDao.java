@@ -95,27 +95,33 @@ public class BoardDao {
 			//id,user_id,title,text,date,dorc
 
 			// SQL文を準備する
-			String sql = "INSERT into Board (title,text,dorc) values ( ?, ?, ?)";
+			String sql = "INSERT into Board (user_id,title,text,dorc) values ( ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (card.getTitle() != null && !card.getTitle().equals("")) {
-				pStmt.setString(1, card.getTitle());
+			if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+				pStmt.setString(1, card.getUser_id());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
-			if (card.getText() != null && !card.getText().equals("")) {
-				pStmt.setString(2, card.getText());
+			if (card.getTitle() != null && !card.getTitle().equals("")) {
+				pStmt.setString(2, card.getTitle());
 			}
 			else {
 				pStmt.setString(2, null);
 			}
-			if (card.getDorc() != null && !card.getDorc().equals("")) {
-				pStmt.setString(3, card.getDorc());
+			if (card.getText() != null && !card.getText().equals("")) {
+				pStmt.setString(3, card.getText());
 			}
 			else {
 				pStmt.setString(3, null);
+			}
+			if (card.getDorc() != null && !card.getDorc().equals("")) {
+				pStmt.setString(4, card.getDorc());
+			}
+			else {
+				pStmt.setString(4, null);
 			}
 
 			// SQL文を実行する
