@@ -23,9 +23,8 @@
 			<table>
 				<!-- アイコン表示 -->
 				<tr><td><label>
-					画像:<input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
+					画像:<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
-					<input type="submit" value="送信">
 				</label></td></tr>
 				<!-- 名前入力 -->
 				<tr><td><label>
@@ -99,7 +98,7 @@
 				<!-- フリースペース -->
 				<tr><td><label>
 					一言コメント
-					<textarea rows="4" cols="30" name="comment"></textarea>
+					<textarea rows="4" cols="30" name="freespace"></textarea>
 				</label></td></tr>
 				<!-- 登録・リセットボタン -->
 				<tr><td>
@@ -115,4 +114,30 @@
 		</div>
 	</div>
 </body>
+<script>
+	function previewImage(obj){
+
+		var fileReader = new FileReader();
+
+		// 読み込み後に実行する処理
+		fileReader.onload = (function() {
+
+			// canvas にプレビュー画像を表示
+			var canvas = document.getElementById('preview');
+			var ctx = canvas.getContext('2d');
+			var image = new Image();
+			image.src = fileReader.result;
+			console.log(fileReader.result) // ← (確認用)
+
+			image.onload = (function () {
+				canvas.width = image.width;
+				canvas.height = image.height;
+				ctx.drawImage(image, 0, 0);
+			});
+		});
+		// 画像読み込み
+		fileReader.readAsDataURL(obj.files[0]);
+		console.log(fileReader.result) // ← (確認用)null
+	}
+</script>
 </html>
