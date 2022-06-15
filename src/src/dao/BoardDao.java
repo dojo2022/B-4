@@ -31,7 +31,12 @@ public class BoardDao {
 
 			// SQL文を完成させる<<ここを改造>>
 
-			pStmt.setString(1,param.getDorc());
+//			if (param.getId() != null) {
+//				pStmt.setString(1,  param.getId());
+//			}
+//			else {
+//				pStmt.setString(1, "null");
+//			}
 			if (param.getDorc() != null) {
 				pStmt.setString(1, "%" + param.getDorc() + "%");
 			}
