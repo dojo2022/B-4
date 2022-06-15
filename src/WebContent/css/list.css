@@ -1,1 +1,55 @@
 @charset "UTF-8";
+/* 投稿詳細画面 */
+/* 投稿タイトル */
+.vpost_title {
+    text-align: center;
+}
+
+/* 投稿画像 */
+#vpost_img {
+    text-align: center;
+}
+.vpost_img {
+    width: 300px;
+}
+
+/* 説明文 */
+.vpost_exp {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* 投稿者アイコン */
+.vpost_icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+/* リアクションボタン */
+#vpost_reaction {
+    text-align: center;
+}
+.vpost_reaction {
+    width: 30px;
+}
+
+
+/* 閲覧画面 */
+/* 投稿画像 */
+.brows_img {
+    width: 148px;
+    height: 99px;
+  object-fit: cover;
+}
+
+
+/* 犬猫選択画面 */
+/* 質問 */
+#dorcselect {
+    text-align: center;
+}
+/* 選択画像 */
+.dorcselect_img {
+    width: 300px;
+}

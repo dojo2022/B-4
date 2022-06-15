@@ -7,7 +7,7 @@
 <title>リアクションした投稿｜マイページ｜今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/mypage.css">
+<link rel="stylesheet" href="/dotchiha/css/list.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -38,14 +38,15 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h1 class = "title">？</h1>
-
-			<!-- 削除ボタン -->
-		<input type="submit" name="SUBMIT" value="削除">
-			<!-- 更新ボタン -->
-		<input type="submit" name="SUBMIT" value="更新">
-			<!-- マイページに戻る -->
-		<button class ="exit" type = "button" onclick ="history.back()">マイページに戻る</button>
+		<h2 class= "vpost_title" id= "vpost_title">タイトル</h2>
+		<div id="vpost_img">投稿画像</div>
+		<table>
+		<tr>
+			<td id= "vpost_icon">投稿者アイコン</td><td id="vpost_name">投稿者名前</td>
+		</tr>
+		</table>
+		<p class= "vpost_exp" id= "vpost_exp">説明文</p>
+		<div id="vpost_reaction">リアクションボタン</div>
 	</main>
 ​
 	<!--メインここまで-->
@@ -57,7 +58,35 @@
 	  </div>
 	<!--フッターここまで-->
 </div>
-<script src ="/dotchiha/js/common.js"></script>
+	<script>
+		'use strict'
+		/* HTML文変数宣言 */
+		let vpost_titleHTML = '';
+		let vpost_imgHTML = '';
+		let vpost_expHTML = '';
+		let vpost_iconHTML = '';
+		let vpost_nameHTML = '';
+		let vpost_reactionHTML = '';
+
+		/* HTML文生成 */
+		vpost_titleHTML = '気になる';
+		vpost_imgHTML = '<img src="img/4506970902_96cd8ae739.jpg" class="vpost_img" alt="">';
+		vpost_expHTML = '何やら外が気になるご様子の猫ちゃん可愛い！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！';
+		vpost_iconHTML = '<img src="img/icon_user.png" class="vpost_icon" alt="ユーザーアイコン">';
+		vpost_nameHTML = '猫大好き';
+		vpost_reactionHTML = '<img src="img/heartoff.png" class="vpost_reaction" alt="リアクションボタン">';
+
+		/* HTML文代入 */
+		document.getElementById('vpost_title').innerHTML = vpost_titleHTML;
+		document.getElementById('vpost_img').innerHTML = vpost_imgHTML;
+		document.getElementById('vpost_exp').innerHTML = vpost_expHTML;
+		document.getElementById('vpost_icon').innerHTML = vpost_iconHTML;
+		document.getElementById('vpost_name').innerHTML = vpost_nameHTML;
+		document.getElementById('vpost_reaction').innerHTML = vpost_reactionHTML;
+	</script>
+	<script src ="/dotchiha/js/common.js"></script>
+	<!-- javascriptここまで -->
+
 
 
 </body>
