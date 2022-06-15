@@ -51,7 +51,7 @@ public class BoardPostServlet extends HttpServlet {
 //		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/simpleBC/LoginServlet");
+//			response.sendRedirect("/dotchiha/LoginServlet");
 //			return;
 //		}
 

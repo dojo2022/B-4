@@ -51,11 +51,14 @@
 			<input type="submit" value="検索">
 		</form>
     <!-- 掲示板一覧表示 -->
-    <table id="list">
-      <c:forEach var="e" items="${cardList}" >
-      <tr id="${e.id}"><td><a href = "/dotchiha/ViewBoardServlet">${e.title}</a></td></tr>
-      </c:forEach>
-    </table>
+    <form method="post" action="/dotchiha/ViewBoardServlet">
+	    <table id="board_list">
+	      <c:forEach var="e" items="${cardList}" >
+	      <tr id="${e.id}"><td><button type = "submit" name = "id" value = "${e.id}">${e.title}</button></td></tr>
+	      </c:forEach>
+	    </table>
+    </form>
+    <br>
 
     <!-- 新規掲示板作成ボタン -->
     <button class ="boardpost" type = "button" onclick="location.href='/dotchiha/BoardPostServlet'">新規掲示板作成</button>
