@@ -1,1 +1,41 @@
 @charset "UTF-8";
+
+/*画像を円にするCSS*/
+.icon {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  180px;       /* ※縦横を同値に */
+    height: 180px;       /* ※縦横を同値に */
+}
+
+/*投稿一覧、お気に入り投稿、保存した掲示板一覧のボックス指定*/
+.bbox {
+    border: #000000 1px solid; /*境界線の指定*/
+    padding:10px;
+    width: fit-content;
+}
+
+
+.box {
+border: #000000 1px solid; /*境界線の指定*/
+padding:10px;
+width: fit-content;
+}
+.box p {
+margin:0;
+padding:0;
+}
+.fbox {
+  border: #000000 1px solid; /*境界線の指定*/
+  padding:10px;
+  width: 200px;
+  text-align: center;
+  }
+.fbox p {
+  margin:0;
+  padding:0;
+}
+/*投稿の画像サイズ*/
+.low img{
+  width: 40%;
+  height: 40%;
+}
