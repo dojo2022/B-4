@@ -41,13 +41,14 @@
 		<h1 class = "title">グループをつくる</h1>
 				<br>
 				<br>
-				<form>
+				<form method="POST" action="/dotchiha/GCreateServlet">
 				<div class="on">
-				<textarea name="groupname"></textarea></div>
+				<p>※グループの名前は必ず入力してください</p>
+				<textarea name="room_name" placeholder="例：猫のかわいさをひたすら語る"></textarea></div>
 				<br>
 				<br>
 				<input type ="submit" name = "gcreate" value = "作成" class="button">
-				<!-- onsubmitでグループ作成される（creategroup?）groupchat.jspに表示する -->
+				<!-- onsubmitでグループ作成される glist.jspに表示する -->
 				</form>
 				<br>
 				<br>
