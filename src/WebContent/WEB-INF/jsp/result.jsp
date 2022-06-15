@@ -5,6 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>今日はどっち派？</title>
+	<link rel="stylesheet" href="/dotchiha/css/common.css">
+	<link rel="stylesheet" href="/dotchiha/css/login.css">
 </head>
 <body>
 	<div class ="wrapper">

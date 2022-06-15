@@ -44,14 +44,20 @@
 		<h1 class = "title">マイページ</h1>
 								<br>
 								<br>
+
 								<c:forEach var="e" items="${cardFollowList}" >
-								<img src="${e.icon}" alt="アイコン" name="icon"><br>
+
+								<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
+
+
 								<p>📍${e.prefecture}</p><br>
-								<strong>${e.user_name}</strong><br><br>
+								<p class="uname"><strong>${e.user_name}</strong></p>
+								<br><br>
 								</c:forEach>
 								<div class="fbox">
 								フォロー数 ${follow_count}
 								</div>
+								<br>
 								<div class="fbox">
 								フォロワー数 ${followed_count}
 								</div>
@@ -64,8 +70,9 @@
 								<a href="/dotchiha/MyChangeInfServlet">情報の変更</a>
 ​
 
-								<div class="bbox">
+
 								<h3>投稿タイトル一覧</h3>
+								<div class="bbox">
 								<ul>
 								<c:forEach var="e" items="${cardTList}" >
 								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
@@ -76,6 +83,7 @@
 								<div class="box">
 								<a href="/dotchiha/MyActionServlet">リアクションした投稿</a>
 								</div>
+								<br>
 								<div class="box">
 								<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
 								</div>

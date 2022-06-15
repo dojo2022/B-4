@@ -44,7 +44,7 @@
 			</label></td></tr>
 			<!-- 写真・画像のアップロード -->
 			<tr><td><label>
-				画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+				画像:<input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
 				<canvas id="preview" style="max-width:200px;"></canvas><br>
 				<input type="submit" value="送信">
 			</label></td></tr>
@@ -54,11 +54,13 @@
 				<input type="radio" name="dog" value="犬"> 犬
 			</label></td></tr>
 			<!-- 説明欄 -->
-
 			<tr><td><label>
 				<textarea rows="4" cols="30" name="postcomment"
 				placeholder="魅力を伝えましょう!#で詳細検索が可能になります!"></textarea>
 			</label></td></tr>
+			<tr><td>
+				<input type="submit" name="post" value="投稿">
+			</td></tr>
 		</table>
 	</main>
 	<!-- フッター -->
