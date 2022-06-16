@@ -50,8 +50,8 @@
 				</label></td></tr>
 				<!-- 犬猫のラジオボタン -->
 				<tr><td><label>
-					<input type="radio" name="cat" value="猫"> 猫
-					<input type="radio" name="dog" value="犬"> 犬
+					<input type="radio" name="cord" value="猫"> 猫
+					<input type="radio" name="cord" value="犬"> 犬
 				</label></td></tr>
 				<!-- 説明欄 -->
 				<tr><td><label>
