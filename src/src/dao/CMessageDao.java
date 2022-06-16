@@ -23,7 +23,7 @@ public class CMessageDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
 
 			// SQL文を準備する　<ここ変える>全て取り出して、WHEREのところは検索する項目にする
-			String sql = "SELECT message, room_id FROM Cmessage WHERE room_id =? ORDER BY id";
+			String sql = "SELECT message, room_id FROM Cmessage WHERE room_id =? ORDER BY id ASC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, room_id);
@@ -79,10 +79,10 @@ public class CMessageDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
 
 			// SQL文を準備する＜ここ変える SQLのテーブルと同じ項目にする＞
-			String sql = "INSERT INTO Cmessage (id, message, room_id, sender_id, date, time) VALUES ( ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO Cmessage (message, room_id, sender_id) VALUES ( ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる＜ここ変える SQLのテーブルと同じ項目にする＞
+			 //SQL文を完成させる＜ここ変える SQLのテーブルと同じ項目にする＞
 			if (card.getMessage() != null && !card.getMessage().equals("")) {
 				pStmt.setString(1, card.getMessage());
 			}
@@ -101,24 +101,7 @@ public class CMessageDao {
 			else {
 				pStmt.setString(3, null);
 			}
-			if (card.getSender_id() != null && !card.getSender_id().equals("")) {
-				pStmt.setString(4, card.getSender_id());
-			}
-			else {
-				pStmt.setString(4, null);
-			}
-			if (card.getDate() != null && !card.getDate().equals("")) {
-				pStmt.setString(5, card.getDate());
-			}
-			else {
-				pStmt.setString(5, null);
-			}
-			if (card.getTime() != null && !card.getTime().equals("")) {
-				pStmt.setString(6, card.getTime());
-			}
-			else {
-				pStmt.setString(6, null);
-			}
+
 
 
 			// SQL文を実行する

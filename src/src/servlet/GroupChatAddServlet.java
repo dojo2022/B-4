@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +15,7 @@ import model.CMessage;
 /**
  * Servlet implementation class GroupChatAdd
  */
-@WebServlet("/GroupChatAdd")
+@WebServlet("/GroupChatAddServlet")
 public class GroupChatAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,17 +36,17 @@ public class GroupChatAddServlet extends HttpServlet {
 		String id = request.getParameter("ID");//メッセージのID
 		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
 		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
-		String sender_id = request.getParameter("sender_id");//セッションIDなどでログインしているユーザーのIDを送る
-		String date = request.getParameter("date");//送信日付
-		String time = request.getParameter("time");//送信時刻
+		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
+//		String date = request.getParameter("date");//送信日付
+//		String time = request.getParameter("time");//送信時刻
 
 		// 登録処理を行う<ここを変える>
 		CMessageDao cmDao = new CMessageDao();
-		cmDao.insert(new CMessage(id, message, room_id, sender_id, date, time));
+		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
 		//CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
-		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
+		//List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
 		//Croomテーブルの検索結果をリクエストスコープに格納する
-		request.setAttribute("messageList", messageList);
+		//request.setAttribute("messageList", messageList);
 
 
 		// 結果ページにフォワードする
