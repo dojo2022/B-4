@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +19,9 @@
 			</h1>
 		</header>
 		<!-- メイン -->
-		<h2>ログイン失敗！</h2>
-		<p>メールアドレス・パスワードに間違いがあります。</p>
+		<h2><c:out value="${result.title}" /></h2>
+		<p><c:out value="${result.message}" /></p>
+		<a href="${result.backTo}">戻る</a>
 		<!-- フッター -->
 		<div id="footer">
 			<footer>
