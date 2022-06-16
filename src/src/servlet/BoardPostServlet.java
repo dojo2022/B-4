@@ -57,7 +57,7 @@ public class BoardPostServlet extends HttpServlet {
 
 		//セッションIDを取得する
 		HttpSession session = request.getSession();
-		String user_id = session.getId();
+		 String user_id = (String)session.getAttribute("user_id");
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
