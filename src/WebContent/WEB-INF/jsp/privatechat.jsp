@@ -52,10 +52,8 @@
 					<!-- メッセージ1（左側） -->
 					<div class="pms_message pms_left">
 						<div class="pms_message_box">
-							<div class="pms_message_content">
 								<div class="pms_message_text">こんにちは。
 								</div>
-							</div>
 						</div>
 					</div>
 					<div class="pms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
@@ -63,9 +61,7 @@
 					<!-- メッセージ2（右側） -->
 					<div class="pms_message pms_right">
 						<div class="pms_message_box">
-							<div class="pms_message_content">
 								<div class="pms_message_text">よろしくお願いします。</div>
-							</div>
 						</div>
 					</div>
 					<div class="pms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->

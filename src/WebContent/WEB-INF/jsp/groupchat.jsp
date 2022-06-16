@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><!-- forEach文を使うにはこの文が必要 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,15 +49,16 @@
 			</div>
 
 			<!-- タイムライン部分 -->
+
 			<div id="gms_messages">
 					<!-- メッセージ1（左側） -->
 					<div class="gms_message gms_left">
-					<div class="gms_message_senderl">猫大好き</div>
+					<div class="gms_message_senderl"></div>
+					<c:forEach var="e" items="${messageList}" >
 						<div class="gms_message_box">
-							<div class="gms_message_content">
-								<div class="gms_message_text">チュール</div>
+								<div class="gms_message_text">${e.message}</div>
 							</div>
-						</div>
+					</c:forEach>
 					</div>
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
@@ -64,17 +66,16 @@
 					<div class="gms_message gms_right">
 					<div class="gms_message_senderr"></div>
 						<div class="gms_message_box">
-							<div class="gms_message_content">
-								<div class="gms_message_text">同じく</div>
-							</div>
+								<div class="gms_message_text">${e.message}</div>
 						</div>
 					</div>
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+
 			</div>
 
 			<!-- テキストボックス、送信ボタン -->
 			<div id="gms_send">
-			<form  method="POST" action="/dotchiha/GroupChatServlet">
+			<form  method="POST" action="/dotchiha/GroupChatAddServlet">
 				<textarea name="message" id="gms_send_message"></textarea>
 				<input type ="submit" name = "send" value = "送信" id="gms_send_btn">
 			</form>

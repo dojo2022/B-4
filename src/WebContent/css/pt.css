@@ -65,11 +65,8 @@ padding: 6px;/*隙間調整*/
 .pms_message_box{
 	margin-top: 10px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
 	max-width: 100%;/*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
+	padding: 10px;
 	font-size: 14px;
-}
-
-.pms_message_content{
-	 padding: 10px;/*文字や画像（コンテンツ）の外側に隙間を入れる*/
 }
 
 /* メッセージ１（左側） */

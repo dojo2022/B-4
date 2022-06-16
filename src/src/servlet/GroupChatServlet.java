@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.CMessageDao;
+import model.CMessage;
 
 /**
  * Servlet implementation class GroupChatServlet
@@ -28,10 +32,21 @@ public class GroupChatServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		 //リクエストが来たらgroupchat.jspを表示する（フォワード）
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");
-			dispatcher.forward(request, response);
+//		request.setCharacterEncoding("UTF-8");
+//		String room_id = request.getParameter("room_id");
+//		//String room_id = "1";//チャットルームのIDを送る
+//
+//		//ルームIDが1のメッセージを全て取り出す
+//		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
+//		CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
+//		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
+//		//Croomテーブルの検索結果をリクエストスコープに格納する
+//		request.setAttribute("messageList", messageList);
+//
+//
+//		 //リクエストが来たらgroupchat.jspを表示する（フォワード）
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");
+//			dispatcher.forward(request, response);
 	}
 
 	/**
@@ -40,7 +55,22 @@ public class GroupChatServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String room_id = request.getParameter("room_id");
 
+		//String room_id = "1";//チャットルームのIDを送る
+
+		//ルームIDが1のメッセージを全て取り出す
+		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
+		CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
+		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
+		//Croomテーブルの検索結果をリクエストスコープに格納する
+		request.setAttribute("messageList", messageList);
+
+
+		 //リクエストが来たらgroupchat.jspを表示する（フォワード）
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");
+			dispatcher.forward(request, response);
 		//【最終】チャットに送信されたメッセージを表示する
 		//必要なデータ（DAO）
 		//ルームID、メッセージ、送信者、日付、時刻
@@ -49,23 +79,6 @@ public class GroupChatServlet extends HttpServlet {
 		//DAOでリクエストパラメータで取得したものをgetのところに書く
 		//DAOでSQL文を実行し、結果をservletで表示する処理を書く
 		//グループをリストに表示する（glist.jsp）←繰り返し処理で表示されるようになっている
-
-
-		//リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");//メッセージのID
-		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
-		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
-		String sender_id = request.getParameter("sender_id");//セッションIDなどでログインしているユーザーのIDを送る
-		String date = request.getParameter("date");//送信日付
-		String time = request.getParameter("time");//送信時刻
-
-
-
-
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");
-		dispatcher.forward(request, response);
 
 	}
 

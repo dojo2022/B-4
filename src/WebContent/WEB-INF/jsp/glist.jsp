@@ -50,9 +50,9 @@
 				<br>
 				<div id="glist">
 				<c:forEach var="e" items="${roomList}" >
-				<form method="GET" action="/dotchiha/GroupChatServlet">
-				<button type="submit" class="buttontag">
-   				<span>"${e.room_name}"</span><br><!-- ルーム名を表示する -->
+				<form method="POST" action="/dotchiha/GroupChatServlet">
+				<button type="submit" class="buttontag" value="${e.id}" name="room_id">
+   				<span>${e.room_name}</span><br><!-- ルーム名を表示する -->
 				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">○○人
 				</button>
 				<!-- onsubmitでgroupchat.jspへ飛ぶ -->
