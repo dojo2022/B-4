@@ -19,7 +19,7 @@
 		</header>
 		<!-- メイン -->
 		<h1 class="title">新規アカウント登録</h1>
-		<form method="POST" action="/dojo6/NewRegisterServlet.java" enctype="multipart/form-data">
+		<form method="POST" action="/dotchiha/NewRegisterServlet" enctype="multipart/form-data">
 			<table>
 				<!-- アイコン表示 -->
 				<tr><td><label>
