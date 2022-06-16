@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CMessageDao;
 import model.CMessage;
@@ -43,6 +45,10 @@ public class GroupChatAddServlet extends HttpServlet {
 		// 登録処理を行う<ここを変える>
 		CMessageDao cmDao = new CMessageDao();
 		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
+		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
+		//Croomテーブルの検索結果をリクエストスコープに格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("messageList", messageList);
 		//CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
 		//List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
 		//Croomテーブルの検索結果をリクエストスコープに格納する

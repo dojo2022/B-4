@@ -77,9 +77,9 @@
 			<div id="gms_send">
 			<form  method="POST" action="/dotchiha/GroupChatAddServlet">
 				<textarea name="message" id="gms_send_message"></textarea>
-				<p>${e.room_id}</p>
+				<!-- e は使えないのでリクエストスコープ名を使用-->
 				<!-- <input type ="submit" name = "send" value = "${e.message}" id="gms_send_btn"> -->
-				<button type="submit" id="gms_send_btn" class = "buttontag" value = "${e.room_id}" name="room_id">送信</button>
+				<button type="submit" id="gms_send_btn" class = "buttontag" value = "${messageList[0].room_id}" name="room_id">送信</button>
 			</form>
 			</div>
 		</div>

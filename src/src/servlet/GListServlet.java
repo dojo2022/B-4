@@ -45,6 +45,8 @@ public class GListServlet extends HttpServlet {
 		List<Croom> roomList = cDao.select();//selectでCroomDao.javaのCroomDaoクラスのselect内容を実行できる。それをlistに格納している
 		//Croomテーブルの検索結果をリクエストスコープに格納する
 		request.setAttribute("roomList", roomList);
+//		HttpSession session = request.getSession();
+//		session.setAttribute("roomList", roomList);
 
 		//ルームのメンバー数を取り出す（送信者の数で対応）→テーブルが同じのほうが簡単？
 

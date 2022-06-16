@@ -49,17 +49,20 @@
 				<br>
 				<br>
 				<div id="glist">
-				<c:forEach var="e" items="${roomList}" >
-				<form method="POST" action="/dotchiha/GroupChatServlet">
-				<button type="submit" class="buttontag" value="${e.id}" name="room_id">
-   				<span>${e.room_name}</span><br><!-- ルーム名を表示する -->
-				<img src="/dotchiha/img/icon_user.png" width="15" height="15" alt="	人数">○○人
-				</button>
-				<!-- onsubmitでgroupchat.jspへ飛ぶ -->
-				<br>
-				</form>
+				<c:forEach var="e" items="${roomList}">
+					<form method="POST" action="/dotchiha/GroupChatServlet">
+						<button type="submit" class="buttontag" value="${e.id}"
+							name="room_id">
+							<span>${e.room_name}</span><br>
+							<!-- ルーム名を表示する -->
+							<img src="/dotchiha/img/icon_user.png" width="15" height="15"
+								alt="	人数">○○人
+						</button>
+						<!-- onsubmitでgroupchat.jspへ飛ぶ -->
+						<br>
+					</form>
 				</c:forEach>
-				</div>
+			</div>
 				<br>
 				<!--戻るボタン--->
 				<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
