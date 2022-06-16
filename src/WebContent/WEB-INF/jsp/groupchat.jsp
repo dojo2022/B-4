@@ -66,7 +66,7 @@
 					<div class="gms_message gms_right">
 					<div class="gms_message_senderr"></div>
 						<div class="gms_message_box">
-								<div class="gms_message_text">${e.message}</div>
+								<div class="gms_message_text"></div>
 						</div>
 					</div>
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
@@ -77,7 +77,9 @@
 			<div id="gms_send">
 			<form  method="POST" action="/dotchiha/GroupChatAddServlet">
 				<textarea name="message" id="gms_send_message"></textarea>
-				<input type ="submit" name = "send" value = "送信" id="gms_send_btn">
+				<p>${e.room_id}</p>
+				<!-- <input type ="submit" name = "send" value = "${e.message}" id="gms_send_btn"> -->
+				<button type="submit" id="gms_send_btn" class = "buttontag" value = "${e.room_id}" name="room_id">送信</button>
 			</form>
 			</div>
 		</div>
