@@ -21,24 +21,23 @@
   <!--  ヘッダーここまで  -->
   <!--メインここから-->
   <main>
-    <h1 class = "title">新規掲示板</h1>
+    <h1 class = "title">掲示板</h1>
     <br>
     <br>
-    <table id="board_list">
-        <c:forEach var="e" items="${cardList}" >
-        <tr id="${e.id}"><td><button type = "submit" name = "id" value = "${e.id}">${e.title}</button></td></tr>
-        </c:forEach>
-      </table>
+    <!-- アイコン＆ユーザー名 -->
+
     <!-- タイトル -->
 
     <!-- 投稿内容 -->
 
-    <!-- 犬猫選択ボタン -->
+    <!-- 保存ボタン -->
 
-    <!-- 投稿ボタン -->
+    <!-- コメント -->
+
+    <!-- コメント送信ボタン -->
 
     <!--戻るボタン--->
-    <button class ="exit" type = "button" onclick ="history.back()">やめる</button>
+    <button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 
   </main>
 
@@ -54,3 +53,6 @@
 <script src ="/dotchiha/js/common.js"></script>
 </body>
 </html>
+<c:forEach var="e" items="${cardList}" >
+        <tr id="${e.id}"><td><button type = "submit" name = "id" value = "${e.id}">${e.title}</button></td></tr>
+        </c:forEach>
