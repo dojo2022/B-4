@@ -4,11 +4,11 @@ import java.io.Serializable;
 public class Post implements Serializable{
 	private String posttitle;   //投稿タイトル
 	private String image;       //画像
-	private String cord;        //犬猫ラジオボタン
+	private int cord;        //犬猫ラジオボタン
 	private String postcomment; //説明欄
 
 	//引数のあるコンストラクタ
-	public Post(String posttitle, String image, String cord, String postcomment) {
+	public Post(String posttitle, String image, int cord, String postcomment) {
 		super();
 		this.posttitle = posttitle;
 		this.image = image;
@@ -21,7 +21,7 @@ public class Post implements Serializable{
 		super();
 		this.posttitle = "";
 		this.image = "";
-		this.cord = "";
+		this.cord = 0;
 		this.postcomment = "";
 	}
 
@@ -42,11 +42,11 @@ public class Post implements Serializable{
 		this.image = image;
 	}
 
-	public String getCord() {
+	public int getCord() {
 		return cord;
 	}
 
-	public void setCord(String cord) {
+	public void setCord(int cord) {
 		this.cord = cord;
 	}
 
