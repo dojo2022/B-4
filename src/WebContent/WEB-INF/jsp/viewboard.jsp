@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +24,11 @@
     <h1 class = "title">新規掲示板</h1>
     <br>
     <br>
+    <table id="board_list">
+        <c:forEach var="e" items="${cardList}" >
+        <tr id="${e.id}"><td><button type = "submit" name = "id" value = "${e.id}">${e.title}</button></td></tr>
+        </c:forEach>
+      </table>
     <!-- タイトル -->
 
     <!-- 投稿内容 -->

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import model.LoginUser;
 import model.Result;
 import model.User;
 
@@ -40,12 +39,21 @@ public class LoginServlet extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 		String pw = request.getParameter("pw");
 
+//		HttpSession session = request.getSession();
+//
+//		//セッションにキーと値のペアを格納
+//	    session.setAttribute("user_id", user_id);
+
 		/*ログイン処理を行う*/
 		UserDao iDao = new UserDao();
 		if (iDao.isLoginOK(new User("",user_id,"","","","",pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(user_id));
+			session.setAttribute("id", user_id);
+
+//			// セッションスコープにIDを格納する
+//			HttpSession session = request.getSession();
+//			session.setAttribute("id", new LoginUser(user_id));
 
 			// 犬猫選択サーブレットにリダイレクトする
 			response.sendRedirect("/dotchiha/CorDSelectServlet");

@@ -49,6 +49,7 @@
 		  <input type="radio" name="dorc" value="1">
 		  <label>犬</label>
 			<input type="submit" value="検索">
+		<br>
 		</form>
     <!-- 掲示板一覧表示 -->
     <form method="post" action="/dotchiha/ViewBoardServlet">
