@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import dao.UserDao;
+import model.Result;
+import model.User;
 
 /**
  * Servlet implementation class NewRegisterServlet
@@ -38,10 +40,10 @@ public class NewRegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Part part=request.getPart("icon");//getPartで取得
 		// リクエストパラメータを取得する
-//		String id = request.getParameter("id");
-//		String user_id = request.getParameter("user_id");
-//		String user_name = request.getParameter("user_name");
-//		String address = request.getParameter("address");
+		String id = request.getParameter("id");
+		String user_id = request.getParameter("user_id");
+		String user_name = request.getParameter("user_name");
+		String address = request.getParameter("address");
 		//thisでこのServlet上でgetFileName処理を行う
 		String icon = this.getFileName(part);
 		String freespace = request.getParameter("freespace");
@@ -53,14 +55,14 @@ public class NewRegisterServlet extends HttpServlet {
 
 		// 登録処理を行う
 		UserDao iDao = new UserDao();
-//		if (iDao.insert(new User(id,user_id,user_name,address,icon,freespace,pw))) {	// 登録成功
-//			request.setAttribute("result",
-//			new Result("登録成功！", "レコードを登録しました。", "/dotchiha/LoginServlet"));
-//		}
-//		else {												// 登録失敗
-//			request.setAttribute("result",
-//			new Result("登録失敗！", "レコードを登録できませんでした。", "/dotchiha/LoginServlet"));
-//		}
+		if (iDao.insert(new User(id,user_id,user_name,address,icon,freespace,pw))) {	// 登録成功
+			request.setAttribute("result",
+			new Result("登録成功！", "レコードを登録しました。", "/dotchiha/LoginServlet"));
+		}
+		else {		// 登録失敗
+			request.setAttribute("result",
+			new Result("登録失敗！", "レコードを登録できませんでした。", "/dotchiha/LoginServlet"));
+		}
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
@@ -70,7 +72,7 @@ public class NewRegisterServlet extends HttpServlet {
 	//ファイルの名前を取得する
 	private String getFileName(Part part) {
 		String name=null;
-		for(String dispotion:part.getHeader("Content-Dispotion").split(";")) {
+		for(String dispotion:part.getHeader("Content-Disposition").split(";")) {
 			if (dispotion.trim().startsWith("filename")) {
 			name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
 			name = name.substring(name.lastIndexOf("\\") + 1);
