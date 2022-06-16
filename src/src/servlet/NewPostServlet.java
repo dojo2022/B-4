@@ -19,18 +19,10 @@ import model.Result;
 /**
  * Servlet implementation class NewPostServlet
  */
-@MultipartConfig(location = "C:\\dotchiha\\WebContent\\img")
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\img")
 @WebServlet("/NewPostServlet")
 public class NewPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public NewPostServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,7 +66,7 @@ public class NewPostServlet extends HttpServlet {
 	//ファイルの名前を取得する
 	private String getFileName(Part image) {
 		String name=null;
-		for(String dispotion:image.getHeader("Content-Dispotion").split(";")) {
+		for(String dispotion:image.getHeader("Content-Disposition").split(";")) {
 			if (dispotion.trim().startsWith("filename")) {
 			name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
 			name = name.substring(name.lastIndexOf("\\") + 1);
