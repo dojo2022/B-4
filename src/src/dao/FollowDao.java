@@ -14,7 +14,7 @@ import model.TList;
 public class FollowDao {
 	   //DBからicon,prefecture,user_name,freespace,titleのデータを取得
 		// 引数user_idで検索項目を指定し、検索結果のリストを返す
-		public List<MypageUser> select_user(String id) {
+		public List<MypageUser> select_user(String user_id) {
 			Connection conn = null;
 			List<MypageUser> cardFollowList = new ArrayList<MypageUser>();
 
@@ -34,7 +34,7 @@ public class FollowDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-					pStmt.setString(1, id);
+					pStmt.setString(1, user_id);
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();

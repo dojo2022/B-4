@@ -89,8 +89,6 @@
 								<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
 								</div>
 ​
-								<!-- 戻るボタン -->
-								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 	</main>
 ​
 	<!--メインここまで-->
