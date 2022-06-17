@@ -22,7 +22,7 @@ public class CroomDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する<ここ変える>全て取り出して、WHEREのところは検索する項目にする
 				String sql = "SELECT * FROM Croom WHERE room_name != 'null' ORDER BY id";
@@ -77,7 +77,7 @@ public class CroomDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する＜ここ変える SQLのテーブルと同じ項目にする＞
 				String sql = "INSERT INTO Croom (id, room_name) VALUES (?, ?)";

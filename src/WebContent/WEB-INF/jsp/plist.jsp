@@ -98,7 +98,11 @@
 				</form></div>
 				<br>
 				<!--戻るボタン--->
-				<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
+				<form method="GET" action="/dotchiha/CSelectServlet">
+							<input type = "submit" name = "tolist" value = "戻る">
+							<!-- onsubmitでglist.jspへ飛ぶ -->
+						</form>
+				<!-- <button class ="exit" type = "button" onclick ="history.back()">戻る</button> -->
 	</main>
 
 	<!--メインここまで-->

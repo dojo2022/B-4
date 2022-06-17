@@ -40,8 +40,12 @@
 				<div id="pms_chat_user_status">
 					<!-- 戻るボタン -->
 					<div id="pms_back">
-					<button class ="exit" type = "button" onclick ="history.back()">←
-					</button></div>
+						<form method="GET" action="/dotchiha/PListServlet">
+							<input type = "submit" name = "tolist" value = "←">
+							<!-- onsubmitでplist.jspへ飛ぶ -->
+						</form>
+					<!-- <button class ="exit" type = "button" onclick ="history.back()">←</button> -->
+					</div>
 					<!-- ユーザー名 -->
 					<div id="pms_chat_user_name">ユーザー</div>
 				</div>

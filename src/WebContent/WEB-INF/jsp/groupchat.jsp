@@ -23,12 +23,6 @@
 	<!--メインここから-->
 	<main>
 <!-- ここからチャットの画面 参考は「ゼロから作る簡単webチャットUIの作り方」-->
-<!-- 自分やユーザーの情報 -->
-<!--<h3 id ="me" user_id="1">あなたはユーザー1です</h3>
-<h3 id="partner" thread_id="1">相手</h3>
-<div id="users">
-	<button class="user" user_id="2">ユーザー2</button>
-</div>-->
 <br>
 	<div id = "your_container">
 
@@ -41,10 +35,14 @@
 				<div id="gms_chat_user_status">
 					<!-- 戻るボタン -->
 					<div id="gms_back">
-					<button class ="exit" type = "button" onclick ="history.back()">←
-					</button></div>
+						<form method="GET" action="/dotchiha/GListServlet">
+							<input type = "submit" name = "tolist" value = "←">
+							<!-- onsubmitでglist.jspへ飛ぶ -->
+						</form>
+					</div>
 					<!-- ユーザー名 -->
 					<div id="gms_chat_user_name">コスパいいおやつ選手権</div>
+					<!-- ここをroom_nameに変更したいがテーブルが別 -->
 				</div>
 			</div>
 
