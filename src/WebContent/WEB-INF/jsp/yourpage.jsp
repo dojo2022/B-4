@@ -78,9 +78,6 @@
 
 
 ​
-								<!--戻るボタン--->
-								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
-​
 	</main>
 ​
 	<!--メインここまで-->

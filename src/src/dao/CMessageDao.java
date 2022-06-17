@@ -20,10 +20,10 @@ public class CMessageDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する　<ここ変える>全て取り出して、WHEREのところは検索する項目にする
-			String sql = "SELECT id,room_id, message FROM CMESSAGE WHERE room_id =? ORDER BY id ASC";
+			String sql = "SELECT id,room_id, message FROM Cmessage WHERE room_id =? ORDER BY id ASC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, room_id);
@@ -77,10 +77,10 @@ public class CMessageDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Date/dojo6Date", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する＜ここ変える SQLのテーブルと同じ項目にする＞
-			String sql = "INSERT INTO CMESSAGE (message, room_id, sender_id) VALUES ( ?, ?, ?)";
+			String sql = "INSERT INTO Cmessage (message, room_id, sender_id) VALUES ( ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			 //SQL文を完成させる＜ここ変える SQLのテーブルと同じ項目にする＞

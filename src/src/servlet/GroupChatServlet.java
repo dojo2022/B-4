@@ -60,12 +60,11 @@ public class GroupChatServlet extends HttpServlet {
 		String room_id = request.getParameter("room_id");
 
 		//String room_id = "1";//チャットルームのIDを送る
-
 		//ルームIDが1のメッセージを全て取り出す
-		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
-		CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
+		//CMessageDaoからSQLで取り出したCmessageテーブルのデータをmessageListに格納したものをselectで呼び出す
+		CMessageDao cmDao = new CMessageDao();//newの後はCmessageDaoのpublicクラスを実体化したもの
 		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Croomテーブルの検索結果をリクエストスコープに格納する
+		//Cmessageテーブルの検索結果をリクエストスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 //		request.setAttribute("messageList", messageList);

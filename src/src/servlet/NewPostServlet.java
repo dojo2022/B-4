@@ -1,11 +1,6 @@
 package servlet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +14,6 @@ import javax.servlet.http.Part;
 import dao.PostDao;
 import model.Post;
 import model.Result;
-
 
 /**
  * Servlet implementation class NewPostServlet
@@ -47,20 +41,31 @@ public class NewPostServlet extends HttpServlet {
 		//リクエストパラメータの取得
 		String posttitle = request.getParameter("posttitle");
 		String image = this.getFileName(image_S);
-		String cordStr = this.getParameter("cord", request);
-		//犬猫の選択をif文で0.1表示を行う
-		if(!=0) {
-			
-		}
-		int cord = Integer.parseInt(cordStr);
+		String cord = request.getParameter("cord");
 		String postcomment = request.getParameter("postcomment");
+//		if(cord == "dog") {
+//			cord="1";
+//
+//		}else {
+//			cord="0";
+//		}
+//		int code_i = Integer.parseInt(cord);
+		String user_id = "test@gmail.com";
+//		int cord = Integer.parseInt(request.getParameter("cord"));
+//		String cordStr = this.getParameter("cord", request);
+//		//犬猫の選択をif文で0.1表示を行う
+//		if(cordStr.equals("cat")) {
+//
+//		}
+//		int cord = Integer.parseInt(cordStr);
+
 		//画像のアップロード処理
 		request.setAttribute("image", image);
 		image_S.write(image);
 
 		//登録処理
 		PostDao pDao = new PostDao();
-		if (pDao.insert(new Post(posttitle,image,cord,postcomment))) {	// 登録成功
+		if (pDao.insert(new Post("",user_id,posttitle,image,cord,postcomment,""))) {	// 登録成功
 			request.setAttribute("result",
 			new Result("登録成功！", "レコードを登録しました。", "/dotchiha/NewPostServlet"));
 		}
@@ -73,36 +78,36 @@ public class NewPostServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private String getParameter(String key,HttpServletRequest request) {
-		Collection<Part> parts = null;
-		try {
-			parts = request.getParts();
-		} catch (IOException | ServletException e1) {
-			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
-		}
-
-    	String ret = null;
-    	for(Part part : parts) {
-    		System.out.println("name:" + part.getName());
-        	if(part.getName() != key) {
-        		continue;
-        	}
-
-            String contentType = part.getContentType();
-            log("contentType:" + contentType);
-            if ( contentType == null) {
-                try(InputStream inputStream = part.getInputStream()) {
-                    BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream));
-                    ret = bufReader.lines().collect(Collectors.joining());
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-    	}
-        return ret;
-	}
+//	private String getParameter(String key,HttpServletRequest request) {
+//		Collection<Part> parts = null;
+//		try {
+//			parts = request.getParts();
+//		} catch (IOException | ServletException e1) {
+//			// TODO 自動生成された catch ブロック
+//			e1.printStackTrace();
+//		}
+//
+//    	String ret = null;
+//    	for(Part part : parts) {
+//    		System.out.println("name:" + part.getName());
+//        	if(part.getName() != key) {
+//        		continue;
+//        	}
+//
+//            String contentType = part.getContentType();
+//            log("contentType:" + contentType);
+//            if ( contentType == null) {
+//                try(InputStream inputStream = part.getInputStream()) {
+//                    BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream));
+//                    ret = bufReader.lines().collect(Collectors.joining());
+//
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//    	}
+//        return ret;
+//	}
 
 	//getFileName処理
 	//ファイルの名前を取得する

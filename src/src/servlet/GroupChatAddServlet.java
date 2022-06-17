@@ -46,12 +46,12 @@ public class GroupChatAddServlet extends HttpServlet {
 		CMessageDao cmDao = new CMessageDao();
 		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
 		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Croomテーブルの検索結果をリクエストスコープに格納する
+		//Cmessageテーブルの検索結果をリクエストスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 		//CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
 		//List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Croomテーブルの検索結果をリクエストスコープに格納する
+		//Cmessageテーブルの検索結果をリクエストスコープに格納する
 		//request.setAttribute("messageList", messageList);
 
 
