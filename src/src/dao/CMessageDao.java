@@ -23,7 +23,7 @@ public class CMessageDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する　<ここ変える>全て取り出して、WHEREのところは検索する項目にする
-			String sql = "SELECT id,room_id, message FROM Cmessage WHERE room_id =? ORDER BY id ASC";
+			String sql = "SELECT id, room_id, message, sender_id FROM Cmessage WHERE room_id =? ORDER BY id ASC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, room_id);
@@ -37,7 +37,8 @@ public class CMessageDao {
 				CMessage card = new CMessage(
 				rs.getString("id"),
 				rs.getString("room_id"),
-				rs.getString("message")
+				rs.getString("message"),
+				rs.getString("sender_id")
 				);
 				messageList.add(card);
 				//System.out.println(rs.getString("number"));
