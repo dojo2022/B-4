@@ -25,11 +25,12 @@ public class CMessage implements Serializable {
 			this.room_id = room_id;
 			this.message = message;
 		}
-		public CMessage( String id,String room_id, String message) {
+		public CMessage( String id,String room_id, String message, String sender_id) {
 			super();
 			this.id =id;
 			this.room_id = room_id;
 			this.message = message;
+			this.sender_id = sender_id;
 		}
 		//引数がないコンストラクタ（デフォルトコンストラクタ）
 		public CMessage() {

@@ -41,7 +41,7 @@
 						</form>
 					</div>
 					<!-- ユーザー名 -->
-					<div id="gms_chat_user_name">コスパいいおやつ選手権</div>
+					<div id="gms_chat_user_name">${room_name}</div>
 					<!-- ここをroom_nameに変更したいがテーブルが別 -->
 				</div>
 			</div>
@@ -51,8 +51,8 @@
 			<div id="gms_messages">
 					<!-- メッセージ1（左側） -->
 					<div class="gms_message gms_left">
-					<div class="gms_message_senderl"></div>
 					<c:forEach var="e" items="${messageList}" >
+					<div class="gms_message_senderl">${e.sender_id}</div>
 						<div class="gms_message_box">
 								<div class="gms_message_text">${e.message}</div>
 							</div>
@@ -61,13 +61,13 @@
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
 					<!-- メッセージ2（右側） -->
-					<div class="gms_message gms_right">
-					<div class="gms_message_senderr"></div>
-						<div class="gms_message_box">
-								<div class="gms_message_text"></div>
-						</div>
-					</div>
-					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+					<!-- <div class="gms_message gms_right"> -->
+					<!-- 	<div class="gms_message_senderr"></div> -->
+					<!-- 		<div class="gms_message_box"> -->
+					<!--			<div class="gms_message_text"></div> -->
+					<!--		</div>-->
+					<!--	</div>-->
+					<!--<div class="gms_clear"></div>--><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
 			</div>
 
