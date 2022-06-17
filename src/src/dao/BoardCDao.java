@@ -19,7 +19,7 @@ public class BoardCDao {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/DojoSample/data/dojosample", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
 			// ここでJOINを利用して2つのテーブルからデータを取得する。
@@ -27,7 +27,7 @@ public class BoardCDao {
 					+ ", BoardC.id AS boardc_id, board_id, sender_id, comment, BoardC.date AS boardc_date "
 					+ "FROM Board "
 					+ "LEFT JOIN BoardC "
-					+ "ON board.id = BoardC.board_id"
+					+ "ON Board.id = BoardC.board_id "
 					+ "WHERE Board.id = ?";
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class BoardCDao {
 				item.setDate(rs.getString("board_date"));
 				item.setDorc(rs.getString("dorc"));
 				//BoardC関連のデータ
-				item.setId(rs.getString("boarc_id"));
+				item.setId(rs.getString("boardc_id"));
 				item.setBoard_id(rs.getString("board_id"));
 				item.setSender_id(rs.getString("sender_id"));
 				item.setComment(rs.getString("comment"));

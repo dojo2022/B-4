@@ -39,21 +39,9 @@ public class ViewBoardServlet extends HttpServlet {
 //			return;
 //		}
 
-		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("board_id");
-
-		// 検索処理を行う
-		BoardCDao bcDao = new BoardCDao();
-		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(id);
-
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", ret);
-
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");
-		dispatcher.forward(request, response);
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -66,7 +54,20 @@ public class ViewBoardServlet extends HttpServlet {
 //			return;
 //		}
 
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("board_id");
 
+		// 検索処理を行う
+		BoardCDao bcDao = new BoardCDao();
+		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(id);
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("ret", ret);
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -25,18 +25,21 @@
     <br>
     <br>
 
+
     <!-- アイコン＆ユーザー名 -->
 
     <!-- タイトル -->
-     ${ret.title}
+    <h3>${ret.title}</h3>
     <!-- 投稿内容 -->
-
+    <p>${ret.text}</p>
     <!-- 保存ボタン -->
 
     <!-- コメント -->
-    <c:forEach var="e" items="${cardList}" >
-      <tr><td><button type = "submit" name = "board_id" value = "${e.id}">${e.title}</button></td></tr>
+    <table id="board_comment">
+    <c:forEach var="e" items="${ret}" >
+      <tr><td>${e.comment}</td></tr>
     </c:forEach>
+    </table>
     <!-- コメント送信ボタン -->
 
     <!--戻るボタン--->
