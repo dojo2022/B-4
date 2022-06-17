@@ -42,52 +42,58 @@
 	<!--メインここから-->
 	<main>
 		<h1 class = "title">マイページ</h1>
-								<br>
-								<br>
+		<br>
+		<br>
 
-								<c:forEach var="e" items="${cardFollowList}" >
+		<c:forEach var="e" items="${cardFollowList}" >
 
-								<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
-
-
-								<p>📍${e.address}</p><br>
-								<p class="uname"><strong>${e.user_name}</strong></p>
-								<br><br>
-								</c:forEach>
-								<div class="fbox">
-								フォロー数 ${follow_count}
-								</div>
-								<br>
-								<div class="fbox">
-								フォロワー数 ${followed_count}
-								</div>
-								<c:forEach var="e" items="${cardFollowList}" >​
-								<form class="box">
-								${e.freespace}
-								</form>
-								</c:forEach>
-​								<br>
-								<form method="get" action="/dotchiha/MyChangeInfServlet">
-								<button type="submit" name="MCI" value="nekozuki75@gmail.com">情報の変更</button>
-​								</form>
+			<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
 
 
-								<h3>投稿タイトル一覧</h3>
-								<div class="bbox">
-								<ul>
-								<c:forEach var="e" items="${cardTList}" >
-								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
-								</c:forEach>
-								</ul>
-								</div>
+			<p>📍${e.address}</p><br>
+			<p class="uname"><strong>${e.user_name}</strong></p>
+			<br><br>
+		</c:forEach>
+		<div class="fbox">
+			フォロー数 ${follow_count}
+		</div>
+		<br>
+		<div class="fbox">
+			フォロワー数 ${followed_count}
+		</div>
+		<c:forEach var="e" items="${cardFollowList}" >​
+			<form class="box">
+				${e.freespace}
+			</form>
+		</c:forEach>
+​		<br>
+		<form method="get" action="/dotchiha/MyChangeInfServlet">
+			<button type="submit" name="MCI" value="nekozuki75@gmail.com">情報の変更</button>
+​		</form>
+
+		<h3>投稿タイトル一覧</h3>
+<%-- 		<div class="bbox">
+			<ul>
+				<c:forEach var="e" items="${cardTList}" >
+					<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
+				</c:forEach>
+			</ul>
+		</div> --%>
+		<div class="bbox">
+			<form method="post" action="/dotchiha/UpdatePostServlet">
+				<c:forEach var="e" items="${cardTList}">
+					<li><input type="submit" name="post_id" value="${e.id}">${e.posttitle}</li>
+				</c:forEach>
+			</form>
+		</div>
 ​
-								<div class="box">
-								<a href="/dotchiha/MyActionServlet">リアクションした投稿</a>
-								</div>
-								<br>
-								<div class="box">
-								<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
-								</div>
+		<div class="box">
+			<a href="/dotchiha/MyActionServlet">リアクションした投稿</a>
+		</div>
+		<br>
+		<div class="box">
+			<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
+		</div>
 ​
 	</main>
 ​
