@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PostRDao;
-import model.TList;
+import dao.BoardSDao;
+import model.BoardS;
 
 /**
  * Servlet implementation class MySaveBoardServlet
@@ -32,11 +32,11 @@ public class MySaveBoardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PostRDao prDao = new PostRDao();
+		BoardSDao bsDao = new BoardSDao();
 		//タイトルを取得するdaoを作成する
-		List<TList> cardPostR = prDao.select_user_id("nekozuki75@gmail.com");
+		List<BoardS> cardBoardS = bsDao.select_board_id("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに追加格納する
-		request.setAttribute("cardPostR",cardPostR);
+		request.setAttribute("cardBoardS",cardBoardS);
 
 
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mysaveboard.jsp");

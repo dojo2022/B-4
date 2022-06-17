@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.FollowDao;
-import model.MypageUser;
+import dao.PostRDao;
+import model.PostR;
 
 /**
  * Servlet implementation class MyActionServlet
@@ -32,15 +32,15 @@ public class MyActionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		//データベースから下記のデータ（リアクションした投稿）をユーザーidを元に取得する
 		//データを取得するdaoを作成する
-		FollowDao fDao = new FollowDao();
-		List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
+		PostRDao prDao = new PostRDao();
+		List<PostR> cardPostR = prDao.select_post_id("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに格納
-		request.setAttribute("cardFollowList",cardFollowList);
+		request.setAttribute("cardPostR",cardPostR);
 
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaction.jsp");
 		dispatcher.forward(request, response);
 

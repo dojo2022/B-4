@@ -73,6 +73,7 @@ public class MyChangeInfServlet extends HttpServlet {
 //				request.setAttribute("result",
 //				new Result("失敗！","情報を更新できませんでした。","/dotchiha/MyPageServlet"));
 //			}
+
 			//データベースから下記のデータ（アイコン、都道府県、ユーザー名、freespace）をユーザーidを元に取得する
 			//データを取得するdaoを作成する
 			List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");

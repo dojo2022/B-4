@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +40,10 @@
 	<!--メインここから-->
 	<main>
 			<h1 class = "title">リアクションした投稿</h1>
+			<c:forEach var="f" items="${cardPostR}" >
+			${f.posttitle}
+
+			</c:forEach>
 											<!--戻るボタン--->
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 ​
