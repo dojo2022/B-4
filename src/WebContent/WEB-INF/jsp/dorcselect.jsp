@@ -26,8 +26,8 @@
 		<h2 id="dorcselect">今日の気分は？</h2>
 		<form method="POST" action="/dotchiha/CorDSelectServlet">
 
-			<input type="submit" value="0" class="cat_btn">
-			<input type="submit" value="1" class="dog_btn">
+			<input type="submit" name="FEELING" value="0" class="cat_btn">
+			<input type="submit" name="FEELING" value="1" class="dog_btn">
 
 		</form>
 
