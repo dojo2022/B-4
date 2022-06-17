@@ -22,17 +22,21 @@
 					<!-- 投稿した内容のデータを持ってくる -->
 					<!-- タイトル -->
 					<tr><td><label>
-						<input type="text" name="posttitle" value="">
+						<input type="text" name="posttitle" value="${e.posttitle}">
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
 						画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
 						<canvas id="preview" style="max-width:200px;"></canvas><br>
-						<input type="submit" value="送信">
+					</label></td></tr>
+					<!-- 犬猫のラジオボタン -->
+					<tr><td><label>
+						<input type="radio" name="cord"  value="${e.cord}">猫
+						<input type="radio" name="cord"  value="${e.cord}">犬
 					</label></td></tr>
 					<!-- コメント -->
 					<tr><td><label>
-						<textarea rows="4" cols="30" name="postcomment" value=""></textarea>
+						<textarea rows="4" cols="30" name="postcomment" value="${e.postcomment}"></textarea>
 					</label></td></tr>
 					<!-- 編集・削除 -->
 					<tr><td><label>
