@@ -66,8 +66,9 @@
 								</form>
 ​                                </c:forEach>
 
-								<div class="bbox">
 								<h3>投稿タイトル一覧</h3>
+								<div class="bbox">
+
 								<ul>
 								<c:forEach var="e" items="${cardTList}" >
 								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>

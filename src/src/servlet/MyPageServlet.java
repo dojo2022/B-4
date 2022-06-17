@@ -47,7 +47,7 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("cardFollowList",cardFollowList);
 
 		//タイトルを取得するdaoを作成する
-		List<TList> cardTList = fDao.select_title("nekozuki75@gmail.com");
+		List<TList> cardTList = fDao.select_posttitle("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに追加格納する
 		request.setAttribute("cardTList",cardTList);
 

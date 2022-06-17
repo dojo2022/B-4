@@ -50,7 +50,7 @@
 								<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
 
 
-								<p>📍${e.prefecture}</p><br>
+								<p>📍${e.address}</p><br>
 								<p class="uname"><strong>${e.user_name}</strong></p>
 								<br><br>
 								</c:forEach>
@@ -67,8 +67,9 @@
 								</form>
 								</c:forEach>
 ​								<br>
-								<a href="/dotchiha/MyChangeInfServlet">情報の変更</a>
-​
+								<form method="get" action="/dotchiha/MyChangeInfServlet">
+								<button type="submit" name="MCI" value="nekozuki75@gmail.com">情報の変更</button>
+​								</form>
 
 
 								<h3>投稿タイトル一覧</h3>

@@ -4,19 +4,33 @@ import java.io.Serializable;
 
 public class MypageUser implements Serializable{
 	private String icon;	 // アイコン画像
-	private String prefecture;	 // 都道府県
+	private String address;	 // 都道府県
 	private String user_name; //ユーザー名
 	private String freespace; // フリースペース
+	private String user_id;
 
-	public MypageUser(String icon, String prefecture, String user_name, String freespace) {
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setId(String user_id) {
+		this.user_id = user_id;
+	}
+	public MypageUser(String icon, String address, String user_name, String freespace) {
 		this.icon = icon;
-		this.prefecture = prefecture;
+		this.address = address;
 		this.user_name = user_name;
 		this.freespace = freespace;
 	}
+	public MypageUser(String icon, String address, String user_name, String freespace,String user_id) {
+		this.icon = icon;
+		this.address = address;
+		this.user_name = user_name;
+		this.freespace = freespace;
+		this.user_id = user_id;
+	}
 	public MypageUser() {
 		this.icon = "";
-		this.prefecture = "";
+		this.address = "";
 		this.user_name = "";
 		this.freespace = "";
 	}
@@ -26,11 +40,11 @@ public class MypageUser implements Serializable{
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-	public String getPrefecture() {
-		return prefecture;
+	public String getAddress() {
+		return address;
 	}
-	public void setPrefecture(String prefecture) {
-		this.prefecture = prefecture;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getUser_name() {
 		return user_name;

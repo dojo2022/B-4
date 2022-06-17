@@ -26,7 +26,7 @@ public class FollowDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "select u.icon,u.prefecture,u.user_name, u.freespace from USER as u "
+				String sql = "select u.icon,u.address,u.user_name, u.freespace from USER as u "
 						+ "WHERE u.user_id = ?";
 
 
@@ -43,7 +43,7 @@ public class FollowDao {
 				while (rs.next()) {
 					MypageUser card = new MypageUser(
 					rs.getString("icon"),
-					rs.getString("prefecture"),
+					rs.getString("address"),
 					rs.getString("user_name"),
 					rs.getString("freespace")
 					);
@@ -79,7 +79,7 @@ public class FollowDao {
 		}
 
 		//DBから投稿したタイトルのデータを取得
-		public List<TList> select_title(String id) {
+		public List<TList> select_posttitle(String id) {
 			Connection conn = null;
 			List<TList> cardTList = new ArrayList<TList>();
 
@@ -91,8 +91,7 @@ public class FollowDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "select p.title from USER as u + LEFT JOIN POST as p on u.user_id = p.user_id WHERE u.user_id = ?";
-
+				String sql = "select p.posttitle from USER as u  LEFT JOIN POST as p on u.user_id = p.user_id  where u.user_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -103,7 +102,7 @@ public class FollowDao {
 
 				while (rs.next()) {
 					TList card = new TList(
-					rs.getString("title")
+					rs.getString("posttitle")
 					);
 					cardTList.add(card);
 				}
@@ -245,6 +244,68 @@ public class FollowDao {
 		return followed_count;
 	}
 
+	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
+	public boolean update(MypageUser card) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "update User set icon=?,address=?, user_name=?,freespace=? WHERE user_id =?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			if (card.getIcon() != null && !card.getIcon().equals("")) {
+				pStmt.setString(1, card.getIcon());
+			}
+			if (card.getAddress() != null && !card.getAddress().equals("")) {
+				pStmt.setString(2, card.getAddress());
+			}
+
+			if (card.getUser_name() != null && !card.getUser_name().equals("")) {
+				pStmt.setString(3, card.getUser_name());
+			}
+
+			if (card.getFreespace() != null && !card.getFreespace().equals("")) {
+				pStmt.setString(4, card.getFreespace());
+			}
+			if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+				pStmt.setString(5, card.getUser_id());
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 
 }
 
