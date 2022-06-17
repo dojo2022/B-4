@@ -65,12 +65,21 @@ public class GroupChatServlet extends HttpServlet {
 		//CMessageDaoからSQLで取り出したCmessageテーブルのデータをmessageListに格納したものをselectで呼び出す
 		CMessageDao cmDao = new CMessageDao();//newの後はCmessageDaoのpublicクラスを実体化したもの
 		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
+		//ルームのメンバー数を取り出す（送信者の数で対応）
+		//チャットの準備としてルームメンバーの名前を取り出しておく（sender_name）→ユーザー名のこと
+		//CmemberDaoからCmenberテーブルとuserテーブルを結合してデータを取り出す
+		//必要なデータはCmenberテーブルのuser_idとuserテーブルのuser_name（外部結合でuser_idを使う）
+//		CMemberDao cmmDao = new CMemberDao();
+//		List<CMember> memberList = cmmDao.select();
+
+
 		//Cmessageテーブルの検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 		session.setAttribute("room_name", room_name);
 //		request.setAttribute("messageList", messageList);
-
+		//Cmemberテーブルの検索結果をセッションスコープに格納する
+//		session.setAttribute("memberList", memberList);
 
 		 //リクエストが来たらgroupchat.jspを表示する（フォワード）
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");

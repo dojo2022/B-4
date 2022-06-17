@@ -29,10 +29,10 @@ public class PListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//フォローしている人の一覧のデータを保存するjavabeansをオブジェクト化
-
 		//フォローしている人のデータを取得dao
-
 		//フォローしている人のデータをリクエストスコープに格納
+		//データ：ユーザー名、相互フォローをselectする
+
 
 
 

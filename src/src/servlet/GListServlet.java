@@ -44,14 +44,10 @@ public class GListServlet extends HttpServlet {
 		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
 		CroomDao cDao = new CroomDao();//newの後はCroomDaoのpublicクラスを実体化したもの
 		List<Croom> roomList = cDao.select();//selectでCroomDao.javaのCroomDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Croomテーブルの検索結果をリクエストスコープに格納する
+		//Croomテーブルの検索結果をセッションスコープに格納する
 //		request.setAttribute("roomList", roomList);
 		HttpSession session = request.getSession();
 		session.setAttribute("roomList", roomList);
-
-		//ルームのメンバー数を取り出す（送信者の数で対応）→テーブルが同じのほうが簡単？
-
-
 
 		 //リクエストが来たらglist.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/glist.jsp");

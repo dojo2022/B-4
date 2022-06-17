@@ -33,7 +33,6 @@ public class CroomDao {
 				ResultSet rs = pStmt.executeQuery();
 
 				// 結果表をコレクションにコピーする <ここ変える>全ての列にする
-				//postalcode, tel, email
 				while (rs.next()) {
 					Croom card = new Croom(
 					rs.getString("id"),

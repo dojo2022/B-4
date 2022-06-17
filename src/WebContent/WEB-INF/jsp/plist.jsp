@@ -42,60 +42,20 @@
 				<br>
 				<br>
 				<form>
-				<input type = "submit" name = "pstart" value = "会話を始める" class="button">
-				<!-- onsubmitで相互フォローの人の一覧表示 script? -->
+					<input type = "submit" name = "pstart" value = "会話を始める" class="button">
+					<!-- onsubmitで相互フォローの人の一覧表示 script? -->
 				</form>
 				<br>
 				<br>
 				<div id="plist">
-				<!-- フォローしている人の一覧表示 -->
-				<!-- 会話をしたしていないで区別するかも -->
-				<form method="GET" action="/dotchiha/PrivateChatServlet" id="cselect2">
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-				<input type = "submit" name = "private" value = "猫の青山" class="button">
-				<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-				<br>
-
-				<!-- アイコンありの場合はこっちを使う
-				<button type="submit">
-					<img src="  " width="30" height="30" alt="アイコン">
-   					<span style="font-weight:bold;">犬鈴木</span>
-				</button>
-				<br> -->
-
-				</form></div>
+					<!-- フォローしている人の一覧表示 -->
+					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
+						<input type = "submit" name = "private" value = "猫の青山(user_nameにする)" class="button">
+						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+					  <br>
+					  <br>
+					</form>
+				</div>
 				<br>
 				<!--戻るボタン--->
 				<form method="GET" action="/dotchiha/CSelectServlet">
