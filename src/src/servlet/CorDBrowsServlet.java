@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.FeelingDao;
+import dao.PostDao;
+import model.Post;
 
 /**
  * Servlet implementation class CorDBrowsServlet
@@ -29,8 +36,18 @@ public class CorDBrowsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session1 = request.getSession();
+		session1.setAttribute("id", "nekozuki75@gmail.com");
+		// セッションスコープからログインidを取得
+				HttpSession session = request.getSession();
+				String userid= (String) session.getAttribute("id");
+		// ユーザーの気分情報を取り出す
+				FeelingDao fDao =new FeelingDao();
+				int feeling = fDao.selectf(userid);
+				PostDao pDao = new PostDao();
+				List<> cardList = new ArrayList<Post>();
+				cardList = pDao.selectpost(feeling);
+
 	}
 
 }

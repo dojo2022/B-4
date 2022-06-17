@@ -18,6 +18,7 @@ public class PostDao {
 		//データベースに接続
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 		//SQL文を準備する
+			String sql = "insert into Post (posttitle,image,cord.postcomment) values (?,?,?,?)";
 			String sql = "insert into Post (posttitle,image,cord,postcomment) values (?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 		//SQL文を完成させる
@@ -32,6 +33,12 @@ public class PostDao {
 			}
 			else {
 				pStmt.setString(2,"");
+			}
+			if(card.getCord()!=null&& !card.getCord().equals("")) {
+				pStmt.setString(3,card.getCord());
+			}
+			else {
+				pStmt.setString(3,"");
 			}
 //			if(card.getCord()!=&& !card.getCord()=) {
 				pStmt.setInt(3,card.getCord());
