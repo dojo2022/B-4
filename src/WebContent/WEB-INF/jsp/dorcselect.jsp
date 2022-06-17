@@ -25,10 +25,14 @@
 	<main>
 		<h2 id="dorcselect">今日の気分は？</h2>
 		<form method="POST" action="/dotchiha/CorDSelectServlet">
+			<input type="hidden" name="FEELING" value="0">
+			<input type="image"  src="img/selectingcat.png" alt="猫選択" >
 
-			<input type="submit" name="FEELING" value="0" class="cat_btn">
-			<input type="submit" name="FEELING" value="1" class="dog_btn">
-
+			<!--  <input type="submit" class="cat_btn">-->
+		</form>
+		<form method="POST" action="/dotchiha/CorDSelectServlet">
+			<input type="hidden" name="FEELING" value="1">
+			<input type="image" src="img/selectingdog.png" alt="犬選択">
 		</form>
 
 	</main>

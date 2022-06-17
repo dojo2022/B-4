@@ -53,21 +53,3 @@
 .dorcselect_img {
     width: 300px;
 }
-.cat_btn{
-    border: 0px;
-    width:204px;
-    height:55px;
-    background: url(../img/selectingcat.jpg) left top no-repeat;
-}
-.cat_btn:hover{
-	cursor: pointer;
-}
-.dog_btn{
-    border: 0px;
-    width:204px;
-    height:55px;
-    background: url(../img/selectingdog.jpg) left top no-repeat;
-}
-.dog_btn:hover{
-	cursor: pointer;
-}
