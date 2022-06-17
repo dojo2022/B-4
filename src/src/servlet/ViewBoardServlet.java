@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BoardDao;
-import model.Board;
+import dao.BoardCDao;
+import model.BoardCExp;
 
 /**
  * Servlet implementation class ViewBoardServlet
@@ -41,14 +41,14 @@ public class ViewBoardServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
+		String id = request.getParameter("board_id");
 
 		// 検索処理を行う
-		BoardDao bDao = new BoardDao();
-		List<Board> cardList = bDao.select(new Board(id, "", "", "", "", ""));
+		BoardCDao bcDao = new BoardCDao();
+		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(id);
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
+		request.setAttribute("cardList", ret);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

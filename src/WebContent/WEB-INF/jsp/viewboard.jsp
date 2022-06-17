@@ -24,16 +24,19 @@
     <h1 class = "title">掲示板</h1>
     <br>
     <br>
+
     <!-- アイコン＆ユーザー名 -->
 
     <!-- タイトル -->
-
+     ${ret.title}
     <!-- 投稿内容 -->
 
     <!-- 保存ボタン -->
 
     <!-- コメント -->
-
+    <c:forEach var="e" items="${cardList}" >
+      <tr><td><button type = "submit" name = "board_id" value = "${e.id}">${e.title}</button></td></tr>
+    </c:forEach>
     <!-- コメント送信ボタン -->
 
     <!--戻るボタン--->
