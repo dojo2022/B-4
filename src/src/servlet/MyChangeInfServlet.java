@@ -42,7 +42,7 @@ public class MyChangeInfServlet extends HttpServlet {
 
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -59,48 +59,48 @@ public class MyChangeInfServlet extends HttpServlet {
 		FollowDao fDao = new FollowDao();
 //		if (request.getParameter("SUBMIT").equals("更新する")) {
 		boolean res = fDao.update(new MypageUser(icon, address,user_name, freespace,user_id));
-			if (res) {	// 更新成功
-				//データを取得するdaoを作成する
+		if (res) {	// 更新成功
+			//データを取得するdaoを作成する
 
-				List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
-				//取得したデータをリクエストスコープに格納
-				request.setAttribute("cardFollowList",cardFollowList);
+			List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
+			//取得したデータをリクエストスコープに格納
+			request.setAttribute("cardFollowList",cardFollowList);
 //				request.setAttribute("result",
 //				new Result("成功！","情報を更新しました。", "/dotchiha/MyPageServlet"));
 //
-			}
+		}
 //			else {												// 更新失敗
 //				request.setAttribute("result",
 //				new Result("失敗！","情報を更新できませんでした。","/dotchiha/MyPageServlet"));
 //			}
-			//データベースから下記のデータ（アイコン、都道府県、ユーザー名、freespace）をユーザーidを元に取得する
-			//データを取得するdaoを作成する
-			List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
-			//取得したデータをリクエストスコープに格納
-			request.setAttribute("cardFollowList",cardFollowList);
+		//データベースから下記のデータ（アイコン、都道府県、ユーザー名、freespace）をユーザーidを元に取得する
+		//データを取得するdaoを作成する
+		List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
+		//取得したデータをリクエストスコープに格納
+		request.setAttribute("cardFollowList",cardFollowList);
 
-			//タイトルを取得するdaoを作成する
-			List<TList> cardTList = fDao.select_posttitle("nekozuki75@gmail.com");
-			//取得したデータをリクエストスコープに追加格納する
-			request.setAttribute("cardTList",cardTList);
+		//タイトルを取得するdaoを作成する
+		List<TList> cardTList = fDao.select_posttitle("nekozuki75@gmail.com");
+		//取得したデータをリクエストスコープに追加格納する
+		request.setAttribute("cardTList",cardTList);
 
-			//follow数を取得するdaoを作成する
-			int follow_count = 0;
-			follow_count = fDao.select_follow("nekozuki75@gmail.com");
-			String follow_count_s = String.valueOf(follow_count);
-			//取得したデータをリクエストスコープに追加格納
-			request.setAttribute("follow_count",follow_count_s);
+		//follow数を取得するdaoを作成する
+		int follow_count = 0;
+		follow_count = fDao.select_follow("nekozuki75@gmail.com");
+		String follow_count_s = String.valueOf(follow_count);
+		//取得したデータをリクエストスコープに追加格納
+		request.setAttribute("follow_count",follow_count_s);
 
-			//followed数を取得するdaoを作成する
-			int followed_count = 0;
-			followed_count = fDao.select_followed("nekozuki75@gmail.com");
-			String followed_count_s = String.valueOf(followed_count);
-			//取得したデータをリクエストスコープに追加格納
-			request.setAttribute("followed_count",followed_count_s);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-			dispatcher.forward(request, response);
+		//followed数を取得するdaoを作成する
+		int followed_count = 0;
+		followed_count = fDao.select_followed("nekozuki75@gmail.com");
+		String followed_count_s = String.valueOf(followed_count);
+		//取得したデータをリクエストスコープに追加格納
+		request.setAttribute("followed_count",followed_count_s);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		dispatcher.forward(request, response);
 
-			}
+	}
 
 //	}
 }

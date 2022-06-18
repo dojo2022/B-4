@@ -82,7 +82,10 @@
 		<div class="bbox">
 			<form method="post" action="/dotchiha/UpdatePostServlet">
 				<c:forEach var="e" items="${cardTList}">
-					<li><input type="submit" name="post_id" value="${e.id}">${e.posttitle}</li>
+	<%--			cartTListにはidがないので取れない
+	 				<li><input type="submit" name="post_id" value="${e.id}">${e.title}</li>
+ --%>
+ 					<li><input type="submit" name="post_id">${e.title}</li>
 				</c:forEach>
 			</form>
 		</div>

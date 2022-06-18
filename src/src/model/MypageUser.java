@@ -9,12 +9,6 @@ public class MypageUser implements Serializable{
 	private String freespace; // フリースペース
 	private String user_id;
 
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setId(String user_id) {
-		this.user_id = user_id;
-	}
 	public MypageUser(String icon, String address, String user_name, String freespace) {
 		this.icon = icon;
 		this.address = address;
@@ -57,6 +51,12 @@ public class MypageUser implements Serializable{
 	}
 	public void setFreespace(String freespace) {
 		this.freespace = freespace;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 }
