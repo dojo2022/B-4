@@ -14,7 +14,7 @@ public class BoardDao {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<Board> select(Board param) {
 		Connection conn = null;
-		List<Board> cardList = new ArrayList<Board>();
+		List<Board> boardList = new ArrayList<Board>();
 
 		//id,user_id,title,text,date,dorc
 
@@ -58,16 +58,16 @@ public class BoardDao {
 				rs.getString("date"),
 				rs.getString("dorc")
 				);
-				cardList.add(card);
+				boardList.add(card);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			boardList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			boardList = null;
 		}
 		finally {
 			// データベースを切断
@@ -77,13 +77,13 @@ public class BoardDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					boardList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-			return cardList;
+			return boardList;
 	}
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 	public boolean insert(Board card) {

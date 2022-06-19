@@ -55,7 +55,7 @@ public class BoardPostServlet extends HttpServlet {
 //			return;
 //		}
 
-		//セッションIDを取得する
+		//セッションからユーザーIDを取得する
 		HttpSession session = request.getSession();
 		 String user_id = (String)session.getAttribute("user_id");
 
