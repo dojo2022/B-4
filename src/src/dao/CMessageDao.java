@@ -147,7 +147,7 @@ public class CMessageDao {
 		// SQL文を準備する
 
 		// ここでJOINを利用して2つのテーブルからデータを取得する。
-		String sql = "SELECT Cmessage.id, Cmessage.room_id, Cmessage.message, Cmessage.sender_id, User.user_name FROM Cmessage LEFT JOIN User ON Cmessage.sender_id = User.user_id WHERE Cmessage.room_id =? ORDER BY Cmessage.id ASC;";
+		String sql = "SELECT Cmessage.id, Cmessage.room_id, Cmessage.message, Cmessage.sender_id, User.user_name FROM Cmessage LEFT JOIN User ON Cmessage.sender_id = User.user_id WHERE Cmessage.room_id =? ORDER BY Cmessage.id ASC";
 		// プリペアードステートメントを生成（取得）する
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 

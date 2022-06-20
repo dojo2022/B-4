@@ -36,11 +36,24 @@ public class PrivateChatServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//必要なデータ
-		//
-		//
-		//
-		//
+//		request.setCharacterEncoding("UTF-8");
+//		String id = request.getParameter("ID");
+//
+//		// 登録処理を行う<ここを変える>
+//		CroomDao cDao = new CroomDao();
+//		if (cDao.insert(new Croom(id))) {	// 登録成功
+//			request.setAttribute("result",
+//			new Result());
+//		}
+//		else {											// 登録失敗
+//			request.setAttribute("result",
+//			new Result());
+//		}
+
+
+
+
+
 
 		//リクエストが来たらprivatechat.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/privatechat.jsp");

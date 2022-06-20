@@ -11,8 +11,7 @@ import java.util.List;
 import model.Croom;
 
 public class CroomDao {
-	//データベース接続に使用する情報
-	// 引数paramで検索項目を指定し、検索結果のリストを返す
+	//グループチャット一覧を表示する
 		public List<Croom> select() {
 			Connection conn = null;
 			List<Croom> roomList = new ArrayList<Croom>();
@@ -67,6 +66,7 @@ public class CroomDao {
 			return roomList;
 		}
 
+		//グループチャットルームを新しく作る
 		public boolean insert(Croom card) {
 			Connection conn = null;
 			boolean result = false;
@@ -123,6 +123,7 @@ public class CroomDao {
 			// 結果を返す
 			return result;
 		}
+
 
 
 }

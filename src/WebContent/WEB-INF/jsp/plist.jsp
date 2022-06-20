@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,12 +50,14 @@
 				<br>
 				<div id="plist">
 					<!-- フォローしている人の一覧表示 -->
+					<c:forEach var="e" items="${pList}">
 					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
-						<input type = "submit" name = "private" value = "猫の青山(user_nameにする)" class="button">
+						<input type = "submit" name = "private" value = "${e.user_name}" class="button">
 						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
 					  <br>
 					  <br>
 					</form>
+					</c:forEach>
 				</div>
 				<br>
 				<!--戻るボタン--->
