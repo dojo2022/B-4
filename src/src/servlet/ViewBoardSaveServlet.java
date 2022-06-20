@@ -8,10 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import dao.BoardCDao;
-import model.BoardC;
+import dao.BoardSDao;
+import model.BoardSave;
 
 /**
  * Servlet implementation class ViewBoardSaveServlet
@@ -49,16 +48,16 @@ public class ViewBoardSaveServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String comment = request.getParameter("comment");
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-		HttpSession session = request.getSession();
-		String sender_id = (String)session.getAttribute("user_id");
+//		HttpSession session = request.getSession();
+//		String sender_id = (String)session.getAttribute("user_id");
+		String sender_id = "ryouko-tanaka918.gmail.com";
 
 		// 登録処理を行う
-		BoardCDao bcDao = new BoardCDao();
-		bcDao.insert(new BoardC("",board_id,sender_id,comment,"")); // 登録成功
+		BoardSDao bsDao = new BoardSDao();
+		bsDao.insert(new BoardSave("",board_id,sender_id)); // 登録成功
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

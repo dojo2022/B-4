@@ -33,7 +33,9 @@
     <!-- 投稿内容 -->
     <p>${ret[0].text}</p>
     <!-- 保存ボタン -->
-
+    <form method="POST" action="/dotchiha/ViewBoardSaveServlet">
+    <input type="image" id="save_button" value ="${ret[0].board_id}" src="/dotchiha/img/save_button.png" alt="保存">
+    </form>
 
     <!-- コメント -->
     <table id="board_comment">
