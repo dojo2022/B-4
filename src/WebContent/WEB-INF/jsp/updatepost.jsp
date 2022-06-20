@@ -36,7 +36,7 @@
 					</label></td></tr>
 					<!-- コメント -->
 					<tr><td><label>
-						<textarea rows="4" cols="30" name="postcomment" value="${e.postcomment}"></textarea>
+						<textarea rows="4" cols="30" name="postcomment" >${e.postcomment}</textarea>
 					</label></td></tr>
 					<!-- 編集・削除 -->
 					<tr><td><label>
