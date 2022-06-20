@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BoardSDao;
 import model.BoardSave;
@@ -31,8 +32,7 @@ public class ViewBoardSaveServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -51,9 +51,8 @@ public class ViewBoardSaveServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
-//		String sender_id = (String)session.getAttribute("user_id");
-		String sender_id = "ryouko-tanaka918.gmail.com";
+		HttpSession session = request.getSession();
+		String sender_id = (String)session.getAttribute("user_id");
 
 		// 登録処理を行う
 		BoardSDao bsDao = new BoardSDao();
