@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BoardCDao;
 import model.BoardCExp;
@@ -62,8 +63,9 @@ public class ViewBoardServlet extends HttpServlet {
 		BoardCDao bcDao = new BoardCDao();
 		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(id);
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("ret", ret);
+		// 検索結果をセッションスコープに格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("ret", ret);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

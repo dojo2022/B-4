@@ -40,8 +40,13 @@ public class ViewBoardCommentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+//		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/dotchiha/LoginServlet");
+//			return;
+//		}
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String comment = request.getParameter("comment");
