@@ -29,9 +29,9 @@
     <!-- アイコン＆ユーザー名 -->
 
     <!-- タイトル -->
-    <!-- <h3>${ret.title}</h3> -->
+    <h3>${ret[0].title}</h3>
     <!-- 投稿内容 -->
-    <!-- <p>${ret.text}</p> -->
+    <p>${ret[0].text}</p>
     <!-- 保存ボタン -->
 
 
@@ -39,14 +39,15 @@
     <table id="board_comment">
     <c:forEach var="e" items="${ret}" >
       <tr id="comment"><td>${e.comment}</td></tr>
-      <tr id="comment_date"><td>${e.boardc_date}</td></tr>
+      <tr id="comment_date"><td>${e.date}</td></tr>
+      <tr id="sender_name"><td></td></tr>
     </c:forEach>
     </table>
     <!-- コメント送信ボタン -->
     <div id="board_comment">
       <form  method="POST" action="/dotchiha/ViewBoardCommentServlet">
         <textarea name="comment" id="comment_message"></textarea>
-        <button type="submit" name = "board_id" value = "${ret.board_id}" id="send_button">送信</button>
+        <button type="submit" name = "board_id" value = "${ret[0].board_id}" id="send_button">送信</button>
       </form>
       </div>
     <!--戻るボタン--->

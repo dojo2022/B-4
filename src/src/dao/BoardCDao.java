@@ -47,7 +47,7 @@ public class BoardCDao {
 				item.setUser_id(rs.getString("user_id"));
 				item.setTitle(rs.getString("title"));
 				item.setText(rs.getString("text"));
-				item.setDate(rs.getString("board_date"));
+				item.setBoard_date(rs.getString("board_date"));
 				item.setDorc(rs.getString("dorc"));
 				//BoardC関連のデータ
 				item.setId(rs.getString("boardc_id"));
@@ -91,7 +91,7 @@ public class BoardCDao {
 			//id,board_id,sender_id,comment,date
 
 			// SQL文を準備する
-			String sql = "INSERT into Board (board_id,sender_id,comment) values ( ?, ?, ?)";
+			String sql = "INSERT into BoardC (board_id,sender_id,comment) values ( ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
