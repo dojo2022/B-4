@@ -95,7 +95,7 @@
 		</div>
 		<br>
 		<div class="box">
-			<a href="/dotchiha/MySaveBoard">保存した掲示板</a>
+			<a href="/dotchiha/MySaveBoardSevlet">保存した掲示板</a>
 		</div>
 ​
 	</main>
