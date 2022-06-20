@@ -41,10 +41,10 @@ public class BoardListServlet extends HttpServlet {
 
     	// 検索処理を行う
 		BoardDao bDao = new BoardDao();
-		List<Board> cardList = bDao.select(new Board("", "", "", "", "",""));
+		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
+		request.setAttribute("boardList", boardList);
 
     	// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/boardlist.jsp");
@@ -66,10 +66,10 @@ public class BoardListServlet extends HttpServlet {
 
 		// 検索処理を行う
 		BoardDao bDao = new BoardDao();
-		List<Board> cardList = bDao.select(new Board("", "", "", "", "",dorc));
+		List<Board> boardList = bDao.select(new Board("", "", "", "", "",dorc));
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
+		request.setAttribute("boardList", boardList);
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/boardlist.jsp");

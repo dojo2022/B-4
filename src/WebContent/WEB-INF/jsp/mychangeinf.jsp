@@ -41,7 +41,8 @@
 	<!--メインここから-->
 	<main>
 		<h1 class = "title">情報の変更</h1>
-		<form method="POST" action="/dotchiha/MyChangeInfServlet" enctype="multipart/form-data">
+<!-- 		<form method="POST" action="/dotchiha/MyChangeInfServlet" enctype="multipart/form-data"> -->
+		<form method="POST" action="/dotchiha/MyChangeInfServlet">
 		<table>
 		<c:forEach var="e" items="${cardFollowList}" >
 						<!-- アイコン表示 -->
@@ -122,8 +123,8 @@
 				<tr><td><input type="submit" name="SUBMIT" value="更新する"></td></tr>
 											<!--戻るボタン--->
 				<tr><td><input class ="exit" type = "button" onclick ="history.back()" value="戻る"></td></tr>
-							</table>
-						</form>
+			</table>
+		</form>
 	</main>
 ​
 	<!--メインここまで-->

@@ -54,7 +54,7 @@
     <!-- 掲示板一覧表示 -->
     <form method="post" action="/dotchiha/ViewBoardServlet">
 	    <table id="board_list">
-	      <c:forEach var="e" items="${cardList}" >
+	      <c:forEach var="e" items="${boardList}" >
 	      <tr id="board_title"><td><button type = "submit" name = "board_id" value = "${e.id}">${e.title}</button></td></tr>
 	      </c:forEach>
 	    </table>

@@ -263,20 +263,30 @@ public class FollowDao {
 			// SQL文を完成させる
 			if (card.getIcon() != null && !card.getIcon().equals("")) {
 				pStmt.setString(1, card.getIcon());
+			}else {
+				pStmt.setString(1, "%");
 			}
 			if (card.getAddress() != null && !card.getAddress().equals("")) {
 				pStmt.setString(2, card.getAddress());
+			}else {
+				pStmt.setString(2, "%");
 			}
 
 			if (card.getUser_name() != null && !card.getUser_name().equals("")) {
 				pStmt.setString(3, card.getUser_name());
+			}else {
+				pStmt.setString(3, "%");
 			}
 
 			if (card.getFreespace() != null && !card.getFreespace().equals("")) {
 				pStmt.setString(4, card.getFreespace());
+			}else {
+				pStmt.setString(4, "%");
 			}
 			if (card.getUser_id() != null && !card.getUser_id().equals("")) {
 				pStmt.setString(5, card.getUser_id());
+			}else {
+				pStmt.setString(5, "%");
 			}
 
 			// SQL文を実行する
