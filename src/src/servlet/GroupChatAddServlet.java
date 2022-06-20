@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CMessageDao;
 import model.CMessage;
+import model.CSenderName;
 
 /**
  * Servlet implementation class GroupChatAdd
@@ -39,28 +40,18 @@ public class GroupChatAddServlet extends HttpServlet {
 		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
 		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
 		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
-//		String date = request.getParameter("date");//送信日付
-//		String time = request.getParameter("time");//送信時刻
 
 		// 登録処理を行う<ここを変える>
 		CMessageDao cmDao = new CMessageDao();
 		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
-		List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Cmessageテーブルの検索結果をリクエストスコープに格納する
+		List<CSenderName> messageList = cmDao.select_username(room_id);//selectでCmessageDaoのselect内容を実行できる。それをlistに格納している
+		//検索結果をsessionスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
-		//CMessageDao cmDao = new CMessageDao();//newの後はCroomDaoのpublicクラスを実体化したもの
-		//List<CMessage> messageList = cmDao.select(room_id);//selectでCmessageDao.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-		//Cmessageテーブルの検索結果をリクエストスコープに格納する
-		//request.setAttribute("messageList", messageList);
-
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/groupchat.jsp");
 		dispatcher.forward(request, response);
-
-
-
 
 	}
 
