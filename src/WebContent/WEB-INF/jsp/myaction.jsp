@@ -41,7 +41,8 @@
 	<main>
 			<h1 class = "title">リアクションした投稿</h1>
 			<c:forEach var="f" items="${cardPostR}" >
-			${f.posttitle}
+			${f.posttitle}<br>
+
 
 			</c:forEach>
 											<!--戻るボタン--->
