@@ -15,7 +15,7 @@ public class BoardSDao {
 
 	   //DBからリアクションした投稿のデータを取得
 		// 引数board_idで検索項目を指定し、検索結果のリストを返す
-	public List<BoardS> select_board_id(String Board_title) {
+	public List<BoardS> select_board_id(String sender_id) {
 		Connection conn = null;
 		List<BoardS> cardBoardS= new ArrayList<BoardS>();
 
@@ -31,13 +31,14 @@ public class BoardSDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1, Board_title);
+			pStmt.setString(1, sender_id);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
 				BoardS card = new BoardS(
+				rs.getString("Board_id"),
 				rs.getString("Board_title"),
 				rs.getString("sender_id")
 				);

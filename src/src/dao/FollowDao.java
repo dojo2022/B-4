@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Follow;
 import model.MypageUser;
 import model.TList;
 
@@ -316,6 +317,62 @@ public class FollowDao {
 		// 結果を返す
 		return result;
 	}
+
+
+	//plistの一覧表示
+	public List<Follow> select_plist() {
+	Connection conn = null;
+	List<Follow> pList = new ArrayList<Follow>();
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+		// SQL文を準備する<ここ変える>全て取り出して、WHEREのところは検索する項目にする
+		String sql = "SELECT Followed_id, User.user_name \r\n"
+				+ "FROM ((SELECT  followed_id FROM FOLLOW  where follow_id = 'nekozuki75@gmail.com') intersect\r\n"
+				+ "(SELECT  follow_id FROM FOLLOW  where followed_id = 'nekozuki75@gmail.com')) LEFT JOIN User ON Followed_id = User.user_id";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		// 結果表をコレクションにコピーする <ここ変える>全ての列にする
+		while (rs.next()) {
+			Follow card = new Follow(
+			rs.getString("followed_id"),
+			rs.getString("user_name")
+			);
+			pList.add(card);
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		pList = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		pList = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				pList = null;
+			}
+		}
+	}
+
+	// 結果を返す
+	return pList;
+}
 
 }
 

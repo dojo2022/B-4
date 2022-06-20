@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.FollowDao;
 import model.MypageUser;
-import model.TList;
+import model.Post;
 
 /**
  * Servlet implementation class MyPageServlet
@@ -47,9 +47,9 @@ public class MyPageServlet extends HttpServlet {
 		request.setAttribute("cardFollowList",cardFollowList);
 
 		//タイトルを取得するdaoを作成する
-		List<TList> cardTList = fDao.select_posttitle("nekozuki75@gmail.com");
+		List<Post> cardPost = fDao.select_posttitle("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに追加格納する
-		request.setAttribute("cardTList",cardTList);
+		request.setAttribute("cardPost",cardPost);
 
 		//follow数を取得するdaoを作成する
 		int follow_count = 0;

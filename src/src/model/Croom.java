@@ -12,6 +12,11 @@ public class Croom implements Serializable {
 			this.room_name = room_name;
 		}
 
+		public Croom(String id) {
+			super();
+			this.id = id;
+		}
+
 		//引数がないコンストラクタ（デフォルトコンストラクタ）
 		public Croom() {
 			super();

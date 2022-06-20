@@ -20,11 +20,6 @@ public class CMessage implements Serializable {
 			this.time = time;
 		}
 
-		public CMessage( String room_id, String message) {
-			super();
-			this.room_id = room_id;
-			this.message = message;
-		}
 		public CMessage( String id,String room_id, String message, String sender_id) {
 			super();
 			this.id =id;

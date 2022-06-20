@@ -52,11 +52,13 @@
 					<!-- メッセージ1（左側） -->
 					<div class="gms_message gms_left">
 					<c:forEach var="e" items="${messageList}" >
-					<div class="gms_message_senderl">${e.sender_id}</div>
+
+					<div class="gms_message_senderl">${e.user_name}</div>
 						<div class="gms_message_box">
 								<div class="gms_message_text">${e.message}</div>
 							</div>
 					</c:forEach>
+
 					</div>
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 

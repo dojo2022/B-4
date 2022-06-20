@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
 					<!-- <button class ="exit" type = "button" onclick ="history.back()">←</button> -->
 					</div>
 					<!-- ユーザー名 -->
-					<div id="pms_chat_user_name">ユーザー</div>
+					<div id="pms_chat_user_name"></div>
 				</div>
 			</div>
 
@@ -63,12 +64,12 @@
 					<div class="pms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
 					<!-- メッセージ2（右側） -->
-					<div class="pms_message pms_right">
-						<div class="pms_message_box">
-								<div class="pms_message_text">よろしくお願いします。</div>
-						</div>
-					</div>
-					<div class="pms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+					<!-- <div class="pms_message pms_right"> -->
+					<!-- <div class="pms_message_box"> -->
+					<!-- <div class="pms_message_text">よろしくお願いします。</div> -->
+					<!-- </div> -->
+					<!-- </div> -->
+					<!-- <div class="pms_clear"></div> --><!-- 回り込みを解除（スタイルはcssで充てる） -->
 			</div>
 
 			<!-- テキストボックス、送信ボタン -->

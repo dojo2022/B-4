@@ -5,25 +5,24 @@ public class CMember implements Serializable {
 		private String id;	// ID
 		private String room_id;	// ルームID
 		private String user_id;	// ユーザーID
+		private String user_name;//ユーザー名
 
-		//引数があるコンストラクタ
-		public CMember(String id, String room_id, String user_id) {
+		public CMember(String id, String room_id, String user_id, String user_name) {
 			super();
 			this.id = id;
 			this.room_id = room_id;
 			this.user_id = user_id;
+			this.user_name = user_name;
 		}
 
-		//引数がないコンストラクタ
 		public CMember() {
 			super();
 			this.id = "";
 			this.room_id = "";
 			this.user_id = "";
+			this.user_name = "";
 		}
 
-
-		//ゲッターとセッター
 		public String getId() {
 			return id;
 		}
@@ -46,6 +45,14 @@ public class CMember implements Serializable {
 
 		public void setUser_id(String user_id) {
 			this.user_id = user_id;
+		}
+
+		public String getUser_name() {
+			return user_name;
+		}
+
+		public void setUser_name(String user_name) {
+			this.user_name = user_name;
 		}
 
 

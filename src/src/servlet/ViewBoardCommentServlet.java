@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardCDao;
 import model.BoardC;
+import model.BoardCExp;
 
 /**
  * Servlet implementation class ViewBoardCommentServlet
@@ -53,12 +55,21 @@ public class ViewBoardCommentServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-		HttpSession session = request.getSession();
-		String sender_id = (String)session.getAttribute("user_id");
+//		HttpSession session = request.getSession();
+//		String sender_id = (String)session.getAttribute("user_id");
+		String sender_id = "nekoinu1122@gmail.com";
 
 		// 登録処理を行う
 		BoardCDao bcDao = new BoardCDao();
 		bcDao.insert(new BoardC("",board_id,sender_id,comment,"")); // 登録成功
+
+
+		// 検索処理を行う
+		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(board_id);
+
+		// 検索結果をセッションスコープに格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("ret", ret);
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

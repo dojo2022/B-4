@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,20 +42,22 @@
 		<h1 class = "title">個人チャット</h1>
 				<br>
 				<br>
-				<form>
+				<form method="GET" action="/dotchiha/PCreateServlet">
 					<input type = "submit" name = "pstart" value = "会話を始める" class="button">
 					<!-- onsubmitで相互フォローの人の一覧表示 script? -->
 				</form>
 				<br>
 				<br>
 				<div id="plist">
-					<!-- フォローしている人の一覧表示 -->
+					<!-- 会話している人の一覧表示 -->
+
 					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
-						<input type = "submit" name = "private" value = "猫の青山(user_nameにする)" class="button">
+						<input type = "submit" name = "private" value = "猫の青山" class="button">
 						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
 					  <br>
 					  <br>
 					</form>
+
 				</div>
 				<br>
 				<!--戻るボタン--->
@@ -62,7 +65,6 @@
 							<input type = "submit" name = "tolist" value = "戻る">
 							<!-- onsubmitでglist.jspへ飛ぶ -->
 						</form>
-				<!-- <button class ="exit" type = "button" onclick ="history.back()">戻る</button> -->
 	</main>
 
 	<!--メインここまで-->

@@ -22,6 +22,12 @@ public class Post implements Serializable{
 		this.postcomment = postcomment;
 		this.date = date;
 	}
+	public Post(String posttitle) {
+		super();
+
+		this.posttitle = posttitle;
+
+	}
 
 	//引数のないコンストラクタ
 	public Post() {

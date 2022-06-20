@@ -41,7 +41,7 @@
 	<main>
 			<h1 class = "title">リアクションした投稿</h1>
 			<c:forEach var="f" items="${cardPostR}" >
-			${f.posttitle}<br>
+			<img src="${'f.image'+=image}" id="gazo"><br>
 
 
 			</c:forEach>

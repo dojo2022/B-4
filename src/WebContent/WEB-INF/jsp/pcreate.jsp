@@ -2,15 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/mypage.css">
+<link rel="stylesheet" href="/dotchiha/css/chat.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -41,66 +39,25 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h1 class = "title">マイページ</h1>
-		<br>
-		<br>
-
-		<c:forEach var="e" items="${cardFollowList}" >
-
-			<img src="./img/${e.icon}" alt="アイコン" name="icon" class="icon"><br>
-
-
-			<p>📍${e.address}</p><br>
-			<p class="uname"><strong>${e.user_name}</strong></p>
-			<br><br>
-		</c:forEach>
-		<div class="fbox">
-			フォロー数 ${follow_count}
-		</div>
-		<br>
-		<div class="fbox">
-			フォロワー数 ${followed_count}
-		</div>
-		<c:forEach var="e" items="${cardFollowList}" >​
-			<form class="box">
-				${e.freespace}
-			</form>
-		</c:forEach>
-​		<br>
-		<form method="get" action="/dotchiha/MyChangeInfServlet">
-			<button type="submit" name="MCI" value="nekozuki75@gmail.com">情報の変更</button>
-​		</form>
-
-		<h3>投稿タイトル一覧</h3>
-<%-- 		<div class="bbox">
-			<ul>
-				<c:forEach var="e" items="${cardTList}" >
-					<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
-				</c:forEach>
-			</ul>
-		</div> --%>
-		<div class="bbox">
-			<form method="post" action="/dotchiha/UpdatePostServlet">
-				<c:forEach var="e" items="${cardPost}">
-	<%--			cartTListにはidがないので取れない
-	 				<li><input type="submit" name="post_id" value="${e.id}">${e.title}</li>
- --%>
- 					<li>${e.posttitle}<input type="submit" name="" value="編集する"></li>
- 					<input type="hidden" name="posttitle" value="${e.posttitle}">
-				</c:forEach>
-			</form>
-		</div>
-​
-		<div class="box">
-			<a href="/dotchiha/MyActionServlet">リアクションした投稿</a>
-		</div>
-		<br>
-		<div class="box">
-			<a href="/dotchiha/MySaveBoardServlet">保存した掲示板</a>
-		</div>
-​
+		<h1 class = "title">個人チャット</h1>
+				<br>
+				<br>
+				<p>会話をする人を選んでください</p>
+				<div id="plist">
+				<c:forEach var="e" items="${pList}">
+				<form method="POST" action="/dotchiha/PCreateServlet" id="cselect2">
+						<input type = "submit" name = "private" value = "${e.user_name}" class="button">
+					  <br>
+					  <br>
+					</form>
+					</c:forEach>
+					</div>
+				<br>
+				<br>
+				<!--戻るボタン--->
+				<button class ="exit" type = "button" onclick ="history.back()">やめる</button>
 	</main>
-​
+
 	<!--メインここまで-->
 	<!--フッターここから-->
 	  <div id="footer">
