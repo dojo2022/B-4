@@ -1,7 +1,5 @@
 package dao;
 
-//import model.CMember;
-
 public class CMemberDao {
 //
 //	public List<CMember> select(){

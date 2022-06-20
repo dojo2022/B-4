@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,10 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import dao.FollowDao;
-import model.Follow;
 
 /**
  * Servlet implementation class PListServlet
@@ -38,10 +33,9 @@ public class PListServlet extends HttpServlet {
 		//フォローしている人のデータをセッションスコープに格納
 		//データ：相互フォローのIDをselectする→ユーザー名になおす？（テーブル結合）
 
-		FollowDao fDao = new FollowDao();
-		List<Follow> pList = fDao.select_plist();
-		HttpSession session = request.getSession();
-		session.setAttribute("pList", pList);
+
+
+
 
 
 		//リクエストが来たらplist.jspを表示する（フォワード）

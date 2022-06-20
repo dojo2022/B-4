@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,29 +42,20 @@
 		<h1 class = "title">個人チャット</h1>
 				<br>
 				<br>
-				<form method="GET" action="/dotchiha/PCreateServlet">
-					<input type = "submit" name = "pstart" value = "会話を始める" class="button">
-					<!-- onsubmitで相互フォローの人の一覧表示 script? -->
-				</form>
-				<br>
-				<br>
+				<p>会話をする人を選んでください</p>
 				<div id="plist">
-					<!-- 会話している人の一覧表示 -->
-
-					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
-						<input type = "submit" name = "private" value = "猫の青山" class="button">
-						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
+				<c:forEach var="e" items="${pList}">
+				<form method="POST" action="/dotchiha/PCreateServlet" id="cselect2">
+						<input type = "submit" name = "private" value = "${e.user_name}" class="button">
 					  <br>
 					  <br>
 					</form>
-
-				</div>
+					</c:forEach>
+					</div>
+				<br>
 				<br>
 				<!--戻るボタン--->
-				<form method="GET" action="/dotchiha/CSelectServlet">
-							<input type = "submit" name = "tolist" value = "戻る">
-							<!-- onsubmitでglist.jspへ飛ぶ -->
-						</form>
+				<button class ="exit" type = "button" onclick ="history.back()">やめる</button>
 	</main>
 
 	<!--メインここまで-->
