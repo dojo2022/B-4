@@ -47,7 +47,7 @@
 
 		<c:forEach var="e" items="${cardFollowList}" >
 
-			<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
+			<img src="./img/${e.icon}" alt="アイコン" name="icon" class="icon"><br>
 
 
 			<p>📍${e.address}</p><br>
@@ -81,11 +81,12 @@
 		</div> --%>
 		<div class="bbox">
 			<form method="post" action="/dotchiha/UpdatePostServlet">
-				<c:forEach var="e" items="${cardTList}">
+				<c:forEach var="e" items="${cardPost}">
 	<%--			cartTListにはidがないので取れない
 	 				<li><input type="submit" name="post_id" value="${e.id}">${e.title}</li>
  --%>
- 					<li><input type="submit" name="post_id">${e.title}</li>
+ 					<li>${e.posttitle}<input type="submit" name="" value="編集する"></li>
+ 					<input type="hidden" name="posttitle" value="${e.posttitle}">
 				</c:forEach>
 			</form>
 		</div>
@@ -95,7 +96,7 @@
 		</div>
 		<br>
 		<div class="box">
-			<a href="/dotchiha/MySaveBoardSevlet">保存した掲示板</a>
+			<a href="/dotchiha/MySaveBoardServlet">保存した掲示板</a>
 		</div>
 ​
 	</main>

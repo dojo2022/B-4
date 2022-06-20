@@ -2,42 +2,55 @@ package model;
 import java.io.Serializable;
 
 public class MCI implements Serializable {
-		private String title;		// タイトル
-		private String message;	// メッセージ
-		private String backTo;		// 戻り先
+		private String icon;		// iconのimage
+		private String user_name;	   // ユーザー名
+		private String address;		// 住所
+		private String freespace;     //一言コメント
+
+		public MCI(String icon, String user_name,String address,String freespace) {
+			this.icon = icon;
+			this.user_name = user_name;
+			this.address = address;
+			this.freespace = freespace;
+		}
 
 		public MCI() {
-			this(null, null, null);
+			this.icon = "";
+			this.user_name = "";
+			this.address = "";
+			this.freespace = "";
 		}
 
-		public MCI(String title, String message,String backTo) {
-			this.title = title;
-			this.message = message;
-			this.backTo = backTo;
+		public String getIcon() {
+			return icon;
 		}
 
-		public String getTitle() {
-			return title;
+		public void setIcon(String icon) {
+			this.icon = icon;
 		}
 
-		public void setTitle(String title) {
-			this.title = title;
+		public String getUser_name() {
+			return user_name;
 		}
 
-		public String getMessage() {
-			return message;
+		public void setUser_name(String user_name) {
+			this.user_name = user_name;
 		}
 
-		public void setMessage(String message) {
-			this.message = message;
+		public String getAddress() {
+			return address;
 		}
 
-
-		public String getBackTo() {
-			return backTo;
+		public void setAddress(String address) {
+			this.address = address;
 		}
 
-		public void setBackTo(String backTo) {
-			this.backTo = backTo;
+		public String getFreespace() {
+			return freespace;
 		}
+
+		public void setFreespace(String freespace) {
+			this.freespace = freespace;
+		}
+
 }

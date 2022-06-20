@@ -3,25 +3,38 @@ package model;
 import java.io.Serializable;
 
 public class PostR implements Serializable{
-	private String posttitle;
-	private String sender_id;
+	private String post_id;    //お気に入り投稿のid
+	private String image;      //お気に入り投稿の画像
+	private String sender_id;  //お気に入りした人のuser_id(sender_id)
 
-	public PostR(String posttitle,String sender_id) {
-		this.posttitle = posttitle;     //リアクションした投稿のtitle
-		this.sender_id = sender_id; //リアクションしたユーザーのid
+	public PostR(String post_id,String image,String sender_id) {
+		this.post_id = post_id;
+		this.image = image;
+		this.sender_id = sender_id;
 	}
 
 	public PostR() {
-		this.posttitle="";
+		this.post_id ="";
+		this.image="";
 		this.sender_id="";
 	}
 
-	public String getPosttitle() {
-		return posttitle;
+
+
+	public String getPost_id() {
+		return post_id;
 	}
 
-	public void setPosttitle(String posttitle) {
-		this.posttitle = posttitle;
+	public void setPost_id(String post_id) {
+		this.post_id = post_id;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getSender_id() {

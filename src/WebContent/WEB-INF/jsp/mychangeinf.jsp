@@ -61,7 +61,7 @@
 				<tr><td><label>
 					住所
 					<select size="1" name="address">
-					<option value ="ad00">選択なし</option>
+					<option value ="ad00"<c:if test="${cardFollowList.get(0).address == ''}"></c:if>>選択されていません</option>
 					<option value ="ad01"<c:if test="${cardFollowList.get(0).address == '北海道'}">selected</c:if>>北海道</option>
 					<option value ="ad02"<c:if test="${cardFollowList.get(0).address == '青森県'}">selected</c:if>>青森県</option>
 					<option value ="ad03"<c:if test="${cardFollowList.get(0).address == '岩手県'}">selected</c:if>>岩手県</option>

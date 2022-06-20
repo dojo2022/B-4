@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.FollowDao;
 import model.MypageUser;
-import model.TList;
+import model.Post;
 
 /**
  * Servlet implementation class MyChangeInfServlet
@@ -73,25 +73,25 @@ public class MyChangeInfServlet extends HttpServlet {
 //				request.setAttribute("result",
 //				new Result("失敗！","情報を更新できませんでした。","/dotchiha/MyPageServlet"));
 //			}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 			//データベースから下記のデータ（アイコン、都道府県、ユーザー名、freespace）をユーザーidを元に取得する
 			//データを取得するdaoを作成する
-			List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
+//			List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
 			//取得したデータをリクエストスコープに格納
-			request.setAttribute("cardFollowList",cardFollowList);
-=======
+//			request.setAttribute("cardFollowList",cardFollowList);
+//=======
 		//データベースから下記のデータ（アイコン、都道府県、ユーザー名、freespace）をユーザーidを元に取得する
 		//データを取得するdaoを作成する
 		List<MypageUser> cardFollowList = fDao.select_user("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに格納
 		request.setAttribute("cardFollowList",cardFollowList);
->>>>>>> b6887840348e6b0abb3061c307dd345a94e1a3b6
+//>>>>>>> b6887840348e6b0abb3061c307dd345a94e1a3b6
 
 		//タイトルを取得するdaoを作成する
-		List<TList> cardTList = fDao.select_posttitle("nekozuki75@gmail.com");
+		List<Post> cardPost = fDao.select_posttitle("nekozuki75@gmail.com");
 		//取得したデータをリクエストスコープに追加格納する
-		request.setAttribute("cardTList",cardTList);
+		request.setAttribute("cardPost",cardPost);
 
 		//follow数を取得するdaoを作成する
 		int follow_count = 0;
