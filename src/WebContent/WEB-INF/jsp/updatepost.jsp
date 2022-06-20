@@ -26,8 +26,7 @@
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
-						画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
-						<canvas id="preview" style="max-width:200px;"></canvas><br>
+						<img src="${'/dotchiha/image/'+=image}" id="gazo">
 					</label></td></tr>
 					<!-- 犬猫のラジオボタン -->
 					<tr><td><label>
