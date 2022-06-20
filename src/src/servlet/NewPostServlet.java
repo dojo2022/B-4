@@ -43,21 +43,7 @@ public class NewPostServlet extends HttpServlet {
 		String image = this.getFileName(image_S);
 		String cord = request.getParameter("cord");
 		String postcomment = request.getParameter("postcomment");
-//		if(cord == "dog") {
-//			cord="1";
-//
-//		}else {
-//			cord="0";
-//		}
-//		int code_i = Integer.parseInt(cord);
 		String user_id = "test@gmail.com";
-//		int cord = Integer.parseInt(request.getParameter("cord"));
-//		String cordStr = this.getParameter("cord", request);
-//		//犬猫の選択をif文で0.1表示を行う
-//		if(cordStr.equals("cat")) {
-//
-//		}
-//		int cord = Integer.parseInt(cordStr);
 
 		//画像のアップロード処理
 		request.setAttribute("image", image);
@@ -77,37 +63,6 @@ public class NewPostServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
 	}
-
-//	private String getParameter(String key,HttpServletRequest request) {
-//		Collection<Part> parts = null;
-//		try {
-//			parts = request.getParts();
-//		} catch (IOException | ServletException e1) {
-//			// TODO 自動生成された catch ブロック
-//			e1.printStackTrace();
-//		}
-//
-//    	String ret = null;
-//    	for(Part part : parts) {
-//    		System.out.println("name:" + part.getName());
-//        	if(part.getName() != key) {
-//        		continue;
-//        	}
-//
-//            String contentType = part.getContentType();
-//            log("contentType:" + contentType);
-//            if ( contentType == null) {
-//                try(InputStream inputStream = part.getInputStream()) {
-//                    BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream));
-//                    ret = bufReader.lines().collect(Collectors.joining());
-//
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//    	}
-//        return ret;
-//	}
 
 	//getFileName処理
 	//ファイルの名前を取得する
