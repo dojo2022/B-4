@@ -34,10 +34,11 @@
 		<a href="/dotchiha/NewRegisterServlet">新規アカウント登録</a>
 		<!-- フッター -->
 		<div id="footer">
+
 			 <footer>
-				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+				<p class="footer">&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 			 </footer>
-		</div>
+</div>
 	</div>
 </body>
 </html>
