@@ -6,15 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
-<link rel="stylesheet" href="/dotchiha/css/common.css">
-<!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/mypage.css">
 
 <!--Bootstrapの適用-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 <!--スマホ対応適用Bootstrap-->
 <meta name="viewport" content="initial-scale=1" />
+
+<!-- 共通のCSSの適用 -->
+<link rel="stylesheet" href="/dotchiha/css/common.css">
+<!-- 自分のスタイルシート -->
+<link rel="stylesheet" href="/dotchiha/css/mypage.css">
+
 
 </head>
 <body>
@@ -85,11 +88,11 @@
 							<img src="${'f.image'+=image}" id="gazo">
 											</c:forEach>
 											-->
-<br>
+
 
 
 											<!--戻るボタン--->
-								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
+								<button class ="exit" type = "button" onclick ="history.back()" class="back">戻る</button>
 ​
 	</main>
 </div>

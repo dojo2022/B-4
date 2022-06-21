@@ -22,7 +22,7 @@
     border: #000000 1px solid; /*境界線の指定*/
     padding:10px;
     width: fit-content;
-
+	float:center;
 }
 
 
@@ -31,6 +31,7 @@
 	padding:10px;
 	width: 200px;
 	text-align:center;
+	float:center;
 }
 .box p {
 	margin-left: auto;
@@ -52,5 +53,9 @@
     margin-right: 10;
   	margin:0;
   	padding:0;
+}
+
+.back{
+	text-align:center;
 }
 
