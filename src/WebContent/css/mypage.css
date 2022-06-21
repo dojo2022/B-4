@@ -14,8 +14,8 @@
 .uname{
 	float:right;
 	align-items:flex-start;
-	position:relative;
-	left:180px;
+
+
 }
 /*投稿一覧、お気に入り投稿、保存した掲示板一覧のボックス指定*/
 .bbox {
