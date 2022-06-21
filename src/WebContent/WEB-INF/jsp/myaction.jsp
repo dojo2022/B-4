@@ -82,6 +82,7 @@
 				</div>
 
 			</div>
+			<br>
 			<!-- 画像は引っ張れるのか？？？ダミーデータで実行中 -->
 			<!--
 							<c:forEach var="f" items="${cardPostR}" >
