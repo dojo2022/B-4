@@ -27,8 +27,6 @@
 		<form method="POST" action="/dotchiha/CorDSelectServlet">
 			<input type="hidden" name="FEELING" value="0">
 			<input type="image"  src="img/selectingcat.png" alt="猫選択" >
-
-			<!--  <input type="submit" class="cat_btn">-->
 		</form>
 		<form method="POST" action="/dotchiha/CorDSelectServlet">
 			<input type="hidden" name="FEELING" value="1">
