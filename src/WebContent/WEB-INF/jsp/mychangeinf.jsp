@@ -123,9 +123,13 @@
 
 
 											<!-- 更新する -->
-				<tr><td><input type="submit" name="SUBMIT" value="更新する" class="back"></td></tr>
+				<tr><td>
+				<div  class="back"><input type="submit" name="SUBMIT" value="更新する"></div>
+				</td></tr>
 											<!--戻るボタン--->
-				<tr><td><input class ="exit" type = "button" onclick ="history.back()" value="戻る" class="back"></td></tr>
+				<tr><td>
+				<div  class="back"><input class ="exit" type = "button" onclick ="history.back()" value="戻る"></div>
+				</td></tr>
 			</table>
 		</form>
 	</main>
