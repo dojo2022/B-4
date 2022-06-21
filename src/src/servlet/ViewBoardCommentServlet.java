@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardCDao;
 import model.BoardC;
-import model.BoardCExp;
+import model.BoardCUser;
 
 /**
  * Servlet implementation class ViewBoardCommentServlet
@@ -34,8 +34,7 @@ public class ViewBoardCommentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -55,9 +54,9 @@ public class ViewBoardCommentServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
-//		String sender_id = (String)session.getAttribute("user_id");
-		String sender_id = "nekoinu1122@gmail.com";
+		HttpSession session = request.getSession();
+		String sender_id = (String)session.getAttribute("user_id");
+//		String sender_id = "nekoinu1122@gmail.com";
 
 		// 登録処理を行う
 		BoardCDao bcDao = new BoardCDao();
@@ -65,11 +64,11 @@ public class ViewBoardCommentServlet extends HttpServlet {
 
 
 		// 検索処理を行う
-		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(board_id);
+		List<BoardCUser> commentList = bcDao.select_username(board_id);
 
 		// 検索結果をセッションスコープに格納する
-		HttpSession session = request.getSession();
-		session.setAttribute("ret", ret);
+//		HttpSession session = request.getSession();
+		session.setAttribute("commentList", commentList);
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

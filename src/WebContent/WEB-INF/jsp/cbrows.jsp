@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String feeling = (String)request.getAttribute("feeling"); %>
 <!doctype html>
 <html>
 
@@ -40,6 +42,11 @@
 
 	<!--メインここから-->
 	<main>
+	<% out.println(feeling); %>
+	<form method="get" action="/dotchiha/CorDBrowsServlet" class="search_container">
+  <input type="text" size="25" placeholder="　キーワード検索">
+  <input type="submit" value="検索">
+</form>
 	<div id="test"></div>
 	<!-- 仮組、後でjavascriptで記述する  -->
 		<table>
@@ -60,6 +67,21 @@
 				<td><a href="//Servret"><img src="img/4835109188_725430edf5.jpg" alt="投稿画像" class="brows_img"></a></td>
 			</tr>
 		</table>
+		<div id="postimage" >投稿一覧</div>
+		<hr>
+<c:forEach var="e" items="${postList}" >
+	<form method="POST" action="/simpleBC/CorDBrowsServlet">
+	<input type="text" name="ID" value="${e.id}"><br>
+	<input type="text" name="USERID" value="${e.user_id}"><br>
+	<input type="text" name="POSTTITLE" value="${e.posttitle}"><br>
+	名前<input type="text" name="NAME" value="${e.image}"><br>
+	<input type="text" name="CORD" value="${e.cord}"><br>
+	<input type="text" name="POSTCOMMENT" value="${e.postcomment}"><br>
+	<input type="text" name="DATE" value="${e.date}"><br>
+	<input type="submit" name="SUBMIT" value="削除"><br>
+	</form>
+	<hr>
+</c:forEach>
 	</main>
 
 	<!--メインここまで-->
@@ -72,7 +94,17 @@
 	<!--フッターここまで-->
 	<!-- javascriptここから-->
 	<script>
-	document.getElementById('test').innerHTML= sfeeling;
+	'use strict';
+	int LR = 0;
+	// HTML文変数宣言
+	let postimageHTML = '';
+
+	//HTML文生成
+
+	postimageHTML = 'あ';
+
+	// HTML文代入
+	document.getElementById('postimage').innerHTML= postimageHTML;
 	</script>
 	<script src ="/dotchiha/js/common.js"></script>
 	<!-- javascriptここまで -->

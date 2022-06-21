@@ -26,7 +26,12 @@ public class Post implements Serializable{
 		super();
 
 		this.posttitle = posttitle;
+	}
 
+	public Post(String id, String image) {
+		super();
+		this.id = id;
+		this.image = image;
 	}
 
 	//引数のないコンストラクタ
