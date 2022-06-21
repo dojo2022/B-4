@@ -52,9 +52,9 @@ public class PCreateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String id = request.getParameter("ID");
-			String user_name = request.getParameter("user_name");//テキストエリアのnameと小文字など書き方をそろえる
+//			request.setCharacterEncoding("UTF-8");
+//			String id = request.getParameter("ID");
+//			String user_name = request.getParameter("user_name");//テキストエリアのnameと小文字など書き方をそろえる
 
 //		// 登録処理を行う<ここを変える>
 //			CroomDao cDao = new CroomDao();
@@ -66,10 +66,10 @@ public class PCreateServlet extends HttpServlet {
 //				request.setAttribute("result",
 //				new Result());
 //			}
-
-		// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cselect.jsp");
-			dispatcher.forward(request, response);
+//
+//		// 結果ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cselect.jsp");
+//			dispatcher.forward(request, response);
 
 	}
 

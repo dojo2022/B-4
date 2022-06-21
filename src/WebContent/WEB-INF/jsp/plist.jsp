@@ -50,9 +50,10 @@
 				<br>
 				<div id="plist">
 					<!-- 会話している人の一覧表示 -->
-				  <c:forEach var="e" items="${pmemberList}">
+				  <c:forEach var="e" items="${pmList}">
 					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
-						<input type = "submit" name = "room_id" value = "${e.id}" class="button">
+						<input type = "submit" name = "user_name" value = "${e.user_name}" class="button">
+						<input type = "hidden" name="room_id" value="${e.room_id}">
 						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
 					  <br>
 					  <br>
