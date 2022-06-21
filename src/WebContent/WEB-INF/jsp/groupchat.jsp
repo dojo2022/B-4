@@ -51,14 +51,13 @@
 			<div id="gms_messages">
 					<!-- メッセージ1（左側） -->
 					<div class="gms_message gms_left">
-					<c:forEach var="e" items="${messageList}" >
+						<c:forEach var="e" items="${messageList}" >
 
-					<div class="gms_message_senderl">${e.user_name}</div>
-						<div class="gms_message_box">
+							<div class="gms_message_senderl">${e.user_name}</div>
+							<div class="gms_message_box">
 								<div class="gms_message_text">${e.message}</div>
 							</div>
-					</c:forEach>
-
+						</c:forEach>
 					</div>
 					<div class="gms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
@@ -78,8 +77,7 @@
 			<form  method="POST" action="/dotchiha/GroupChatAddServlet">
 				<textarea name="message" id="gms_send_message"></textarea>
 				<!-- e は使えないのでリクエストスコープ名を使用-->
-				<!-- <input type ="submit" name = "send" value = "${e.message}" id="gms_send_btn"> -->
-				<button type="submit" id="gms_send_btn" class = "buttontag" value = "${messageList[0].room_id}" name="room_id">送信</button>
+				<button type="submit" id="gms_send_btn" class = "buttontag" value = "${messageList[1].room_id}" name="room_id">送信</button>
 			</form>
 			</div>
 		</div>
