@@ -33,16 +33,31 @@ public class PListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//フォローしている人の一覧のデータを保存するjavabeansをオブジェクト化
-		//フォローしている人のデータを取得dao
-		//フォローしている人のデータをセッションスコープに格納
-		//データ：相互フォローのIDをselectする→ユーザー名になおす？（テーブル結合）
 
-		CMemberDao cmmDao = new CMemberDao();
-		List<CPMember> pmemberList = cmmDao.select_pmember();
+		//SELECT croom.id FROM (croom left join cmember on CROOM.id = Cmember.room_id)  left join user as user on cmember.user_id = user.user_id where croom.room_name is null and user.user_id='nekozuki75@gmail.com';
+		//メールアドレスを取得する(セッションスコープにあるはず)今回はダミーで入れておく「'nekozuki75@gmail.com'」
+		String user_id="nekozuki75@gmail.com";
+		//list型のデータが返ってくるDAOを呼び出す(中身は上のsql)
+		//このlistで取得できるidを使って以下のsqlをlistがある限り繰り返す
+		//「select user.user_id,user.user_name from cmember left join user on cmember.user_id=user.user_id where cmember.room_id= ? and cmember.user_id not in(?);」
+		//上の「3」の部分を置き換えて繰り返す
+		//for(String　room_id_:コレクション名(list))｛DAOの処理を書く｝
+
 		//検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
-		session.setAttribute("pmemberList", pmemberList);
+
+		//個人チャットのルームIDを取り出す
+		CMemberDao cmmDao = new CMemberDao();
+		List<CPMember> pmemberList = cmmDao.select_pmember(user_id);
+
+		//該当したルームに参加している自分以外のユーザーを取り出す
+		for(CPMember cp: pmemberList) {
+			String room_id=cp.getId();
+			List<CPMember> pmList = cmmDao.select_pm(user_id,room_id);
+			session.setAttribute("pmList", pmList);
+		}
+
+		//session.setAttribute("pmList", pmList);
 
 		//リクエストが来たらplist.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/plist.jsp");

@@ -43,26 +43,24 @@
 		<h1 class = "title">情報の変更</h1>
 <!-- 		<form method="POST" action="/dotchiha/MyChangeInfServlet" enctype="multipart/form-data"> -->
 		<form method="POST" action="/dotchiha/MyChangeInfServlet">
-		<table>
 		<c:forEach var="e" items="${cardFollowList}" >
 						<!-- アイコン表示 -->
 
-				<tr><td><label>
 					画像:
 					<%-- <img src="./img/${e.icon}"> --%>
 					<input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
 					<input type="hidden" name="imagefile" accept="image/*" onchange="previewImage(this);" value="${e.icon}"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 
-				</label></td></tr>
-				<!-- 名前入力 -->
-				<tr><td><label>
-					ユーザー名
+						<!-- 名前入力 -->
+
+					ユーザー名：
 					<input type="text" name="user_name" value="${e.user_name}">
-				</label></td></tr>
+					<br>
+
 				<!-- 住所(プルダウン) -->
-				<tr><td><label>
-					住所
+
+					住所：
 					<select size="1" name="address">
 					<option value =""<c:if test="${cardFollowList.get(0).address == ''}"></c:if>>選択されていません</option>
 					<option value ="北海道"<c:if test="${cardFollowList.get(0).address == '北海道'}">selected</c:if>>北海道</option>
@@ -113,20 +111,26 @@
 					<option value ="鹿児島県"<c:if test="${cardFollowList.get(0).address == '鹿児島県'}">selected</c:if>>鹿児島県</option>
 					<option value ="沖縄県"<c:if test="${cardFollowList.get(0).address == '沖縄県'}">selected</c:if>>沖縄県</option>
 					</select>
-				</label></td></tr>
+					<br>
+
 				<!-- フリースペース -->
-				<tr><td><label>
+
 					一言コメント
 					<input type="text" name="comment" value="${e.freespace}">
-				</label></td></tr>
-				</c:forEach>
 
+				</c:forEach>
+				<br>
+				<br>
 
 											<!-- 更新する -->
-				<tr><td><input type="submit" name="SUBMIT" value="更新する"></td></tr>
+				<div  class="back"><input type="submit" name="SUBMIT" value="更新する"></div>
+
+				<br>
 											<!--戻るボタン--->
-				<tr><td><input class ="exit" type = "button" onclick ="history.back()" value="戻る"></td></tr>
-			</table>
+
+				<div  class="back"><input class ="exit" type = "button" onclick ="history.back()" value="戻る"></div>
+
+
 		</form>
 	</main>
 ​

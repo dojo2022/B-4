@@ -59,8 +59,9 @@
         <br>
 
 											<!--戻るボタン--->
+								<div  class="back">
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
-​
+​								</div>
 	</main>
 </body>
 </html>

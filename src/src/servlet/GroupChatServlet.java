@@ -40,8 +40,7 @@ public class GroupChatServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+
 		request.setCharacterEncoding("UTF-8");
 		String room_id = request.getParameter("room_id");
 		String room_name = request.getParameter("room_name");

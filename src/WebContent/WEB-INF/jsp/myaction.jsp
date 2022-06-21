@@ -6,15 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
-<link rel="stylesheet" href="/dotchiha/css/common.css">
-<!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/mypage.css">
 
 <!--Bootstrapの適用-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 <!--スマホ対応適用Bootstrap-->
 <meta name="viewport" content="initial-scale=1" />
+
+<!-- 共通のCSSの適用 -->
+<link rel="stylesheet" href="/dotchiha/css/common.css">
+<!-- 自分のスタイルシート -->
+<link rel="stylesheet" href="/dotchiha/css/mypage.css">
+
 
 </head>
 <body>
@@ -48,7 +51,6 @@
 	<main>
 			<h2 class = "title">リアクションした投稿</h2>
 			<div class="container-fluid">
-				<c:forEach var="f" items="${cardPostR}" >
 				<div class="row">
 				        <div class="col-6">
 						<img src="./img/akitainu.png" alt="リアクションした投稿">
@@ -78,16 +80,22 @@
 						</div>
 
 				</div>
-				</c:forEach>
+
 			</div>
+			<br>
 			<!-- 画像は引っ張れるのか？？？ダミーデータで実行中 -->
-			<!--<img src="${'f.image'+=image}" id="gazo"><br>-->
+			<!--
+							<c:forEach var="f" items="${cardPostR}" >
+							<img src="${'f.image'+=image}" id="gazo">
+											</c:forEach>
+											-->
 
 
 
 											<!--戻るボタン--->
+								<div  class="back">
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
-​
+​								</div>
 	</main>
 </div>
 </body>
