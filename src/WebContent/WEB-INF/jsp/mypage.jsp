@@ -51,6 +51,7 @@
 
 
 			<p>📍${e.address}</p><br>
+
 			<p class="uname"><strong>${e.user_name}</strong></p>
 			<br><br>
 		</c:forEach>

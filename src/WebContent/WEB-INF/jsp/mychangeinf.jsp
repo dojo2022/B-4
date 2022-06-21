@@ -48,7 +48,10 @@
 						<!-- アイコン表示 -->
 
 				<tr><td><label>
-					画像:<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);" value="${e.icon}"><br>
+					画像:
+					<%-- <img src="./img/${e.icon}"> --%>
+					<input type="file" name="image" accept="image/*" onchange="previewImage(this);"><br>
+					<input type="hidden" name="imagefile" accept="image/*" onchange="previewImage(this);" value="${e.icon}"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 
 				</label></td></tr>
@@ -62,8 +65,8 @@
 					住所
 					<select size="1" name="address">
 					<option value ="ad00"<c:if test="${cardFollowList.get(0).address == ''}"></c:if>>選択されていません</option>
-					<option value ="ad01"<c:if test="${cardFollowList.get(0).address == '北海道'}">selected</c:if>>北海道</option>
-					<option value ="ad02"<c:if test="${cardFollowList.get(0).address == '青森県'}">selected</c:if>>青森県</option>
+					<option value ="北海道"<c:if test="${cardFollowList.get(0).address == '北海道'}">selected</c:if>>北海道</option>
+					<option value ="青森県"<c:if test="${cardFollowList.get(0).address == '青森県'}">selected</c:if>>青森県</option>
 					<option value ="ad03"<c:if test="${cardFollowList.get(0).address == '岩手県'}">selected</c:if>>岩手県</option>
 					<option value ="ad04"<c:if test="${cardFollowList.get(0).address == '宮城県'}">selected</c:if>>宮城県</option>
 					<option value ="ad05"<c:if test="${cardFollowList.get(0).address == '秋田県'}">selected</c:if>>秋田県</option>

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+body{
+	text-align:center;
+
+
+}
+
 .icon{
  width:60%;
  height:30%;
@@ -20,24 +26,32 @@
 
 
 .box {
-border: #000000 1px solid; /*境界線の指定*/
-padding:10px;
-width: 200px;
-text-align:center;
+	margin-left: auto;
+    margin-right: auto;
+	border: #000000 1px solid; /*境界線の指定*/
+	padding:10px;
+	width: 200px;
+	text-align:center;
 }
 .box p {
-margin:0;
-padding:0;
+	margin-left: auto;
+    margin-right: auto;
+	margin:0;
+	padding:0;
 }
 .fbox {
-  border: #000000 1px solid; /*境界線の指定*/
-  padding:10px;
-  width: 150px;
-  text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+	border: #000000 1px solid; /*境界線の指定*/
+	padding:10px;
+	width: 150px;
+	text-align: center;
 
   }
 .fbox p {
-  margin:0;
-  padding:0;
+	margin-left: auto;
+    margin-right: auto;
+  	margin:0;
+  	padding:0;
 }
 

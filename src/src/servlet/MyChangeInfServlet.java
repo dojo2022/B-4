@@ -47,7 +47,7 @@ public class MyChangeInfServlet extends HttpServlet {
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_id = "nekozuki75@gmail.com";
-		String icon = request.getParameter("IMAGE");
+		String icon = request.getParameter("imagefile");
 		String address = request.getParameter("address");
 		String user_name = request.getParameter("user_name");
 		String freespace = request.getParameter("comment");
