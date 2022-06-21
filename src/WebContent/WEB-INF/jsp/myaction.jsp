@@ -46,8 +46,9 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-			<h1 class = "title">リアクションした投稿</h1>
+			<h2 class = "title">リアクションした投稿</h2>
 			<div class="container-fluid">
+				<c:forEach var="f" items="${cardPostR}" >
 				<div class="row">
 				        <div class="col-6">
 						<img src="./img/akitainu.png" alt="リアクションした投稿">
@@ -77,16 +78,17 @@
 						</div>
 
 				</div>
+				</c:forEach>
 			</div>
-			<!--<c:forEach var="f" items="${cardPostR}" >
-			<img src="${'f.image'+=image}" id="gazo"><br>-->
+			<!-- 画像は引っ張れるのか？？？ダミーデータで実行中 -->
+			<!--<img src="${'f.image'+=image}" id="gazo"><br>-->
 
 
-			<!--</c:forEach>-->
+
 											<!--戻るボタン--->
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 ​
 	</main>
-
+</div>
 </body>
 </html>
