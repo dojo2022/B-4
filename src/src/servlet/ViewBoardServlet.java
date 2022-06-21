@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardCDao;
 import dao.BoardDao;
+import dao.BoardSDao;
 import model.BoardCUser;
 import model.BoardUser;
 
@@ -61,6 +62,11 @@ public class ViewBoardServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String board_id = request.getParameter("board_id");
 
+		//セッションからユーザーIDを取得する
+//		HttpSession session = request.getSession();
+//		String sender_id = (String)session.getAttribute("user_id");
+		String sender_id = "ryouko-tanaka918.gmail.com";
+
 		// 検索処理を行う
 		BoardDao bDao = new BoardDao();
 		List<BoardUser> boardList = bDao.select_username(board_id);
@@ -75,6 +81,18 @@ public class ViewBoardServlet extends HttpServlet {
 
 		// 検索結果をセッションスコープに格納する
 		session.setAttribute("commentList", commentList);
+
+		//保存ボタンの色を判断する
+		BoardSDao bsDao = new BoardSDao();
+		if(bsDao.countsave(board_id,sender_id)) {
+			//保存済みボタン
+//			String save_button = "saved_button.png";
+			session.setAttribute("save_button","/dotchiha/img/saved_button.png");
+		} else {
+			// 未保存ボタン
+//			String save_button = "save_button.png";
+			session.setAttribute("save_button", "/dotchiha/img/save_button.png");
+		}
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

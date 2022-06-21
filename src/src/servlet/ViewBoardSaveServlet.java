@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BoardSDao;
 import model.BoardSave;
@@ -50,7 +51,7 @@ public class ViewBoardSaveServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 //		String sender_id = (String)session.getAttribute("user_id");
 		String sender_id = "ryouko-tanaka918.gmail.com";
 
@@ -65,6 +66,18 @@ public class ViewBoardSaveServlet extends HttpServlet {
 			bsDao.insert(new BoardSave("",board_id,sender_id)); // 登録成功
 
 		}
+
+		//保存ボタンの色を判断する
+		if(bsDao.countsave(board_id,sender_id)) {
+			//保存済みボタン
+//			String save_button = "saved_button.png";
+			session.setAttribute("save_button","/dotchiha/img/saved_button.png");
+		} else {
+			// 未保存ボタン
+//			String save_button = "save_button.png";
+			session.setAttribute("save_button", "/dotchiha/img/save_button.png");
+		}
+
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

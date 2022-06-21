@@ -38,7 +38,7 @@
     <!-- 保存ボタン -->
     <form method="post" name="save" action="/dotchiha/ViewBoardSaveServlet">
       <input type="hidden" name="board_id" value="${boardList[0].id}">
-      <input type="image" name = "board_id" id="save_button" value ="${boardList[0].id}" src="/dotchiha/img/save_button.png" alt="保存">
+      <input type="image" name = "board_id" id="save_button" value ="${boardList[0].id}" src="${save_button}" alt="保存">
     </form>
 
     <!-- コメント -->
