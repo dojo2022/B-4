@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Follow;
 import model.MypageUser;
-import model.TList;
+import model.Post;
 
 public class FollowDao {
 	   //DBからicon,prefecture,user_name,freespace,titleのデータを取得
@@ -80,9 +80,9 @@ public class FollowDao {
 		}
 
 		//DBから投稿したタイトルのデータを取得
-		public List<TList> select_posttitle(String id) {
+		public List<Post> select_posttitle(String id) {
 			Connection conn = null;
-			List<TList> cardTList = new ArrayList<TList>();
+			List<Post> cardPost = new ArrayList<Post>();
 
 			try {
 				// JDBCドライバを読み込む
@@ -102,10 +102,10 @@ public class FollowDao {
 				ResultSet rs = pStmt.executeQuery();
 
 				while (rs.next()) {
-					TList card = new TList(
+					Post card = new Post(
 					rs.getString("posttitle")
 					);
-					cardTList.add(card);
+					cardPost.add(card);
 				}
 
 
@@ -133,7 +133,7 @@ public class FollowDao {
 
 
 			// 結果を返す
-			return cardTList;
+			return cardPost;
 		}
 
 
