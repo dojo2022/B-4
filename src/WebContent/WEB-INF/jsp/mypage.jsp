@@ -51,6 +51,7 @@
 
 
 			<p>📍${e.address}</p><br>
+
 			<p class="uname"><strong>${e.user_name}</strong></p>
 			<br><br>
 		</c:forEach>
@@ -67,7 +68,7 @@
 			</form>
 		</c:forEach>
 ​		<br>
-		<form method="get" action="/dotchiha/MyChangeInfServlet">
+		<form method="get" action="/dotchiha/MyChangeInfServlet" class="mci">
 			<button type="submit" name="MCI" value="nekozuki75@gmail.com">情報の変更</button>
 ​		</form>
 

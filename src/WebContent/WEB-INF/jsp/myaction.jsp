@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/mypage.css">
+
+<!--Bootstrapの適用-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<!--スマホ対応適用Bootstrap-->
+<meta name="viewport" content="initial-scale=1" />
+
 </head>
 <body>
 <div class ="wrapper">
@@ -39,16 +46,49 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-			<h1 class = "title">リアクションした投稿</h1>
-			<c:forEach var="f" items="${cardPostR}" >
-			<img src="${'f.image'+=image}" id="gazo"><br>
+			<h2 class = "title">リアクションした投稿</h2>
+			<div class="container-fluid">
+				<c:forEach var="f" items="${cardPostR}" >
+				<div class="row">
+				        <div class="col-6">
+						<img src="./img/akitainu.png" alt="リアクションした投稿">
+                    	<p><a href ="/dotchiha/MyActionServlet">凛々しい柴</a></p>
+						</div>
+
+						<div class="col-6">
+						<img src="./img/cat3.jpg" alt="リアクションした投稿">
+                    	<p><a href ="/dotchiha/MyActionServlet">いろんな表情</a></p>
+						</div>
+				</div>
+				<div class="row">
+                	    <div class="col-6">
+						<img src="./img/cat_hand.jpg" alt="リアクションした投稿">
+                    	<p><a href ="/dotchiha/MyActionServlet">肉球が癒し</a></p>
+						</div>
+
+               	    	<div class="col-6">
+						<img src="./img/inugoya.png" alt="リアクションした投稿">
+                    	<p><a href ="/dotchiha/MyActionServlet">おひるね</a></p>
+						</div>
+				</div>
+				<div class="row">
+                	    <div class="col-6">
+						<img src="./img/omocha.png" alt="リアクションした投稿">
+                    	<p><a href ="/dotchiha/MyActionServlet">元気に遊ぶ！</a></p>
+						</div>
+
+				</div>
+				</c:forEach>
+			</div>
+			<!-- 画像は引っ張れるのか？？？ダミーデータで実行中 -->
+			<!--<img src="${'f.image'+=image}" id="gazo"><br>-->
 
 
-			</c:forEach>
+
 											<!--戻るボタン--->
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 ​
 	</main>
-
+</div>
 </body>
 </html>

@@ -258,6 +258,7 @@ public class FollowDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
+
 			String sql = "update User set icon=?,address=?, user_name=?,freespace=? WHERE user_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 

@@ -12,19 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CMessageDao;
+import model.CMessage;
 import model.CSenderName;
 
 /**
- * Servlet implementation class PrivateChatServlet
+ * Servlet implementation class PrivateChatAddServlet
  */
-@WebServlet("/PrivateChatServlet")
-public class PrivateChatServlet extends HttpServlet {
+@WebServlet("/PrivateChatAddServlet")
+public class PrivateChatAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivateChatServlet() {
+    public PrivateChatAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +34,8 @@ public class PrivateChatServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,18 +43,22 @@ public class PrivateChatServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String room_id = request.getParameter("room_id");
+		String id = request.getParameter("ID");//メッセージのID
+		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
+		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
+		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
 
-		//CMessageDaoからSQLで取り出したCmessageテーブルとuserテーブルのデータをListに格納したものをselectで呼び出す
-		CMessageDao cmDao = new CMessageDao();//newの後はCmessageDaoのpublicクラスを実体化したもの
-		List<CSenderName> messageList = cmDao.select_username(room_id);//selectでCSenderName.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
-
-		//Cmessageテーブルの検索結果をセッションスコープに格納する
+		// DAOを呼び出す
+		CMessageDao cmDao = new CMessageDao();
+		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
+		List<CSenderName> messageList = cmDao.select_username(room_id);
+		//検索結果をsessionスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 
-		//リクエストが来たらprivatechat.jspを表示する（フォワード）
+		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/privatechat.jsp");
 		dispatcher.forward(request, response);
 	}

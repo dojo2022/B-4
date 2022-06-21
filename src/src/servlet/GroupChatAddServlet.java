@@ -41,7 +41,7 @@ public class GroupChatAddServlet extends HttpServlet {
 		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
 		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
 
-		// 登録処理を行う<ここを変える>
+		// DAOを呼び出す
 		CMessageDao cmDao = new CMessageDao();
 		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
 		List<CSenderName> messageList = cmDao.select_username(room_id);//selectでCmessageDaoのselect内容を実行できる。それをlistに格納している

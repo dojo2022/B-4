@@ -39,6 +39,7 @@
 	<!--メインここから-->
 	<main>
 			<h1 class = "title">保存した掲示板</h1>
+			<br>
 			        <!--犬猫の選択-->
         <div class="box">
         <input type="radio" name="cord" value="cat">猫
@@ -55,6 +56,7 @@
         <div class="box">
             <p><a href ="/dotchiha/MysaveBoardServlet">5月オフ会の希望日程</a></p>
         </div>
+        <br>
 
 											<!--戻るボタン--->
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>

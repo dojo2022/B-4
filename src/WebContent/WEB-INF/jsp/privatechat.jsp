@@ -56,10 +56,12 @@
 			<div id="pms_messages">
 					<!-- メッセージ1（左側） -->
 					<div class="pms_message pms_left">
-						<div class="pms_message_box">
-								<div class="pms_message_text">こんにちは。
-								</div>
-						</div>
+						<c:forEach var="e" items="${messageList}" >
+							<div class="gms_message_senderl">${e.user_name}</div>
+							<div class="pms_message_box">
+								<div class="pms_message_text">${e.message}</div>
+							</div>
+						</c:forEach>
 					</div>
 					<div class="pms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
 
@@ -74,8 +76,11 @@
 
 			<!-- テキストボックス、送信ボタン -->
 			<div id="pms_send">
-				<textarea id="pms_send_message"></textarea>
-				<div id="pms_send_btn">送信</div>
+			<form  method="POST" action="/dotchiha/PrivateChatAddServlet">
+				<textarea name="message" id="pms_send_message"></textarea>
+				<!-- e は使えないのでリクエストスコープ名を使用-->
+				<button type="submit" id="pms_send_btn" class = "buttontag" value = "${messageList[1].room_id}" name="room_id">送信</button>
+			</form>
 			</div>
 		</div>
 	</div>
