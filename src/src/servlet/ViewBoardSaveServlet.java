@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.BoardSDao;
 import model.BoardSave;
@@ -51,12 +50,21 @@ public class ViewBoardSaveServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-		HttpSession session = request.getSession();
-		String sender_id = (String)session.getAttribute("user_id");
+//		HttpSession session = request.getSession();
+//		String sender_id = (String)session.getAttribute("user_id");
+		String sender_id = "ryouko-tanaka918.gmail.com";
 
-		// 登録処理を行う
+
+		//保存されていなかったら保存、保存されていたら削除
 		BoardSDao bsDao = new BoardSDao();
-		bsDao.insert(new BoardSave("",board_id,sender_id)); // 登録成功
+		if(bsDao.countsave(board_id,sender_id)) {
+			//削除処理を行う
+			bsDao.delete(board_id,sender_id);
+		} else {
+			// 登録処理を行う
+			bsDao.insert(new BoardSave("",board_id,sender_id)); // 登録成功
+
+		}
 
 		// 掲示板一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

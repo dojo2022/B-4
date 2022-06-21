@@ -8,7 +8,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<!--<link rel="stylesheet" href="/dotchiha/css/.css">-->
+<link rel="stylesheet" href="/dotchiha/css/board.css">
 </head>
 <body>
 <div class ="wrapper">
@@ -28,7 +28,7 @@
 
     <!-- アイコン＆ユーザー名 -->
     <div id="user_info">
-      <img src="/dotchiha/icon/${boardList[0].icon}">
+      <img src="${'/dotchiha/img/'+=boardList[0].icon}" alt="アイコン" name="icon" class="icon">
       <p>${boardList[0].user_name}</p>
     </div>
     <!-- タイトル -->
