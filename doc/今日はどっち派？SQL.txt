@@ -31,7 +31,7 @@ CREATE TABLE User (
   user_id VARCHAR(60) NOT NULL,
   user_name VARCHAR(10) NOT NULL,
   address VARCHAR(10),
-  icon VARCHAR(50) DEFAULT '/dotchiha/img/icon.jpg',
+  icon VARCHAR(50) DEFAULT 'icon.jpg',
   freespace VARCHAR(30),
   pw VARCHAR(20) NOT NULL
 );
@@ -40,8 +40,7 @@ INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('nekozuki
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('inuzuki18@gmail.com', '犬大好き ', '兵庫県', '犬しか勝たん!', 'inuinu1111');
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('tamaki0427@gmail.com', 'タマチャン', '埼玉県', '犬猫そっちもかわいい！', 'tamaki0427');
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('ryouko-tanaka918.gmail.com', 'スズ', '山梨県', '癒しを求めています', 'tanaryou918');
-INSERT INTO User (user_id ,user_name ,address ,icon ,freespace ,pw ) VALUES ('nekoinu1122@gmail.com', 'レオ', '神奈川県', '/dotchiha/img/neko,jpg', '大型犬飼ってます！お話しましょう！', 'reodaisuki1122');
-
+INSERT INTO User (user_id ,user_name ,address ,icon ,freespace ,pw ) VALUES ('nekoinu1122@gmail.com', 'レオ', '神奈川県', 'neko.jpg', '大型犬飼ってます！お話しましょう！', 'reodaisuki1122');
 
 ②
 【Feelingテーブルを作成・登録するSQL文】
@@ -71,11 +70,11 @@ CREATE TABLE Post (
   date DATE DEFAULT CURRENT_date	
 );
 
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekoinu1122@gmail.com', '/dotchiha/img/0812045030.jpg ', 'あくび', '眠いのかな？', '1');
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '/dotchiha/img/4506970902_96cd8ae739.jpg', '気になる', '何やら外が気になるご様子', '0');
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', '/dotchiha/img/0812110532.jpg', '視線の先には…?', 'みんなで同じ方を向いてるのが可愛い一枚', '2');
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '/dotchiha/img/4835109188_725430edf5.jpg', 'スヤスヤ', 'ぐっすり眠ってるうちの子', '0');
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('inuzuki18@gmail.com', '/dotchiha/img/ Dog110229.mp4', 'もぐもぐ', '美味しいかな？', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekoinu1122@gmail.com', '0812045030.jpg ', 'あくび', '眠いのかな？', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '4506970902_96cd8ae739.jpg', '気になる', '何やら外が気になるご様子', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', '0812110532.jpg', '視線の先には…?', 'みんなで同じ方を向いてるのが可愛い一枚', '2');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '4835109188_725430edf5.jpg', 'スヤスヤ', 'ぐっすり眠ってるうちの子', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('inuzuki18@gmail.com', 'Dog110229.mp4', 'もぐもぐ', '美味しいかな？', '1');
 
 
 ④

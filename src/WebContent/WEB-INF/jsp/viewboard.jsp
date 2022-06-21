@@ -27,33 +27,33 @@
 
 
     <!-- アイコン＆ユーザー名 -->
-
+    <div id="user_info">
+      <img src="/dotchiha/icon/${boardList[0].icon}">
+      <p>${boardList[0].user_name}</p>
+    </div>
     <!-- タイトル -->
-    <h3>${ret[0].title}</h3>
+    <h3>${boardList[0].title}</h3>
     <!-- 投稿内容 -->
-    <p>${ret[0].text}</p>
+    <p>${boardList[0].text}</p>
     <!-- 保存ボタン -->
     <form method="post" name="save" action="/dotchiha/ViewBoardSaveServlet">
-      <input type="hidden" name="board_id" value="${ret[0].board_id}">
-      <input type="image" name = "board_id" id="save_button" value ="${ret[0].board_id}" src="/dotchiha/img/save_button.png" alt="保存">
+      <input type="hidden" name="board_id" value="${boardList[0].id}">
+      <input type="image" name = "board_id" id="save_button" value ="${boardList[0].id}" src="/dotchiha/img/save_button.png" alt="保存">
     </form>
-    <!-- <form method="POST" action="/dotchiha/ViewBoardSaveServlet">
-    <input type="image" name = "board_id" id="save_button" value ="${ret[0].board_id}" src="/dotchiha/img/save_button.png" alt="保存">
-    </form> -->
 
     <!-- コメント -->
     <table id="board_comment">
-    <c:forEach var="e" items="${ret}" >
+    <c:forEach var="e" items="${commentList}" >
       <tr id="comment"><td>${e.comment}</td></tr>
       <tr id="comment_date"><td>${e.date}</td></tr>
-      <tr id="sender_name"><td></td></tr>
+      <tr id="sender_name"><td>${e.user_name}</td></tr>
     </c:forEach>
     </table>
     <!-- コメント送信ボタン -->
     <div id="board_comment">
       <form  method="POST" action="/dotchiha/ViewBoardCommentServlet">
         <textarea name="comment" id="comment_message"></textarea>
-        <button type="submit" name = "board_id" value = "${ret[0].board_id}" id="send_button">送信</button>
+        <button type="submit" name = "board_id" value = "${boardList[0].id}" id="send_button">送信</button>
       </form>
       </div>
     <!--戻るボタン--->

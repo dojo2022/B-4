@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardCDao;
-import model.BoardCExp;
+import dao.BoardDao;
+import model.BoardCUser;
+import model.BoardUser;
 
 /**
  * Servlet implementation class ViewBoardServlet
@@ -57,15 +59,22 @@ public class ViewBoardServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("board_id");
+		String board_id = request.getParameter("board_id");
 
 		// 検索処理を行う
-		BoardCDao bcDao = new BoardCDao();
-		ArrayList<BoardCExp> ret = bcDao.getBoardCExpList(id);
+		BoardDao bDao = new BoardDao();
+		List<BoardUser> boardList = bDao.select_username(board_id);
 
 		// 検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
-		session.setAttribute("ret", ret);
+		session.setAttribute("boardList", boardList);
+
+		// 検索処理を行う
+		BoardCDao bcDao = new BoardCDao();
+		List<BoardCUser> commentList = bcDao.select_username(board_id);
+
+		// 検索結果をセッションスコープに格納する
+		session.setAttribute("commentList", commentList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewboard.jsp");

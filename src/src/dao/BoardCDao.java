@@ -6,12 +6,77 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.BoardC;
 import model.BoardCExp;
+import model.BoardCUser;
 
 
 public class BoardCDao {
+	//コメント者付きでコメントを呼び出す
+	public List<BoardCUser> select_username(String board_id){
+		Connection conn = null;
+		List<BoardCUser> commentList = new ArrayList<BoardCUser>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			//id,board_id,sender_id,comment,date,user_name,icon
+			//BoardC.id,board_id,sender_id,comment,date,user_name,icon
+
+			// ここでJOINを利用して2つのテーブルからデータを取得する。
+			String sql = "SELECT BoardC.id,board_id,sender_id,comment,date,user_name,icon FROM BoardC LEFT JOIN User ON BoardC.sender_id = User.user_id WHERE board_id = ? ORDER BY BoardC.id ASC";
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, board_id);
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする <ここ変える>全ての列にする
+			while (rs.next()) {
+				BoardCUser card = new BoardCUser(
+				rs.getString("id"),
+				rs.getString("board_id"),
+				rs.getString("sender_id"),
+				rs.getString("comment"),
+				rs.getString("date"),
+				rs.getString("user_name"),
+				rs.getString("icon")//←ここをuser.javaから持ってきたい
+				);
+				commentList.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			commentList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			commentList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					commentList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return commentList;
+	}
+
 	//掲示板をコメント付きで取得（一覧表型）
 	public ArrayList<BoardCExp> getBoardCExpList(String id){
 		ArrayList<BoardCExp> ret = new ArrayList<BoardCExp>();
