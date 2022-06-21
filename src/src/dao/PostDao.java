@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Post;
 
@@ -190,5 +193,68 @@ public class PostDao {
 
 			// 結果を返す
 			return result;
+
+	}
+
+
+	// 犬or猫で投稿を検索する
+	//気分で投稿を検索する
+		public List<Post> fselect(String feeling) {
+			Connection conn = null;
+			List<Post> postList = new ArrayList<Post>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+				// SQL文を準備する
+				String sql = "select id, user_id, posttitle, image, cord, postcomment, date  from Post WHERE cord = ?  OR cord = 2  ORDER BY id DESC";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				// SQL文を完成させる
+				pStmt.setString(1,  feeling);
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				while (rs.next()) {
+					Post p = new Post(
+					rs.getString("id"),
+					rs.getString("user_id"),
+					rs.getString("posttitle"),
+					rs.getString("image"),
+					rs.getString("cord"),
+					rs.getString("postcomment"),
+					rs.getString("date")
+					);
+					postList.add(p);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				postList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				postList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						postList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return postList;
 		}
+
+
 }
