@@ -92,7 +92,7 @@ public class FollowDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "select p.posttitle from USER as u  LEFT JOIN POST as p on u.user_id = p.user_id  where u.user_id = ?";
+				String sql= "select p.posttitle  from USER as u  LEFT JOIN POST as p on u.user_id = p.user_id  where u.user_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -107,18 +107,13 @@ public class FollowDao {
 					);
 					cardPost.add(card);
 				}
-
-
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
 			}
 			catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
+				e.printStackTrace();
 			}
-
-
 			finally {
 				// データベースを切断
 				if (conn != null) {
@@ -130,8 +125,6 @@ public class FollowDao {
 					}
 				}
 			}
-
-
 			// 結果を返す
 			return cardPost;
 		}
