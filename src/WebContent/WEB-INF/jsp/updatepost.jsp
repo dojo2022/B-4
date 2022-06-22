@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
 					<!-- 投稿した内容のデータを持ってくる -->
 					<!-- タイトル -->
 					<tr><td><label>
-						<input type="text" name="posttitle" value="${e.posttitle}">
+						${cardPost[0].posttitle}<input type="text" name="posttitle" value="${e.posttitle}">
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
