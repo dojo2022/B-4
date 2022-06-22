@@ -98,7 +98,7 @@ public class PostDao {
 
 			// SQL文を準備する
 			// ここでテーブルからデータを取得する。
-			String sql = "SELECT id,user_id,posttitle,image,crod,postcomment,date FROM Post WHERE id = ?";
+			String sql = "SELECT id,user_id,posttitle,image,cord,postcomment,date FROM Post WHERE id = ?";
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
