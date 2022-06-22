@@ -81,15 +81,17 @@
 			</ul>
 		</div> --%>
 		<div class="bbox">
-			<form method="post" action="/dotchiha/UpdatePostServlet">
+<!-- 			<form method="post" action="/dotchiha/UpdatePostServlet"> -->
+				<a href="/dotchiha/UpdatePostServlet">
 				<c:forEach var="e" items="${cardPost}">
 	<%--			cartTListにはidがないので取れない
 	 				<li><input type="submit" name="post_id" value="${e.id}">${e.title}</li>
  --%>
- 					<li>${e.posttitle}<input type="submit" name="" value="編集する"></li>
+ 					<li>${e.posttitle}<!-- <input type="submit" name="" value="編集する"> --></li>
  					<input type="hidden" name="posttitle" value="${e.posttitle}">
 				</c:forEach>
-			</form>
+				</a>
+			<!-- </form> -->
 		</div>
 ​
 		<div class="box">
