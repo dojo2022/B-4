@@ -47,7 +47,7 @@
 		<tabel>
 		<c:forEach var="e" items="${cardFollowList}" >
 			<tr>
-			<td rowspan="3"><img src="./img/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
+			<td rowspan="3"><img src="./icon/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
 			<td align="center"><p class="uname"><strong>${e.user_name}</strong></p></td>
 		</c:forEach>
 			<td><div class="fbox">
