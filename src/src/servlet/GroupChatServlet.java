@@ -52,6 +52,7 @@ public class GroupChatServlet extends HttpServlet {
 		//Cmessageテーブルの検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
+		session.setAttribute("room_id", room_id);
 		session.setAttribute("room_name", room_name);
 
 		 //リクエストが来たらgroupchat.jspを表示する（フォワード）

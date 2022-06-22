@@ -3,7 +3,7 @@ package model;
 public class CPMember {
 	private String id;	// CroomテーブルからルームID
 	private String room_name;	// Croomテーブルからルーム名
-	private String room_id;	// CmemberテーブルからユーザーID
+	private String room_id;	// CmemberテーブルからルームID
 	private String user_id;	// CmemberテーブルからユーザーID
 	private String user_name;//userテーブルからユーザー名
 

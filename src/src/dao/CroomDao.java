@@ -38,7 +38,6 @@ public class CroomDao {
 					rs.getString("room_name")
 					);
 					roomList.add(card);
-					//System.out.println(rs.getString("number"));
 				}
 			}
 			catch (SQLException e) {

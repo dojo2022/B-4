@@ -51,11 +51,15 @@ public class PListServlet extends HttpServlet {
 		List<CPMember> pmemberList = cmmDao.select_pmember(user_id);
 
 		//該当したルームに参加している自分以外のユーザーを取り出す
+		int count = 1;
 		for(CPMember cp: pmemberList) {
+			
 			String room_id=cp.getId();
 			List<CPMember> pmList = cmmDao.select_pm(user_id,room_id);
-			session.setAttribute("pmList", pmList);
+			session.setAttribute("pmList"+count, pmList);
+			count++;
 		}
+		request.setAttribute("counts",Integer.toString(count));
 
 		//session.setAttribute("pmList", pmList);
 

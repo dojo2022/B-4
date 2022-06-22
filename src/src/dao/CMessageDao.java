@@ -165,7 +165,7 @@ public class CMessageDao {
 			rs.getString("user_name")//←ここをuser.javaから持ってきたい
 			);
 			messageList.add(card);
-			//System.out.println(rs.getString("number"));
+
 		}
 	}
 	catch (SQLException e) {
