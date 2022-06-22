@@ -84,6 +84,67 @@ public class PostDao {
 		//結果を返す
 		return result;
 	}
+
+	//タイトルから投稿内容すべてのデータを取得
+	public List<Post> select(String posttitle){
+		Connection conn = null;
+		List<Post> cardPost = new ArrayList<Post>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			// ここでテーブルからデータを取得する。
+			String sql = "SELECT id,user_id,posttitle,image,crod,postcomment,date FROM Post WHERE id = ?";
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, posttitle);
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする <ここ変える>全ての列にする
+			while (rs.next()) {
+				Post card = new Post(
+				rs.getString("id"),
+				rs.getString("user_id"),
+				rs.getString("posttitle"),
+				rs.getString("image"),
+				rs.getString("cord"),
+				rs.getString("postcomment"),
+				rs.getString("date")
+				);
+				cardPost.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cardPost = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cardPost = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cardPost = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cardPost;
+	}
+
 	//引数cardで指定されたレコードを更新し、成功したらtrueを返す
 	public boolean update(Post card) {
 		Connection conn = null;
