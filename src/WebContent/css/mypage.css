@@ -6,9 +6,8 @@
 
 
 .icon{
- width:60%;
+ width:50%;
  height:30%;
- position:relative;
 }
 /*配置の指定*/
 .uname{
@@ -44,7 +43,7 @@
 	margin-right:10;
 	border: #000000 1px solid; /*境界線の指定*/
 	padding:10px;
-	width: 150px;
+	width: 130px;
 	text-align: center;
 
   }
