@@ -18,7 +18,7 @@ public class FeelingDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SELECT文を準備する
 			String sql = "select count(*) from Feeling where user_id = ?" ;
@@ -70,7 +70,7 @@ public class FeelingDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6","sa","");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
 			String sql = "update Feeling set feeling = ? where user_id = ?";
@@ -117,7 +117,7 @@ public class FeelingDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6","sa","");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
 			String sql = "insert into Feeling (user_id, feeling) value (?, ?) where user_id =?";
@@ -165,7 +165,7 @@ public class FeelingDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SELECT文を準備する
 			String sql = "select feeling from Feeling where user_id = ?" ;

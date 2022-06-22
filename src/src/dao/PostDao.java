@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -219,14 +220,25 @@ public class PostDao {
 				ResultSet rs = pStmt.executeQuery();
 
 				while (rs.next()) {
+					//idをintからStringへ変換
+					int num1 = rs.getInt("id");
+					Integer i = Integer.valueOf(num1);
+					String id = i.toString();
+					//cordをintからStringへ変換
+					int num2 = rs.getInt("cord");
+					Integer i2 = Integer.valueOf(num2);
+					String cord = i2.toString();
+					//dateをdateからString へ変換
+					java.sql.Date num3 = rs.getDate("date");
+					String date = new SimpleDateFormat("yyyy/MM/dd ").format(num3);
 					Post p = new Post(
-					rs.getString("id"),
+					id,
 					rs.getString("user_id"),
 					rs.getString("posttitle"),
 					rs.getString("image"),
-					rs.getString("cord"),
+					cord,
 					rs.getString("postcomment"),
-					rs.getString("date")
+					date
 					);
 					postList.add(p);
 				}
