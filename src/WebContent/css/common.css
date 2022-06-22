@@ -28,13 +28,14 @@ a:hover {
 /* id="footer" */
 #footer {
   background-image: url(../img/footer.png);
-  background-repeat: repeat-x;
-  margin-top: 100px;
+  /* margin-top: 100px; 固定しない場合は必要*/
   padding: 20px 0px 20px 0px;
-  font-size: smaller;
-  color: black;
+  height: 75px;
 }
-
+/* フッターの文字サイズ */
+.font-size{
+	font-size: smaller;
+}
 /* ハンバーガーメニュー */
 
 .ham {
