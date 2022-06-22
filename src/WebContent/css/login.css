@@ -1,1 +1,35 @@
 @charset "UTF-8";
+
+/* フッターの固定 */
+
+/* 文字サイズの変更 */
+/* .footer{
+	font-size: smaller;
+} */
+/* 中央よせ */
+.cen{
+	text-align: center;
+ 	margin: auto;
+}
+.high{
+	margin-top: 40px;
+}
+.high2{
+	margin-top: 20px;
+}
+td{
+	padding: 10px;
+}
+a{
+	margin-top: 25px;
+}
+.left{
+	margin: 0 auto;
+	float: right;
+	margin-top: 5px;
+}
+textarea{
+	width: 100%;
+	height: 4em;
+	font-size: 24px;
+}
