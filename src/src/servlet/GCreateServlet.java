@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.CMemberDao;
 import dao.CroomDao;
+import model.CMember;
 import model.Croom;
-import model.Result;
 
 /**
  * Servlet implementation class GCreateServlet
@@ -58,16 +59,24 @@ public class GCreateServlet extends HttpServlet {
 		String id = request.getParameter("ID");
 		String room_name = request.getParameter("room_name");//テキストエリアのnameと小文字など書き方をそろえる
 
-		// 登録処理を行う<ここを変える>
+		//セッションからユーザーIDを取得する
+//		HttpSession session = request.getSession();
+//		String user_id = (String)session.getAttribute("user_id");
+		String user_id = "nekozuki75@gmail.com";
+
+		// 登録処理を行う(Croom)
 		CroomDao cDao = new CroomDao();
 		if (cDao.insert(new Croom(id, room_name))) {	// 登録成功
-			request.setAttribute("result",
-			new Result());
+
 		}
-		else {											// 登録失敗
-			request.setAttribute("result",
-			new Result());
-		}
+
+		//Croomテーブルでは存在するが、CmemberテーブルではnullであるCroomテーブルのid
+		CMemberDao cmDao = new CMemberDao();
+		String room_id = cmDao.select();
+
+		// 登録処理を行う
+		cmDao.insert(new CMember("",room_id,user_id));
+
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cselect.jsp");
