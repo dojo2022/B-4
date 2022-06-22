@@ -43,15 +43,6 @@ public class GCreateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-
-		//【最終】グループを作るを押したら新しくグループが作られる  BCの登録を参考にする
-		//テキストエリアにグループ名を入力し、送信する(POST)→リクエストパラメータを取得する
-		//SQLでINSERTしてCroomテーブルにグループを追加する
-		//DAOでリクエストパラメータで取得したものをgetのところに書く
-		//DAOでSQL文を実行し、結果をservletで表示する処理を書く
-		//グループをリストに表示する←繰り返し処理で表示されるようになっているがすぐには表示されない
 
 
 		//リクエストパラメータを取得する
@@ -66,7 +57,7 @@ public class GCreateServlet extends HttpServlet {
 
 		// 登録処理を行う(Croom)
 		CroomDao cDao = new CroomDao();
-		if (cDao.insert(new Croom(id, room_name))) {	// 登録成功
+		if (cDao.insert(new Croom(id, room_name))) {
 
 		}
 

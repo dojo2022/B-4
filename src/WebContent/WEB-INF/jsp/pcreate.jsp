@@ -45,8 +45,9 @@
 				<p>会話をする人を選んでください</p>
 				<div id="plist">
 				<c:forEach var="e" items="${pList}">
-				<form method="POST" action="/dotchiha/PCreateServlet" id="cselect2">
-						<input type = "submit" name = "private" value = "${e.user_name}" class="button">
+				<form method="POST" action="/dotchiha/PCreateServlet">
+						<input type = "submit" name = "user_name" value = "${e.user_name}" class="button">
+						<input type = "hidden" name = "followed_id" value = "${e.followed_id}" class="button">
 					  <br>
 					  <br>
 					</form>
