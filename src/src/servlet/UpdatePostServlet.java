@@ -1,16 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.PostDao;
 import model.Post;
-import model.Result;
 
 /**
  * Servlet implementation class UpdatePostServlet
@@ -21,13 +23,14 @@ public class UpdatePostServlet extends HttpServlet {
 
 /*	/**
 	* @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	*//*
+	*/
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//投稿更新ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/updatepost.jsp");
-		dispatcher.forward(request, response);
+
+			/*//投稿更新ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/updatepost.jsp");
+			dispatcher.forward(request, response);*/
 		}
-*/
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,13 +39,21 @@ public class UpdatePostServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメータを取得する
-		String id = request.getParameter("id");
+		/*String id = request.getParameter("id");*/
 		String posttitle = request.getParameter("posttitle");
-		String image = request.getParameter("image");
+		/*String image = request.getParameter("image");
 		String cord = request.getParameter("cord");
-		String postcomment = request.getParameter("postcomment");
+		String postcomment = request.getParameter("postcomment");*/
 
-		//更新・削除を行う
+		// 検索処理を行う
+		PostDao pDao = new PostDao();
+		List<Post> cardPost = pDao.select(posttitle);
+
+		// 検索結果をセッションスコープに格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("cardPost", cardPost);
+
+		/*//更新・削除を行う
 		PostDao pDao = new PostDao();
 		if (request.getParameter("SUBMIT").equals("更新")) {
 			if (pDao.update(new Post("","",posttitle,image,cord,postcomment,""))) {	// 更新成功
@@ -63,6 +74,10 @@ public class UpdatePostServlet extends HttpServlet {
 				request.setAttribute("result",
 				new Result("削除失敗！", "レコードを削除できませんでした。", "/simpleBC/MenuServlet"));
 			}
-		}
+		}*/
+
+		//投稿更新ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/updatepost.jsp");
+		dispatcher.forward(request, response);
 	}
 }
