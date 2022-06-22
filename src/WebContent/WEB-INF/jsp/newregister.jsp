@@ -11,7 +11,7 @@
 <body>
 	<div class="wrapper">
 		<header class="header">
-			<h1 id="logo" >
+			<h1 class="cen">
 				<a href="/dotchiha/CorDBrowsServlet">
 				 <img src="/dotchiha/img/title_logo.png" width="300" height="" alt="今日はどっち派？">
 				</a>
@@ -23,12 +23,12 @@
 			<table>
 				<!-- アイコン表示 -->
 				<tr><td><label>
-					画像:<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
+					アイコン:<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 				</label></td></tr>
 				<!-- 名前入力 -->
 				<tr><td><label>
-					ユーザー名
+					ユーザー名　　
 					<input type="text" name="user_name">
 				</label></td></tr>
 				<!-- メールアドレス入力(ユーザーID) -->
@@ -38,7 +38,7 @@
 				</label></td></tr>
 				<!-- 住所(プルダウン) -->
 				<tr><td><label>
-					住所
+					住所　　　　　
 					<select size="1" name="address">
 					<option value ="ad00">選択なし</option>
 					<option value ="ad01">北海道</option>
@@ -92,7 +92,7 @@
 				</label></td></tr>
 				<!-- パスワード入力 -->
 				<tr><td><label>
-					パスワード
+					パスワード　　
 					<input type="text" name="pw">
 				</label></td></tr>
 				<!-- フリースペース -->
@@ -101,15 +101,18 @@
 					<textarea rows="4" cols="30" name="freespace"></textarea>
 				</label></td></tr>
 				<!-- 登録・リセットボタン -->
-				<tr><td>
+				<tr><td><div class="cen">
 					<input type="submit" id="register" name="submit" value="登録">
 					<input type="reset" name="reset" value="リセット">
-				</td></tr>
+				</div></td></tr>
 			</table>
 		</form>
-		<div id="footer">
+		<!-- フッター -->
+		<div class="kotei">
+			<div id="footer">
+			</div>
 			<footer>
-		   		<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+		   		<p class="footer">&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 			</footer>
 		</div>
 	</div>
