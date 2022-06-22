@@ -53,7 +53,6 @@
 			<td><div class="fbox">
 				フォロー数 ${follow_count}
 			</div></td>
-			<br>
 			<td><div class="fbox">
 				フォロワー数 ${followed_count}
 			</div></td>
