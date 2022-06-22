@@ -9,6 +9,7 @@
  width:60%;
  height:30%;
  position:relative;
+ float:left;
 }
 /*配置の指定*/
 .uname{
@@ -18,21 +19,23 @@
 
 
 }
-/*投稿一覧、お気に入り投稿、保存した掲示板一覧のボックス指定*/
+/*投稿一覧.リアクションした投稿.保存した掲示板*/
 .bbox {
     border: #000000 1px solid; /*境界線の指定*/
     padding:10px;
-    width: fit-content;
-	float:center;
+    width: 200px;
+    margin:0px auto;
+
 }
 
-
+/*freespace*/
 .box {
 	border: #000000 1px solid; /*境界線の指定*/
 	padding:10px;
 	width: 200px;
 	text-align:center;
 	float:center;
+	margin:0px auto;
 }
 .box p {
 	margin-left: auto;
@@ -40,6 +43,7 @@
 	margin:0;
 	padding:0;
 }
+/*ユーザー名,フォロー数,フォロワー数*/
 .fbox {
 	margin-left:auto;
 	margin-right:10;

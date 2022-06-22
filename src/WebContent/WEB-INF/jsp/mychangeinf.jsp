@@ -43,6 +43,7 @@
 		<h1 class = "title">情報の変更</h1>
 <!-- 		<form method="POST" action="/dotchiha/MyChangeInfServlet" enctype="multipart/form-data"> -->
 		<form method="POST" action="/dotchiha/MyChangeInfServlet">
+
 		<c:forEach var="e" items="${cardFollowList}" >
 						<!-- アイコン表示 -->
 
@@ -52,15 +53,17 @@
 					<input type="hidden" name="imagefile" accept="image/*" onchange="previewImage(this);" value="${e.icon}"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 
+					<table>
 						<!-- 名前入力 -->
+					<tr><td>ユーザー名　：</td>
+					<td><input type="text" name="user_name" value="${e.user_name}"></td>
+					</tr>
 
-					ユーザー名：
-					<input type="text" name="user_name" value="${e.user_name}">
-					<br>
 
 				<!-- 住所(プルダウン) -->
 
-					住所：
+					<tr><td>　　住所　　：</td>
+					<td>
 					<select size="1" name="address">
 					<option value =""<c:if test="${cardFollowList.get(0).address == ''}"></c:if>>選択されていません</option>
 					<option value ="北海道"<c:if test="${cardFollowList.get(0).address == '北海道'}">selected</c:if>>北海道</option>
@@ -111,14 +114,18 @@
 					<option value ="鹿児島県"<c:if test="${cardFollowList.get(0).address == '鹿児島県'}">selected</c:if>>鹿児島県</option>
 					<option value ="沖縄県"<c:if test="${cardFollowList.get(0).address == '沖縄県'}">selected</c:if>>沖縄県</option>
 					</select>
-					<br>
+					</td>
+					</tr>
+
 
 				<!-- フリースペース -->
 
-					一言コメント
-					<input type="text" name="comment" value="${e.freespace}">
+					<tr><td>一言コメント :</td>
+					<td><input type="text" name="comment" value="${e.freespace}"></td>
+					</tr>
 
 				</c:forEach>
+				</table>
 				<br>
 				<br>
 

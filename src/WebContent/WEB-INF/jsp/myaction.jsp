@@ -50,6 +50,7 @@
 	<!--メインここから-->
 	<main>
 			<h2 class = "title">リアクションした投稿</h2>
+			<br>
 			<div class="container-fluid">
 				<div class="row">
 				        <div class="col-6">

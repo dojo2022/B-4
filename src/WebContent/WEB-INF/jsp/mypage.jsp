@@ -48,23 +48,20 @@
 		<c:forEach var="e" items="${cardFollowList}" >
 			<tr>
 			<td rowspan="3"><img src="./icon/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
-			<td align="center"><p class="uname"><strong>${e.user_name}</strong></p></td>
+			<td align="center">ユーザー名<br><p class="fbox"><strong>${e.user_name}</strong></p></td>
 		</c:forEach>
-			<td><div class="fbox">
+			<td><p class="fbox">
 				フォロー数 ${follow_count}
-			</div></td>
-			<td><div class="fbox">
+			</p></td>
+			<td><p class="fbox">
 				フォロワー数 ${followed_count}
-			</div></td>
+			</p></td>
 			</tr>
-
 			<c:forEach var="e" items="${cardFollowList}" >
 			<p>📍${e.address}</p><br>
 			</c:forEach>
-
-
-
 		</tabel>
+
 
 		<c:forEach var="e" items="${cardFollowList}" >​
 			<form class="box">
