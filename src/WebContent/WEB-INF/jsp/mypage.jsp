@@ -44,24 +44,29 @@
 		<h1 class = "title">マイページ</h1>
 		<br>
 		<br>
-
+		<tabel>
 		<c:forEach var="e" items="${cardFollowList}" >
-
-			<img src="./img/${e.icon}" alt="アイコン" name="icon" class="icon"><br>
-
-
-			<p>📍${e.address}</p><br>
-
-			<p class="uname"><strong>${e.user_name}</strong></p>
-			<br><br>
+			<tr>
+			<td rowspan="3"><img src="./img/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
+			<td align="center"><p class="uname"><strong>${e.user_name}</strong></p></td>
 		</c:forEach>
-		<div class="fbox">
-			フォロー数 ${follow_count}
-		</div>
-		<br>
-		<div class="fbox">
-			フォロワー数 ${followed_count}
-		</div>
+			<td><div class="fbox">
+				フォロー数 ${follow_count}
+			</div></td>
+			<br>
+			<td><div class="fbox">
+				フォロワー数 ${followed_count}
+			</div></td>
+			</tr>
+
+			<c:forEach var="e" items="${cardFollowList}" >
+			<p>📍${e.address}</p><br>
+			</c:forEach>
+
+
+
+		</tabel>
+
 		<c:forEach var="e" items="${cardFollowList}" >​
 			<form class="box">
 				${e.freespace}

@@ -6,8 +6,9 @@
 
 
 .icon{
- width:50%;
+ width:60%;
  height:30%;
+ position:relative;
 }
 /*配置の指定*/
 .uname{
