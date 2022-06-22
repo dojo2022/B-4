@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.FeelingDao;
 import dao.PostDao;
@@ -35,9 +36,7 @@ public class CorDBrowsServlet extends HttpServlet {
 //				int f = 1;
 				Integer i = Integer.valueOf(f);
 				String feeling = i.toString();
-//				request.setAttribute("feeling", feeling);
-// ここまでは出来ている
-
+				//気分で投稿を検索する
 				PostDao pDao = new PostDao();
 //				List<Post> postList = new ArrayList<Post>();
 //				postList = pDao.fselect(feeling);
@@ -53,9 +52,25 @@ public class CorDBrowsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
+		String userid = request.getParameter("USERID");
+		String posttitle = request.getParameter("POSTTITLE");
+		String image = request.getParameter("IMAGE");
+		String cord = request.getParameter("CORD");
+		String postcomment = request.getParameter("POSTCOMMENT");
+		String date =request.getParameter("date");
+		//セッションスコープに詳細画面に必要なデータを入れる
+		HttpSession session = request.getSession();
+		session.setAttribute("userid", userid);
+		session.setAttribute("posttitle", posttitle);
+		session.setAttribute("image", image);
+		session.setAttribute("postcomment", postcomment);
+		session.setAttribute("date", date);
 
-
-
+		// 投稿詳細サーブレットにリダイレクトする
+		response.sendRedirect("/dotchiha/ViewPostServlet");
 	}
 
 }

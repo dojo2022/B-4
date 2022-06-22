@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% String posttitle = (String)request.getAttribute("posttitle"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,7 @@
 		let vpost_reactionHTML = '';
 
 		/* HTML文生成 */
-		vpost_titleHTML = '気になる';
+		vpost_titleHTML = posttitle;
 		vpost_imgHTML = '<img src="img/4506970902_96cd8ae739.jpg" class="vpost_img" alt="">';
 		vpost_expHTML = '何やら外が気になるご様子の猫ちゃん可愛い！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！';
 		vpost_iconHTML = '<img src="img/icon_user.png" class="vpost_icon" alt="ユーザーアイコン">';

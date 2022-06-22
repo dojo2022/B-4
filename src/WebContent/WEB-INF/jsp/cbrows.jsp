@@ -42,48 +42,41 @@
 
 	<!--メインここから-->
 	<main>
-	<% out.println(feeling); %>
-	<form method="get" action="/dotchiha/CorDBrowsServlet" class="search_container">
-  <input type="text" size="25" placeholder="　キーワード検索">
-  <input type="submit" value="検索">
-</form>
-	<div id="test"></div>
-	<!-- 仮組、後でjavascriptで記述する  -->
+		<form method="get" action="/dotchiha/CorDBrowsServlet" class="search_container">
+		  <input type="text" size="25" placeholder="　キーワード検索">
+		  <input type="submit" value="検索">
+		</form>
 		<table>
-			<tr>
-				<td><a href="//Servret?postid=X"><img src="img/0812045030.jpg" alt="投稿画像" class="brows_img"></a></td>
-				<td><a href="//Servret"><img src="img/0812110532.jpg" alt="投稿画像" class="brows_img"></a></td>
-			</tr>
-			<tr>
-				<td><a href="//Servret"><img src="img/5935050477_034987fd07.jpg" alt="投稿画像" class="brows_img"></a></td>
-				<td><a href="//Servret"><img src="img/7108974657_3171ea4aaa.jpg" alt="投稿画像" class="brows_img"></a></td>
-			</tr>
-			<tr>
-				<td><a href="//Servret"><img src="img/3936850490_5f5fd80a21.jpg" alt="投稿画像" class="brows_img"></a></td>
-				<td><a href="//Servret"><img src="img/0813032255.jpg" alt="投稿画像" class="brows_img"></a></td>
-			</tr>
-			<tr>
-				<td><a href="//Servret"><img src="img/4506970902_96cd8ae739.jpg" alt="投稿画像" class="brows_img"></a></td>
-				<td><a href="//Servret"><img src="img/4835109188_725430edf5.jpg" alt="投稿画像" class="brows_img"></a></td>
-			</tr>
+			<c:forEach var="e" items="${postList}" varStatus="status" >
+				<script>
+				'use strict'
+				if(${status.count} % 2 == 1 ) {
+					document.write('<tr>');
+				}
+				</script>
+				<td>
+				<form method="POST" action="/dotchiha/CorDBrowsServlet">
+				<input type="hidden" name="ID" value="${e.id}">
+				<input type="hidden" name="USERID" value="${e.user_id}">
+				<input type="hidden" name="POSTTITLE" value="${e.posttitle}">
+				<input type="hidden" name="CORD" value="${e.cord}">
+				<input type="hidden" name="POSTCOMMENT" value="${e.postcomment}">
+				<input type="hidden" name="DATE" value="${e.date}">
+				<input type="hidden" name="IMAGE" value="${e.image}" >
+				<input type="image" name="image" class="brows_img" alt="投稿画像" src="img/${e.image}">
+				</form>
+				</td>
+				<script>
+				'use strict'
+				if(${status.last}) {
+					document.write('</tr>');
+				} else if(${status.count} % 2 == 0 ) {
+					document.write('</tr>');
+				}
+				</script>
+			</c:forEach>
 		</table>
-		<div id="postimage" >投稿一覧</div>
-		<hr>
-<c:forEach var="e" items="${postList}" >
-	<form method="POST" action="/simpleBC/CorDBrowsServlet">
-	<input type="text" name="ID" value="${e.id}"><br>
-	<input type="text" name="USERID" value="${e.user_id}"><br>
-	<input type="text" name="POSTTITLE" value="${e.posttitle}"><br>
-	名前<input type="text" name="NAME" value="${e.image}"><br>
-	<input type="text" name="CORD" value="${e.cord}"><br>
-	<input type="text" name="POSTCOMMENT" value="${e.postcomment}"><br>
-	<input type="text" name="DATE" value="${e.date}"><br>
-	<input type="submit" name="SUBMIT" value="削除"><br>
-	</form>
-	<hr>
-</c:forEach>
 	</main>
-
 	<!--メインここまで-->
 	<!--フッターここから-->
 	<div id="footer">
@@ -93,21 +86,6 @@
 	</div>
 	<!--フッターここまで-->
 	<!-- javascriptここから-->
-	<script>
-	'use strict';
-	int LR = 0;
-	// HTML文変数宣言
-	let postimageHTML = '';
-
-	//HTML文生成
-
-	postimageHTML = 'あ';
-
-	// HTML文代入
-	document.getElementById('postimage').innerHTML= postimageHTML;
-	</script>
-	<script src ="/dotchiha/js/common.js"></script>
-	<!-- javascriptここまで -->
 </div>
 </body>
 </html>
