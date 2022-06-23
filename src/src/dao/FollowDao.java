@@ -92,7 +92,7 @@ public class FollowDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql= "select p.posttitle  from USER as u  LEFT JOIN POST as p on u.user_id = p.user_id  where u.user_id = ?";
+				String sql= "select p.id as post_id,p.user_id,p.posttitle,p.image,p.cord,p.postcomment,p.date from USER as u  LEFT JOIN POST as p on u.user_id = p.user_id  where u.user_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -103,7 +103,13 @@ public class FollowDao {
 
 				while (rs.next()) {
 					Post card = new Post(
-					rs.getString("posttitle")
+					rs.getString("post_id"),
+					rs.getString("user_id"),
+					rs.getString("posttitle"),
+					rs.getString("image"),
+					rs.getString("cord"),
+					rs.getString("postcomment"),
+					rs.getString("date")
 					);
 					cardPost.add(card);
 				}

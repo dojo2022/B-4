@@ -257,7 +257,63 @@ public class PostDao {
 			return result;
 
 	}
+	//Post_idからデータを取得する
+	public List<Post> tselect(String id) {
+		Connection conn = null;
+		List<Post> postList = new ArrayList<Post>();
 
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select id, user_id, posttitle, image, cord, postcomment, date from Post WHERE id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を完成させる
+			pStmt.setString(1,  id);
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Post card = new Post(
+				rs.getString("id"),
+				rs.getString("user_id"),
+				rs.getString("posttitle"),
+				rs.getString("postcomment"),
+				rs.getString("date"),
+				rs.getString("cord"),
+				rs.getString("image")
+				);
+				postList.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			postList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			postList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					postList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return postList;
+	}
 
 	// 犬or猫で投稿を検索する
 	//気分で投稿を検索する

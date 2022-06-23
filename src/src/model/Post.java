@@ -28,10 +28,10 @@ public class Post implements Serializable{
 		this.posttitle = posttitle;
 	}
 
-	public Post(String id, String image) {
+	public Post(String id, String posttitle) {
 		super();
 		this.id = id;
-		this.image = image;
+		this.posttitle = posttitle;
 	}
 
 	//引数のないコンストラクタ
