@@ -23,7 +23,9 @@
 		<p><c:out value="${result.message}" /></p>
 		<a href="${result.backTo}">戻る</a>
 		<!-- フッター -->
-		<div id="footer">
+		<div class="font-size">
+			<div id="footer">
+			</div>
 			<footer>
 				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 			</footer>
