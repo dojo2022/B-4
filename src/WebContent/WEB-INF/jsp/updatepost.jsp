@@ -17,12 +17,12 @@
 		</header>
 		<!-- メイン -->
 		<main>
-			<form>
+			<form method="POST" action="/dotchiha/UpdatePostServlet">
 				<table>
 					<!-- 投稿した内容のデータを持ってくる -->
 					<!-- タイトル -->
 					<tr><td><label>
-						${cardPost[0].posttitle}<input type="text" name="posttitle" value="${e.posttitle}">
+						<input type="text" name="posttitle" value="${postList[0].posttitle}">
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
@@ -30,17 +30,18 @@
 					</label></td></tr>
 					<!-- 犬猫のラジオボタン -->
 					<tr><td><label>
-						<input type="radio" name="cord"  value="${e.cord}">猫
-						<input type="radio" name="cord"  value="${e.cord}">犬
+						<input type="radio" name="cord"  value="${postList[0].cord}">猫
+						<input type="radio" name="cord"  value="${postList[0].cord}">犬
 					</label></td></tr>
 					<!-- コメント -->
 					<tr><td><label>
-						<textarea rows="4" cols="30" name="postcomment" >${e.postcomment}</textarea>
+						<textarea rows="4" cols="30" name="postcomment" >${postList[0].postcomment}</textarea>
 					</label></td></tr>
 					<!-- 編集・削除 -->
 					<tr><td><label>
 						<input type="submit" name="submit" value="更新">
-						<input type="submit" name="submit" value="削除"><br>
+						<input type="submit" name="submit" value="削除">
+						<input type="hidden" name="submit" value="${postList[0].id}"><br>
 					</label></td></tr>
 				</table>
 			</form>
