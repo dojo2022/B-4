@@ -107,7 +107,7 @@ public class FeelingDao {
 		// 結果を返す
 		return result;
 	}
-	// 列作成
+	// 行作成
 	public boolean insertf(String userid, String feeling) {
 		Connection conn = null;
 		boolean result = false;
@@ -120,7 +120,7 @@ public class FeelingDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
-			String sql = "insert into Feeling (user_id, feeling) value (?, ?) where user_id =?";
+			String sql = "insert into Feeling (user_id, feeling) values ('?', '?') ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

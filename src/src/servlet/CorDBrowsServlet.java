@@ -27,9 +27,9 @@ public class CorDBrowsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// セッションスコープからログインidを取得
-//				HttpSession session = request.getSession();
-//				String userid= (String) session.getAttribute("id");
-				String userid = "nekozuki75@gmail.com";
+				HttpSession session = request.getSession();
+				String userid= (String) session.getAttribute("id");
+//				String userid = "nekozuki75@gmail.com";
 		// ユーザーの気分情報を取り出す
 				FeelingDao fDao =new FeelingDao();
 				int f = fDao.selectf(userid);
@@ -55,14 +55,15 @@ public class CorDBrowsServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("ID");
-		String userid = request.getParameter("USERID");
+		String postuser = request.getParameter("USERID");
 		String posttitle = request.getParameter("POSTTITLE");
 		String image = request.getParameter("IMAGE");
 		String postcomment = request.getParameter("POSTCOMMENT");
 		String date =request.getParameter("date");
 		//セッションスコープに詳細画面に必要なデータを入れる
 		HttpSession session = request.getSession();
-		session.setAttribute("userid", userid);
+		session.setAttribute("postid", id);
+		session.setAttribute("postuser", postuser);
 		session.setAttribute("posttitle", posttitle);
 		session.setAttribute("image", image);
 		session.setAttribute("postcomment", postcomment);

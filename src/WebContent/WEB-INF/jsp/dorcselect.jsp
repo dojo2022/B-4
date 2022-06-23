@@ -17,7 +17,7 @@
 	<!--  ヘッダーここから  -->
 	<header class="header">
 		<h1 id="logo" >
-			<a href="//Servlet"><img src="img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
+			<a href="/dotchiha/CorDBrowsServlet"><img src="img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
 	</header>
 	<!--  ヘッダーここまで  -->
 

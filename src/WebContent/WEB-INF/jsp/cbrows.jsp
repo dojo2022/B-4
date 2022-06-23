@@ -18,7 +18,7 @@
 	<!--  ヘッダーここから  -->
 	<header class="header">
 		<h1 id="logo" >
-			<a href="//Servlet"><img src="img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
+			<a href="/dotchiha/CorDBrowsServlet"><img src="img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
 		<!--  ハンバーガーメニュー  -->
 		<div class="ham" id="ham">
 			<span class="ham_line ham_line1"></span>
@@ -63,7 +63,7 @@
 				<input type="hidden" name="POSTCOMMENT" value="${e.postcomment}">
 				<input type="hidden" name="DATE" value="${e.date}">
 				<input type="hidden" name="IMAGE" value="${e.image}" >
-				<input type="image" name="image" class="brows_img" alt="投稿画像" src="img/${e.image}">
+				<input type="image" class="brows_img" alt="投稿画像" src="img/${e.image}">
 				</form>
 				</td>
 				<script>

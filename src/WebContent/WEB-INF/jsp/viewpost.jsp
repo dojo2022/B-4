@@ -4,6 +4,7 @@
     <% String image = (String)request.getAttribute("image"); %>
     <% String postcomment = (String)request.getAttribute("postComment"); %>
     <% String date = (String)request.getAttribute("date"); %>
+    <% String reaction = (String)request.getAttribute("reaction"); %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -55,7 +56,12 @@
 		</table>
 		</c:forEach>
 		<p class= "vpost_exp" id= "vpost_exp"><% out.println(postcomment); %></p>
-		<div id="vpost_reaction">リアクションボタン</div>
+		<div id="vpost_reaction">
+		<form method="POST" action="/dotchiha/ViewPostServlet">
+		<input type="hidden" name="reaction" value="<% out.println(reaction); %>" >
+		<input type="image" class="vpost_reaction" alt="リアクション" src="/dotchiha/img/reaction<% out.println(reaction); %>.png">
+		</form>
+		</div>
 	</main>
 ​
 	<!--メインここまで-->
