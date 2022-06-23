@@ -86,6 +86,7 @@
 	</div>
 	<!--フッターここまで-->
 	<!-- javascriptここから-->
+	<script src ="/dotchiha/js/common.js"></script>
 </div>
 </body>
 </html>

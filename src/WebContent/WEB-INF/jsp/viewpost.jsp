@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% String posttitle = (String)request.getAttribute("posttitle"); %>
+    <% String posttitle = (String)request.getAttribute("postTitle"); %>
+    <% String image = (String)request.getAttribute("image"); %>
+    <% String postcomment = (String)request.getAttribute("postComment"); %>
+    <% String date = (String)request.getAttribute("date"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>リアクションした投稿｜マイページ｜今日はどっち派？</title>
+<title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/list.css">
@@ -39,14 +42,16 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h2 class= "vpost_title" id= "vpost_title">タイトル</h2>
-		<div id="vpost_img">投稿画像</div>
+		<h2 class= "vpost_title" id= "vpost_title">
+		<% out.println(posttitle); %>
+		</h2>
+		<img src="img/<% out.println(image); %>" class="vpost_img" alt="投稿画像">
 		<table>
 		<tr>
 			<td id= "vpost_icon">投稿者アイコン</td><td id="vpost_name">投稿者名前</td>
 		</tr>
 		</table>
-		<p class= "vpost_exp" id= "vpost_exp">説明文</p>
+		<p class= "vpost_exp" id= "vpost_exp"><% out.println(postcomment); %></p>
 		<div id="vpost_reaction">リアクションボタン</div>
 	</main>
 ​
@@ -59,8 +64,11 @@
 	  </div>
 	<!--フッターここまで-->
 </div>
+<!--
 	<script>
 		'use strict'
+
+
 		/* HTML文変数宣言 */
 		let vpost_titleHTML = '';
 		let vpost_imgHTML = '';
@@ -70,7 +78,7 @@
 		let vpost_reactionHTML = '';
 
 		/* HTML文生成 */
-		vpost_titleHTML = posttitle;
+		vpost_titleHTML += posttitle;
 		vpost_imgHTML = '<img src="img/4506970902_96cd8ae739.jpg" class="vpost_img" alt="">';
 		vpost_expHTML = '何やら外が気になるご様子の猫ちゃん可愛い！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！';
 		vpost_iconHTML = '<img src="img/icon_user.png" class="vpost_icon" alt="ユーザーアイコン">';
@@ -85,6 +93,7 @@
 		document.getElementById('vpost_name').innerHTML = vpost_nameHTML;
 		document.getElementById('vpost_reaction').innerHTML = vpost_reactionHTML;
 	</script>
+	-->
 	<script src ="/dotchiha/js/common.js"></script>
 	<!-- javascriptここまで -->
 

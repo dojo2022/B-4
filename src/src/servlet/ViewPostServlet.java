@@ -26,13 +26,14 @@ public class ViewPostServlet extends HttpServlet {
 		String posttitle = (String) session.getAttribute("posttitle");
 		String userid= (String) session.getAttribute("userid");
 		String image = (String) session.getAttribute("image");
-		String postcomment = (String) session.getAttribute("userid");
+		String postcomment = (String) session.getAttribute("postcomment");
 		String date = (String) session.getAttribute("date");
 		//リクエストスコープに格納
 		request.setAttribute("postTitle", posttitle);
 		request.setAttribute("image", image);
 		request.setAttribute("postComment", postcomment);
 		request.setAttribute("date", date);
+		//useridからユーザー情報を取得
 
 		// 投稿詳細ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewpost.jsp");

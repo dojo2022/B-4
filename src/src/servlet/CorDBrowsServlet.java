@@ -58,7 +58,6 @@ public class CorDBrowsServlet extends HttpServlet {
 		String userid = request.getParameter("USERID");
 		String posttitle = request.getParameter("POSTTITLE");
 		String image = request.getParameter("IMAGE");
-		String cord = request.getParameter("CORD");
 		String postcomment = request.getParameter("POSTCOMMENT");
 		String date =request.getParameter("date");
 		//セッションスコープに詳細画面に必要なデータを入れる
