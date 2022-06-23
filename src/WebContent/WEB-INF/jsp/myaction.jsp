@@ -54,29 +54,29 @@
 			<div class="container-fluid">
 				<div class="row">
 				        <div class="col-6">
-						<img src="./img/akitainu.png" alt="リアクションした投稿">
+						<img src="./img/akitainu.png" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">凛々しい柴</a></p>
 						</div>
 
 						<div class="col-6">
-						<img src="./img/cat3.jpg" alt="リアクションした投稿">
+						<img src="./img/cat3.jpg" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">いろんな表情</a></p>
 						</div>
 				</div>
 				<div class="row">
                 	    <div class="col-6">
-						<img src="./img/cat_hand.jpg" alt="リアクションした投稿">
+						<img src="./img/cat_hand.jpg" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">肉球が癒し</a></p>
 						</div>
 
                	    	<div class="col-6">
-						<img src="./img/inugoya.png" alt="リアクションした投稿">
+						<img src="./img/inugoya.png" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">おひるね</a></p>
 						</div>
 				</div>
 				<div class="row">
                 	    <div class="col-6">
-						<img src="./img/omocha.png" alt="リアクションした投稿">
+						<img src="./img/omocha.png" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">元気に遊ぶ！</a></p>
 						</div>
 

@@ -39,42 +39,47 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h1 class = "title">相手のページ</h1>
+		<c:forEach var="e" items="${cardFollowList}" >
+		<h1 class = "title">"${e.user_name}"のページ</h1>
+		</c:forEach>
 		<br>
 		<br>
+								<tabel>
 								<c:forEach var="e" items="${cardFollowList}" >
-								<img src="${e.icon}" alt="アイコン" name="icon" class="icon"><br>
-								<input type="submit" name="follow" value="フォローする">
-								<br>
-								<br>
-								<p class="uname"><strong>${e.user_name}</strong></p>
-								<br>
-								<br>
+								<tr>
+								<td rowspan="3"><img src="./icon/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
+								<td align="center">ユーザー名<br><p class="fbox"><strong>${e.user_name}</strong></p></td>
 								</c:forEach>
-
-
-								<div class="fbox">
+								<td><p class="fbox">
 								フォロー数 ${follow_count}
-								</div>
-								<br>
-								<div class="fbox">
+								</p></td>
+								<td><p class="fbox">
 								フォロワー数 ${followed_count}
-								</div>
+								</p></td>
+								</tr>
+								<input type="submit" name="follow" value="フォロー">
+								<br>
+
+
+
 ​								<c:forEach var="e" items="${cardFollowList}" >
 								<form class="box">
 								${e.freespace}
 								</form>
 ​                                </c:forEach>
 
-								<h3>投稿タイトル一覧</h3>
-								<div class="bbox">
-
-								<ul>
-								<c:forEach var="e" items="${cardTList}" >
-								<li><a href="/dotchiha/ViewPostServlet">${e.title}</a></li>
-								</c:forEach>
-								</ul>
-								</div>
+						<h3>投稿タイトル一覧</h3>
+							<div class="bbox">
+								<form method="post" action="/dotchiha/ViewPostServlet">
+									<table>
+									<c:forEach var="e" items="${cardPost}">
+									 <tr><td>
+	 								<button type="submit" name="posttitle" value="${e.id}">${e.posttitle}</button>
+	 								</td></tr>
+									</c:forEach>
+									</table>
+								</form>
+							</div>
 
 
 ​
@@ -82,11 +87,13 @@
 ​
 	<!--メインここまで-->
 	<!--フッターここから-->
-	  <div id="footer">
-	    <footer>
-	     	<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
-	    </footer>
-	  </div>
+	<div class="font-size">
+		<div id="footer">
+		</div>
+			<footer>
+				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+			</footer>
+		</div>
 	<!--フッターここまで-->
 </div>
 <script src ="/dotchiha/js/common.js"></script>
