@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,18 +57,38 @@ public class BoardPostServlet extends HttpServlet {
 //		}
 
 		//セッションからユーザーIDを取得する
-		HttpSession session = request.getSession();
-		 String user_id = (String)session.getAttribute("user_id");
+//		HttpSession session = request.getSession();
+//		String user_id = (String)session.getAttribute("user_id");
+		String user_id = "nekozuki75@gmail.com";
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String text = request.getParameter("text");
-		String  dorc= request.getParameter("dorc");
+		String cat = request.getParameter("cat");
+		if (cat == null || cat == "null") {cat="0";}
+		String dog = request.getParameter("dog");
+		if (dog == null || dog == "null") {dog="0";}
+		String dorc = null;
+
+		if(cat.equals("1") && dog.equals("0")) {
+			dorc = "0";
+		}else if(cat.equals("0") && dog.equals("1")) {
+			dorc = "1";
+		}else {
+			dorc = "2";
+		}
 
 		// 登録処理を行う
 		BoardDao bDao = new BoardDao();
 		bDao.insert(new Board("",user_id,title,text,"",dorc)); // 登録成功
+
+		// 検索処理を行う
+		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
+
+		// 検索結果をリクエストスコープに格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("boardList", boardList);
 
 
 		// 掲示板一覧ページにフォワードする

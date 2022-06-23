@@ -86,6 +86,80 @@ public class BoardDao {
 		// 結果を返す
 			return boardList;
 	}
+
+	public List<Board> selectnot(String dorc) {
+		Connection conn = null;
+		List<Board> boardList = new ArrayList<Board>();
+
+		//id,user_id,title,text,date,dorc
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する<<ここを改造>>
+			String sql = "select id,user_id,title,text,date,dorc from Board WHERE dorc != ? ORDER BY id DESC";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる<<ここを改造>>
+
+//			if (param.getId() != null) {
+//				pStmt.setString(1,  param.getId());
+//			}
+//			else {
+//				pStmt.setString(1, "null");
+//			}
+			if (dorc != null) {
+				pStmt.setString(1, dorc);
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする<<ここを改造>>
+			while (rs.next()) {
+				Board card = new Board(
+				rs.getString("id"),
+				rs.getString("user_id"),
+				rs.getString("title"),
+				rs.getString("text"),
+				rs.getString("date"),
+				rs.getString("dorc")
+				);
+				boardList.add(card);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			boardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			boardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					boardList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return boardList;
+	}
+
 	//board_idからBoardテーブルとそのユーザーIDに対応したユーザー名、アイコンを持ってくる
 	public List<BoardUser> select_username(String board_id){
 		Connection conn = null;
