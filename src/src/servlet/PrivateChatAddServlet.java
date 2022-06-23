@@ -45,14 +45,14 @@ public class PrivateChatAddServlet extends HttpServlet {
 
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");//メッセージのID
+		//String id = request.getParameter("ID");//メッセージのID
 		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
 		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
 		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
 
 		// DAOを呼び出す
 		CMessageDao cmDao = new CMessageDao();
-		cmDao.insert(new CMessage(id, message, room_id, sender_id, "",""));
+		cmDao.insert(new CMessage("", message, room_id, sender_id, "",""));
 		List<CSenderName> messageList = cmDao.select_username(room_id);
 		//検索結果をsessionスコープに格納する
 		HttpSession session = request.getSession();

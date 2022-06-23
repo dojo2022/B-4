@@ -79,7 +79,7 @@
 			<form  method="POST" action="/dotchiha/PrivateChatAddServlet">
 				<textarea name="message" id="pms_send_message"></textarea>
 				<!-- e は使えないのでリクエストスコープ名を使用-->
-				<button type="submit" id="pms_send_btn" class = "buttontag" value = "${messageList[1].room_id}" name="room_id">送信</button>
+				<button type="submit" id="pms_send_btn" class = "buttontag" value = "${room_id}" name="room_id">送信</button>
 			</form>
 			</div>
 		</div>

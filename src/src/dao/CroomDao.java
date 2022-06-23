@@ -123,6 +123,58 @@ public class CroomDao {
 			return result;
 		}
 
+		//参加しているグループチャットを表示する
+				public List<Croom> select_already(String user_id) {
+					Connection conn = null;
+					List<Croom> roomalreadyList = new ArrayList<Croom>();
 
+					try {
+						// JDBCドライバを読み込む
+						Class.forName("org.h2.Driver");
+
+						// データベースに接続する
+						conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+						// SQL文を準備する<ここ変える>全て取り出して、WHEREのところは検索する項目にする
+						String sql = "SELECT croom.room_name, croom.id FROM CMEMBER left join croom on cmember.room_id = croom.id where user_id =? and croom.room_name != 'null' ORDER BY id;";
+						PreparedStatement pStmt = conn.prepareStatement(sql);
+
+						pStmt.setString(1, user_id);
+						// SQL文を実行し、結果表を取得する
+						ResultSet rs = pStmt.executeQuery();
+
+						// 結果表をコレクションにコピーする <ここ変える>全ての列にする
+						while (rs.next()) {
+							Croom card = new Croom(
+							rs.getString("id"),
+							rs.getString("room_name")
+							);
+							roomalreadyList.add(card);
+						}
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						roomalreadyList = null;
+					}
+					catch (ClassNotFoundException e) {
+						e.printStackTrace();
+						roomalreadyList = null;
+					}
+					finally {
+						// データベースを切断
+						if (conn != null) {
+							try {
+								conn.close();
+							}
+							catch (SQLException e) {
+								e.printStackTrace();
+								roomalreadyList = null;
+							}
+						}
+					}
+
+					// 結果を返す
+					return roomalreadyList;
+				}
 
 }

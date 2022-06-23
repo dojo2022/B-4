@@ -51,6 +51,7 @@ public class PrivateChatServlet extends HttpServlet {
 		//Cmessageテーブルの検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
+		session.setAttribute("room_id", room_id);
 
 		//リクエストが来たらprivatechat.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/privatechat.jsp");

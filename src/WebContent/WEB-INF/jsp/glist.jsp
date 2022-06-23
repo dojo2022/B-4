@@ -43,10 +43,9 @@
 				<br>
 				<br>
 				<form method="GET" action="/dotchiha/GCreateServlet" id="gcstart">
-				<input type = "submit" name = "gstart" value = "会話を始める" class="button">
+				<input type = "submit" name = "gstart" value = "会話を始める" class="button"><!-- 変更OK -->
 				<!-- onsubmitでgcreate.jspへ飛ぶ -->
-				</form>
-				<br>
+				</form><br>
 				<form method="GET" action="/dotchiha/GAddMemberServlet" id="gaddmember">
 				<input type = "submit" name = "gaddmember" value = "ルームに参加する" class="button">
 				<!-- onsubmitでgaddmember.jspへ飛ぶ -->
@@ -54,7 +53,7 @@
 				<br>
 				<br>
 				<div id="glist">
-				<c:forEach var="e" items="${roomList}">
+				<c:forEach var="e" items="${roomalreadyList}">
 					<form method="POST" action="/dotchiha/GroupChatServlet">
 						<button type="submit" class="buttontag" value="${e.id}"	name="room_id">
 

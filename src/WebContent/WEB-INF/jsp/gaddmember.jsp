@@ -39,12 +39,13 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h1 class = "title">グループチャット</h1>
+		<h1 class = "title">グループチャットルーム一覧</h1>
 				<br>
+				<p>参加するグループチャットルームをクリックしてください</p>
 				<br>
 				<div id="glist">
 				<c:forEach var="e" items="${roomList}">
-					<form method="POST" action="/dotchiha/GroupChatServlet">
+					<form method="POST" action="/dotchiha/GAddMemberServlet">
 						<button type="submit" class="buttontag" value="${e.id}"	name="room_id">
 
 							<span>${e.room_name}</span><br><!-- ルーム名を表示する -->
@@ -59,11 +60,7 @@
 			</div>
 				<br>
 				<!--戻るボタン--->
-				<form method="GET" action="/dotchiha/CSelectServlet">
-							<input type = "submit" name = "tolist" value = "戻る">
-							<!-- onsubmitでcselect.jspへ飛ぶ -->
-						</form>
-				<!-- <button class ="exit" type = "button" onclick ="history.back()">戻る</button> -->
+				<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 
 	</main>
 

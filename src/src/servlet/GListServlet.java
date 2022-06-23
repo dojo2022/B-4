@@ -34,19 +34,16 @@ public class GListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//【最終的な表示】繰り返し処理でグループの一覧を表示する
-		//必要なデータ（DAO）
-		//croomテーブルからidとroom_nameを取得する（null以外）→OK
-		//cmemberテーブルから各room_idに所属するuser_idの数を取得する→room_nameと照らし合わせて表示する
-		//必要なデータを呼び出す処理が必要→データをリクエストスコープに格納
+		request.setCharacterEncoding("UTF-8");
+		String user_id = "nekozuki75@gmail.com";
 
 		//ルーム名を取り出す
 		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
 		CroomDao cDao = new CroomDao();//newの後はCroomDaoのpublicクラスを実体化したもの
-		List<Croom> roomList = cDao.select();//selectでCroomDao.javaのCroomDaoクラスのselect内容を実行できる。それをlistに格納している
+		List<Croom> roomalreadyList = cDao.select_already(user_id);//selectでCroomDao.javaのCroomDaoクラスのselect内容を実行できる。それをlistに格納している
 		//Croomテーブルの検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();
-		session.setAttribute("roomList", roomList);
+		session.setAttribute("roomalreadyList", roomalreadyList);
 
 		 //リクエストが来たらglist.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/glist.jsp");
