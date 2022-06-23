@@ -98,6 +98,15 @@
 								<button class ="exit" type = "button" onclick ="history.back()">戻る</button>
 ​								</div>
 	</main>
+		<!--フッターここから-->
+		<div class="font-size">
+			<div id="footer">
+			</div>
+			<footer>
+				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+			</footer>
+		</div>
+	<!--フッターここまで-->
 </div>
 </body>
 </html>

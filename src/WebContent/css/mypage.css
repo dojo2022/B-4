@@ -4,7 +4,10 @@
 	text-align:center;
 }
 
-
+/*お気に入り投稿の写真サイズ設定*/
+.rphoto{
+	height:;
+}
 .icon{
  width:60%;
  height:30%;
