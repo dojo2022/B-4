@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><!-- forEach文を使うにはこの文が必要 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,35 +39,32 @@
 	<!--  ヘッダーここまで  -->
 	<!--メインここから-->
 	<main>
-		<h1 class = "title">個人チャット</h1>
+		<h1 class = "title">グループチャット</h1>
 				<br>
 				<br>
-				<form method="GET" action="/dotchiha/PCreateServlet">
-					<input type = "submit" name = "pstart" value = "会話を始める" class="button">
-					<!-- onsubmitで相互フォローの人の一覧表示 script? -->
-				</form>
-				<br>
-				<br>
-				<div id="plist">
-					<!-- 会話している人の一覧表示 -->
-				<c:forEach var="i" begin="0" end = "${pmList.size()}" step="1">
-				<c:forEach var="e" items="${pmList[i] }">
-					<form method="POST" action="/dotchiha/PrivateChatServlet" id="cselect2">
-						<input type = "submit" name = "user_name" value = "${e.user_name}" class="button">
-						 <input type = "hidden" name="room_id" value="${e.room_id}">
-						<!-- onsubmitでprivatechat.jspへ飛ぶ -->
-					  <br>
-					  <br>
+				<div id="glist">
+				<c:forEach var="e" items="${roomList}">
+					<form method="POST" action="/dotchiha/GroupChatServlet">
+						<button type="submit" class="buttontag" value="${e.id}"	name="room_id">
+
+							<span>${e.room_name}</span><br><!-- ルーム名を表示する -->
+							<img src="/dotchiha/img/icon_user.png" width="15" height="15"
+								alt="	人数">○○人
+						</button>
+						<input type = "hidden" name="room_name" value="${e.room_name}">
+						<!-- onsubmitでgroupchat.jspへ飛ぶ -->
+						<br>
 					</form>
-				  </c:forEach>
-				  </c:forEach>
-				</div>
+				</c:forEach>
+			</div>
 				<br>
 				<!--戻るボタン--->
 				<form method="GET" action="/dotchiha/CSelectServlet">
 							<input type = "submit" name = "tolist" value = "戻る">
-							<!-- onsubmitでglist.jspへ飛ぶ -->
+							<!-- onsubmitでcselect.jspへ飛ぶ -->
 						</form>
+				<!-- <button class ="exit" type = "button" onclick ="history.back()">戻る</button> -->
+
 	</main>
 
 	<!--メインここまで-->

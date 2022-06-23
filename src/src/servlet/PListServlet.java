@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -50,18 +51,27 @@ public class PListServlet extends HttpServlet {
 		CMemberDao cmmDao = new CMemberDao();
 		List<CPMember> pmemberList = cmmDao.select_pmember(user_id);
 
-		//該当したルームに参加している自分以外のユーザーを取り出す
-		int count = 1;
+//		//該当したルームに参加している自分以外のユーザーを取り出す
+//		int count = 1;
+//		for(CPMember cp: pmemberList) {
+//
+//			String room_id=cp.getId();
+//			List<CPMember> pmList = cmmDao.select_pm(user_id,room_id);
+//			session.setAttribute("pmList"+count, pmList);
+//			count++;
+//		}
+//		request.setAttribute("counts",Integer.toString(count));
+
+		ArrayList<List<CPMember>> pm= new ArrayList<List<CPMember>>();
 		for(CPMember cp: pmemberList) {
-			
+
 			String room_id=cp.getId();
 			List<CPMember> pmList = cmmDao.select_pm(user_id,room_id);
-			session.setAttribute("pmList"+count, pmList);
-			count++;
+//			session.setAttribute("pmList", pmList);
+			pm.add(pmList);
 		}
-		request.setAttribute("counts",Integer.toString(count));
+		session.setAttribute("pmList", pm);
 
-		//session.setAttribute("pmList", pmList);
 
 		//リクエストが来たらplist.jspを表示する（フォワード）
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/plist.jsp");

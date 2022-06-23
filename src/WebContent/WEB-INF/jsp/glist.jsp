@@ -47,6 +47,11 @@
 				<!-- onsubmitでgcreate.jspへ飛ぶ -->
 				</form>
 				<br>
+				<form method="GET" action="/dotchiha/GAddMemberServlet" id="gaddmember">
+				<input type = "submit" name = "gaddmember" value = "ルームに参加する" class="button">
+				<!-- onsubmitでgaddmember.jspへ飛ぶ -->
+				</form>
+				<br>
 				<br>
 				<div id="glist">
 				<c:forEach var="e" items="${roomList}">
@@ -75,11 +80,13 @@
 
 	<!--メインここまで-->
 	<!--フッターここから-->
-	  <div id="footer">
-	    <footer>
-	     	<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
-	    </footer>
-	  </div>
+	<div class="font-size">
+		<div id="footer">
+		</div>
+		<footer>
+			<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+		</footer>
+	</div>
 	<!--フッターここまで-->
 </div>
 <script src ="/dotchiha/js/common.js"></script>
