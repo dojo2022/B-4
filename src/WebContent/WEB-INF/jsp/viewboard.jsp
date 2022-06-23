@@ -63,7 +63,9 @@
 
   <!--メインここまで-->
   <!--フッターここから-->
-    <div id="footer">
+    <div class="font-size">
+      <div id="footer">
+      </div>
       <footer>
         <p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
       </footer>
@@ -73,6 +75,3 @@
 <script src ="/dotchiha/js/common.js"></script>
 </body>
 </html>
-<c:forEach var="e" items="${cardList}" >
-        <tr id="${e.id}"><td><button type = "submit" name = "id" value = "${e.id}">${e.title}</button></td></tr>
-        </c:forEach>

@@ -44,10 +44,8 @@
     <br>
     <!-- 犬猫選択ボタン -->
     <form action="/dotchiha/BoardListServlet" method="post">
-		  <input type="radio" name="dorc" value="0">
-		  <label>猫</label>
-		  <input type="radio" name="dorc" value="1">
-		  <label>犬</label>
+		  <input type="checkbox" name="cat" value="1"><label>猫</label>
+      <input type="checkbox" name="dog" value="1"><label>犬</label>
 			<input type="submit" value="検索">
 		<br>
 		</form>
@@ -69,11 +67,13 @@
 
   <!--メインここまで-->
   <!--フッターここから-->
+  <div class="font-size">
     <div id="footer">
-      <footer>
-        <p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
-      </footer>
     </div>
+    <footer>
+      <p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+    </footer>
+  </div>
   <!--フッターここまで-->
 </div>
 <script src ="/dotchiha/js/common.js"></script>
