@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.UserDao;
+import model.User;
 
 /**
  * Servlet implementation class ViewPostServlet
@@ -28,13 +32,15 @@ public class ViewPostServlet extends HttpServlet {
 		String image = (String) session.getAttribute("image");
 		String postcomment = (String) session.getAttribute("postcomment");
 		String date = (String) session.getAttribute("date");
+		//ユーザーIDで検索してユーザー情報を得る
+		UserDao uDao = new UserDao();
+		List<User> userInfo = uDao.uselect(userid);
 		//リクエストスコープに格納
 		request.setAttribute("postTitle", posttitle);
 		request.setAttribute("image", image);
 		request.setAttribute("postComment", postcomment);
 		request.setAttribute("date", date);
-		//useridからユーザー情報を取得
-
+		request.setAttribute("userinfo", userInfo);
 		// 投稿詳細ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewpost.jsp");
 		dispatcher.forward(request, response);

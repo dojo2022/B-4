@@ -4,6 +4,7 @@
     <% String image = (String)request.getAttribute("image"); %>
     <% String postcomment = (String)request.getAttribute("postComment"); %>
     <% String date = (String)request.getAttribute("date"); %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,18 +47,22 @@
 		<% out.println(posttitle); %>
 		</h2>
 		<img src="img/<% out.println(image); %>" class="vpost_img" alt="投稿画像">
+		<c:forEach var="e" items="${userinfo}" varStatus="status" >
 		<table>
 		<tr>
-			<td id= "vpost_icon">投稿者アイコン</td><td id="vpost_name">投稿者名前</td>
+			<td id= "vpost_icon"><img src="img/${e.icon}" class="vpost_icon" alt="ユーザーアイコン"></td><td id="vpost_name">${e.user_name}</td>
 		</tr>
 		</table>
+		</c:forEach>
 		<p class= "vpost_exp" id= "vpost_exp"><% out.println(postcomment); %></p>
 		<div id="vpost_reaction">リアクションボタン</div>
 	</main>
 ​
 	<!--メインここまで-->
 	<!--フッターここから-->
+	<div class="font-size">
 	  <div id="footer">
+	  </div>
 	    <footer>
 	     	<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 	    </footer>

@@ -37,7 +37,9 @@
 
 	<!--メインここまで-->
 	<!--フッターここから-->
+	<div class="font-size">
 	<div id="footer">
+	</div>
 		<footer>
 			<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 		</footer>
