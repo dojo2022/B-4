@@ -27,11 +27,11 @@ public class UpdatePostsubServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		/*リクエストパラメータを取得*/
-		String post_id = request.getParameter("id");
+		String post_id = request.getParameter("post_id");
 
 		// 検索処理を行う
 		PostDao pDao = new PostDao();
-		List<Post> postList = pDao.select(post_id);
+		List<Post> postList = pDao.postselect(post_id);
 
 		// 検索結果をセッションスコープに格納する
 		HttpSession session = request.getSession();

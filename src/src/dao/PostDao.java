@@ -258,7 +258,7 @@ public class PostDao {
 
 	}
 	//Post_idからデータを取得する
-	public List<Post> tselect(String id) {
+	public List<Post> postselect(String post_id) {
 		Connection conn = null;
 		List<Post> postList = new ArrayList<Post>();
 
@@ -269,11 +269,13 @@ public class PostDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
+			//id,user_id,posttitle,image,cord,postcomment,date
+
 			// SQL文を準備する
 			String sql = "select id, user_id, posttitle, image, cord, postcomment, date from Post WHERE id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
-			pStmt.setString(1,  id);
+			pStmt.setString(1,  post_id);
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
@@ -282,10 +284,10 @@ public class PostDao {
 				rs.getString("id"),
 				rs.getString("user_id"),
 				rs.getString("posttitle"),
-				rs.getString("postcomment"),
-				rs.getString("date"),
+				rs.getString("image"),
 				rs.getString("cord"),
-				rs.getString("image")
+				rs.getString("postcomment"),
+				rs.getString("date")
 				);
 				postList.add(card);
 			}

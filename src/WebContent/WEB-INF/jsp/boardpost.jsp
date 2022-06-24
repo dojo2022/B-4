@@ -25,20 +25,37 @@
     <br>
     <br>
     <form method="POST" action="/dotchiha/BoardPostServlet">
+    <!-- 投稿内容 -->
+      <table>
       <!-- タイトル -->
-      <p>タイトル</p>
-      <input type="text" name="title"><br>
-      <!-- 投稿内容 -->
-      <p>投稿内容</p>
-      <input type="text" name="text"><br>
-      <br>
-      <!-- 犬猫選択ボタン -->
-      <input type="checkbox" name="cat" value="1"><label>猫</label>
-      <input type="checkbox" name="dog" value="1"><label>犬</label>
-      <br>
-      <br>
-      <!-- 投稿ボタン -->
-      <input type="submit"  onclick="return confirm('下記の内容で登録します。よろしいですか？')" class="button" name="POST" value="投稿">
+        <tr>
+          <td><p>タイトル</p></td>
+        </tr>
+        <tr>
+          <td><input type="text" name="title"></td>
+        </tr>
+        <!-- 内容 -->
+        <tr>
+          <td><p>投稿内容</p></td>
+        </tr>
+        <tr>
+          <td><input type="text" name="text"></td>
+        </tr>
+        <!-- 犬猫選択ボタン -->
+        <tr>
+          <td colspan="2">
+            <input type="checkbox" name="cat" value="1"><label>猫</label>
+            <input type="checkbox" name="dog" value="1"><label>犬</label>
+          </td>
+        </tr>
+	      <!-- 投稿ボタン -->
+	      <tr>
+		      <td colspan="2">
+		      <input type="submit"  onclick="return confirm('下記の内容で登録します。よろしいですか？')" class="button" name="POST" value="投稿">
+		      <input type="reset" name="reset" value="リセット">
+		      </td>
+	      </tr>
+      </table>
     </form>
     <br>
     <br>

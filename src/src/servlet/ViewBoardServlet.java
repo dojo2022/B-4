@@ -67,7 +67,7 @@ public class ViewBoardServlet extends HttpServlet {
 		String sender_id = (String)session.getAttribute("user_id");
 //		String sender_id = "ryouko-tanaka918.gmail.com";
 
-		// 検索処理を行う
+		// User情報とBoard情報の検索処理を行う
 		BoardDao bDao = new BoardDao();
 		List<BoardUser> boardList = bDao.select_username(board_id);
 

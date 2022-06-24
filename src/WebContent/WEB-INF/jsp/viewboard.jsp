@@ -28,8 +28,13 @@
 
     <!-- アイコン＆ユーザー名 -->
     <div id="user_info">
-      <img src="${'/dotchiha/img/'+=boardList[0].icon}" alt="アイコン" name="icon" class="icon">
-      <p>${boardList[0].user_name}</p>
+      <form name="yourpage" action="/dotchiha/YourPageServlet" method ="POST">
+        <a href="javascript:document.yourpage.submit()">
+	       <img src="${'/dotchiha/img/'+=boardList[0].icon}" alt="アイコン" name="icon" class="icon" width="40" height="40">
+	       ${boardList[0].user_name}
+	      </a>
+	      <input type="hidden" name="user_id" value="${boardList[0].user_id}">
+      </form>
     </div>
     <!-- タイトル -->
     <h3>${boardList[0].title}</h3>

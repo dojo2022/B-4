@@ -83,20 +83,13 @@
 		</div> --%>
 		<div class="bbox">
 			<form method="post" action="/dotchiha/UpdatePostsubServlet">
-
 				<table>
-				<c:forEach var="e" items="${cardPost}">
-<%-- 				cartTListにはidがないので取れない
-	 				<li><input type="submit" name="post_id" value="${e.id}">${e.title}</li>--%>
- 					<tr><td>
- 					<input type="hidden"  name="cord" value="${e.cord}" >
- 					<input type="hidden"  name="image" value="${e.image}" >
- 					<input type="hidden"  name="postcomment" value="${e.postcomment}" >
- 					<input type="hidden"  name="posttitle" value="${e.posttitle}" >
- 					<input type="hidden"  name="id" value="${e.id}" >
- 					<button type="submit" name="posttitle" value="${e.id}">${e.posttitle}</button>
- 					</td></tr>
-				</c:forEach>
+					<c:forEach var="e" items="${cardPost}">
+	 					<tr><td>
+	 					<input type="hidden"  name="post_id" value="${e.id}" >
+	 					<button type="submit" name="posttitle" value="${e.posttitle}">${e.posttitle}</button>
+	 					</td></tr>
+					</c:forEach>
 				</table>
 			</form>
 		</div>
