@@ -57,9 +57,9 @@ public class BoardPostServlet extends HttpServlet {
 //		}
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
-//		String user_id = (String)session.getAttribute("user_id");
-		String user_id = "nekozuki75@gmail.com";
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
+//		String user_id = "nekozuki75@gmail.com";
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -87,7 +87,7 @@ public class BoardPostServlet extends HttpServlet {
 		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
 
 		// 検索結果をリクエストスコープに格納する
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		session.setAttribute("boardList", boardList);
 
 
