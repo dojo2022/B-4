@@ -28,7 +28,7 @@ public class ViewPostServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//セッションスコープからログインユーザーのユーザーIDを取り出す
 		HttpSession session = request.getSession();
-		String userid= (String) session.getAttribute("id");
+		String userid= (String) session.getAttribute("user_id");
 		//セッションスコープから投稿情報を受け取る
 		String postid = (String) session.getAttribute("postid");
 		String posttitle = (String) session.getAttribute("posttitle");
@@ -66,7 +66,7 @@ public class ViewPostServlet extends HttpServlet {
 		//リアクション機能
 		//セッションスコープからログインユーザーのユーザーIDを取り出す
 		HttpSession session = request.getSession();
-		String userid= (String) session.getAttribute("id");
+		String userid= (String) session.getAttribute("user_id");
 		String postid = (String) session.getAttribute("postid");
 		PostRDao rDao = new PostRDao();
 		//リクエストパラメータを取得
@@ -75,14 +75,12 @@ public class ViewPostServlet extends HttpServlet {
 		if(reaction.equals("off")) {
 			//リアクションテーブルにユーザーIDと投稿IDを登録する
 			if(rDao.insertr(postid, userid)) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewpost.jsp");
-				dispatcher.forward(request, response);
+				response.sendRedirect("/dotchiha/ViewPostServlet");
 			}
 		} else {
 			//リアクションテーブルからユーザーIDと投稿IDを削除する
 			if(rDao.deleter(postid, userid)) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewpost.jsp");
-				dispatcher.forward(request, response);
+				response.sendRedirect("/dotchiha/ViewPostServlet");
 			}
 		}
 

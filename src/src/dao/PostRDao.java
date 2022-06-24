@@ -136,7 +136,7 @@ public class PostRDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
-			String sql = "insert into PostR (post_id,sender_id) values ('?', '?')";
+			String sql = "insert into PostR (post_id,sender_id) values (?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -184,7 +184,7 @@ public class PostRDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
-			String sql = "DELETE FROM POSTR WHERE POST_ID = '?' and SENDER_ID = '?';";
+			String sql = "DELETE FROM POSTR WHERE POST_ID = ? and SENDER_ID = ?;";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

@@ -5,6 +5,7 @@
     <% String postcomment = (String)request.getAttribute("postComment"); %>
     <% String date = (String)request.getAttribute("date"); %>
     <% String reaction = (String)request.getAttribute("reaction"); %>
+    <% String postuser = (String)request.getAttribute("postuser"); %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -45,21 +46,28 @@
 	<!--メインここから-->
 	<main>
 		<h2 class= "vpost_title" id= "vpost_title">
-		<% out.println(posttitle); %>
+		<% out.print(posttitle); %>
 		</h2>
-		<img src="img/<% out.println(image); %>" class="vpost_img" alt="投稿画像">
+		<img src="img/<% out.print(image); %>" class="vpost_img" alt="投稿画像">
 		<c:forEach var="e" items="${userinfo}" varStatus="status" >
+		<form method="POST" action="/dotchiha/YourPageServlet">
 		<table>
 		<tr>
-			<td id= "vpost_icon"><img src="img/${e.icon}" class="vpost_icon" alt="ユーザーアイコン"></td><td id="vpost_name">${e.user_name}</td>
+			<td id= "vpost_icon">
+			<input type="hidden" name="user_id" value="<% out.print(postuser); %>">
+			<input type="image" class="vpost_icon" src="img/${e.icon}" alt="ユーザーアイコン">
+			</td>
+			<td id="vpost_name">${e.user_name}</td>
+
 		</tr>
 		</table>
+		</form>
 		</c:forEach>
-		<p class= "vpost_exp" id= "vpost_exp"><% out.println(postcomment); %></p>
+		<p class= "vpost_exp" id= "vpost_exp"><% out.print(postcomment); %></p>
 		<div id="vpost_reaction">
 		<form method="POST" action="/dotchiha/ViewPostServlet">
-		<input type="hidden" name="reaction" value="<% out.println(reaction); %>" >
-		<input type="image" class="vpost_reaction" alt="リアクション" src="/dotchiha/img/reaction<% out.println(reaction); %>.png">
+		<input type="hidden" name="reaction" value="<% out.print(reaction); %>" >
+		<input type="image" class="vpost_reaction" alt="リアクション" src="/dotchiha/img/reaction<% out.print(reaction); %>.png">
 		</form>
 		</div>
 	</main>

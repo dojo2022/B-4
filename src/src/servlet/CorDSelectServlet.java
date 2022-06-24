@@ -35,7 +35,7 @@ public class CorDSelectServlet extends HttpServlet {
 //		session1.setAttribute("id", "nekozuki75@gmail.com");
 		// セッションスコープからログインidを取得
 		HttpSession session = request.getSession();
-		String userid= (String) session.getAttribute("id");
+		String userid= (String) session.getAttribute("user_id");
 //		String userid = "nekozuki75@gmail.com";
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");

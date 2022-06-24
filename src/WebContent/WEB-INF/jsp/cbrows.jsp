@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String feeling = (String)request.getAttribute("feeling"); %>
+<% String choice = (String)request.getAttribute("choice"); %>
 <!doctype html>
 <html>
 
@@ -18,7 +18,7 @@
 	<!--  ヘッダーここから  -->
 	<header class="header">
 		<h1 id="logo" >
-			<a href="/dotchiha/CorDBrowsServlet"><img src="img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
+			<a href="/dotchiha/CorDBrowsServlet"><img src="img/title_<% out.print(choice); %>logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
 		<!--  ハンバーガーメニュー  -->
 		<div class="ham" id="ham">
 			<span class="ham_line ham_line1"></span>
@@ -42,10 +42,6 @@
 
 	<!--メインここから-->
 	<main>
-		<form method="get" action="/dotchiha/CorDBrowsServlet" class="search_container">
-		  <input type="text" size="25" placeholder="　キーワード検索">
-		  <input type="submit" value="検索">
-		</form>
 		<table>
 			<c:forEach var="e" items="${postList}" varStatus="status" >
 				<script>
