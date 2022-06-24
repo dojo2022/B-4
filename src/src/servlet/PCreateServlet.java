@@ -38,12 +38,16 @@ public class PCreateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String user_id="nekozuki75@gmail.com";
+		//String user_id="nekozuki75@gmail.com";
+
+		//セッションからユーザーIDを取得する
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
 
 		//相互フォロー者を表示する
 		FollowDao fDao = new FollowDao();
 		List<Follow> pList = fDao.select_plist();
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		session.setAttribute("pList", pList);
 
 		//リクエストが来たらgcreate.jspを表示する（フォワード）
@@ -59,9 +63,13 @@ public class PCreateServlet extends HttpServlet {
 		//リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			String followed_id = request.getParameter("followed_id"); //相互フォローしている人のデータ
-			String user_id="nekozuki75@gmail.com"; //ログインしている人のID今回はダミーのデータ
+			//String user_id="nekozuki75@gmail.com"; //ログインしている人のID今回はダミーのデータ
 			String id = null;
 			String room_name = null;
+
+		//セッションからユーザーIDを取得する
+			HttpSession session = request.getSession();
+			String user_id = (String)session.getAttribute("user_id");
 //
 //		// 登録処理を行う<ここを変える>
 //			CroomDao cDao = new CroomDao();
