@@ -36,6 +36,9 @@ public class NewPostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");*/
+
 		request.setCharacterEncoding("UTF-8");
 		Part image_S=request.getPart("image");//getPartで取得
 		//リクエストパラメータの取得
@@ -53,11 +56,11 @@ public class NewPostServlet extends HttpServlet {
 		PostDao pDao = new PostDao();
 		if (pDao.insert(new Post("",user_id,posttitle,image,cord,postcomment,""))) {	// 登録成功
 			request.setAttribute("result",
-			new Result("登録成功！", "レコードを登録しました。", "/dotchiha/NewPostServlet"));
+			new Result("登録成功！", "投稿を登録しました。", "/dotchiha/NewPostServlet"));
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/dotchiha/NewPostServlet"));
+			new Result("登録失敗！", "投稿を登録できませんでした。", "/dotchiha/NewPostServlet"));
 		}
 		//結果ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
