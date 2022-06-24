@@ -27,25 +27,29 @@ public class CorDBrowsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// セッションスコープからログインidを取得
-				HttpSession session = request.getSession();
-				String userid= (String) session.getAttribute("id");
-//				String userid = "nekozuki75@gmail.com";
+		HttpSession session = request.getSession();
+		String userid= (String) session.getAttribute("user_id");
 		// ユーザーの気分情報を取り出す
-				FeelingDao fDao =new FeelingDao();
-				int f = fDao.selectf(userid);
-//				int f = 1;
-				Integer i = Integer.valueOf(f);
-				String feeling = i.toString();
-				//気分で投稿を検索する
-				PostDao pDao = new PostDao();
-//				List<Post> postList = new ArrayList<Post>();
-//				postList = pDao.fselect(feeling);
-				List<Post> postList = pDao.fselect(feeling);
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("postList", postList);
-				// 閲覧ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cbrows.jsp");
-				dispatcher.forward(request, response);
+		FeelingDao fDao =new FeelingDao();
+		int f = fDao.selectf(userid);
+		Integer i = Integer.valueOf(f);
+		String feeling = i.toString();
+		//気分をリクエストスコープに格納する
+		String choice = "";
+		if(f == 0) {
+			choice = "cat";
+		}else if(f == 1) {
+			choice = "dog";
+		}
+		request.setAttribute("choice", choice);
+		//気分で投稿を検索する
+		PostDao pDao = new PostDao();
+		List<Post> postList = pDao.fselect(feeling);
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("postList", postList);
+		// 閲覧ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cbrows.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
