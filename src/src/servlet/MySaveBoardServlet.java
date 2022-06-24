@@ -36,8 +36,8 @@ public class MySaveBoardServlet extends HttpServlet {
 
 		//セッションからユーザーIDを取得する
 		HttpSession session = request.getSession();
-//		String user_id = (String)session.getAttribute("user_id");
-		String user_id = "nekozuki75@gmail.com";
+		String user_id = (String)session.getAttribute("user_id");
+//		String user_id = "nekozuki75@gmail.com";
 
 		BoardSDao bsDao = new BoardSDao();
 		//タイトルを取得するdaoを作成する
