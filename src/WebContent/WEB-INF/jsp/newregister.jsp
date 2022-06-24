@@ -22,8 +22,8 @@
 		<form method="POST" action="/dotchiha/NewRegisterServlet" enctype="multipart/form-data">
 			<table>
 				<!-- アイコン表示 -->
-				<tr><td><label>
-					アイコン:<input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
+				<tr><td class="cen"><label>
+					アイコン<br><input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
 				</label></td></tr>
 				<!-- 名前入力 -->
