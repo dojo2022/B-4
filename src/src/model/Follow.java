@@ -16,6 +16,7 @@ public class Follow implements Serializable{
 		this.user_name = user_name;
 	}
 
+
 	public Follow(String followed_id, String user_name) {
 		super();
 		this.followed_id = followed_id;
@@ -61,6 +62,7 @@ public class Follow implements Serializable{
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
+
 
 
 }

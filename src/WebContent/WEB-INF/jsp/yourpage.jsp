@@ -58,7 +58,10 @@
 								</p></td>
 								</tr>
 								</table>
+								<form method="post" action="/dotchiha/FollowServlet">
 								<input type="submit" name="follow" value="フォロー">
+								<input type="hidden" name="followed_id" value="${followed_id}">
+								</form>
 								<br>
 
 
