@@ -52,6 +52,7 @@ public class ViewPostServlet extends HttpServlet {
 		request.setAttribute("image", image);
 		request.setAttribute("postComment", postcomment);
 		request.setAttribute("date", date);
+		request.setAttribute("postuser", postuser);
 		request.setAttribute("userinfo", userInfo);
 		request.setAttribute("reaction", reaction);
 		// 投稿詳細ページにフォワード

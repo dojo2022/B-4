@@ -120,7 +120,7 @@ public class FeelingDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data","sa","");
 
 			// SQL文を準備する
-			String sql = "insert into Feeling (user_id, feeling) values ('?', '?') ";
+			String sql = "insert into Feeling (user_id, feeling) values (?, ?) ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
