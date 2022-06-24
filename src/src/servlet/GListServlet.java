@@ -35,14 +35,17 @@ public class GListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String user_id = "nekozuki75@gmail.com";
+		//String user_id = "nekozuki75@gmail.com";
+		//セッションからユーザーIDを取得する
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
 
 		//ルーム名を取り出す
 		//CroomDaoからSQLで取り出したCroomテーブルのデータをroomListに格納したものをselectで呼び出す
 		CroomDao cDao = new CroomDao();//newの後はCroomDaoのpublicクラスを実体化したもの
 		List<Croom> roomalreadyList = cDao.select_already(user_id);//selectでCroomDao.javaのCroomDaoクラスのselect内容を実行できる。それをlistに格納している
 		//Croomテーブルの検索結果をセッションスコープに格納する
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		session.setAttribute("roomalreadyList", roomalreadyList);
 
 		 //リクエストが来たらglist.jspを表示する（フォワード）

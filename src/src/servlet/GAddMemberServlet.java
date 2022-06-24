@@ -57,12 +57,16 @@ public class GAddMemberServlet extends HttpServlet {
 				request.setCharacterEncoding("UTF-8");
 				String room_id = request.getParameter("room_id");
 				String room_name = request.getParameter("room_name");
-				String user_id="nekozuki75@gmail.com"; //ログインしている人のID今回はダミーのデータ
+				//String user_id="nekozuki75@gmail.com"; //ログインしている人のID今回はダミーのデータ
+
+			//セッションからユーザーIDを取得する
+				HttpSession session = request.getSession();
+				String user_id = (String)session.getAttribute("user_id");
 
 			// メンバーの登録処理を行う
 				CMemberDao cmDao = new CMemberDao();
 				cmDao.insert(new CMember("",room_id,user_id));
-				HttpSession session = request.getSession();
+				//HttpSession session = request.getSession();
 				session.setAttribute("room_name", room_name);
 
 			// 結果ページにフォワードする

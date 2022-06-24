@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CMemberDao;
 import dao.CroomDao;
@@ -51,9 +52,9 @@ public class GCreateServlet extends HttpServlet {
 		String room_name = request.getParameter("room_name");//テキストエリアのnameと小文字など書き方をそろえる
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
-//		String user_id = (String)session.getAttribute("user_id");
-		String user_id = "nekozuki75@gmail.com";
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
+//		String user_id = "nekozuki75@gmail.com";
 
 		// 登録処理を行う(Croom)
 		CroomDao cDao = new CroomDao();

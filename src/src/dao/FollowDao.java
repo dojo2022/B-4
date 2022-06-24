@@ -333,8 +333,8 @@ public class FollowDao {
 
 		// SQL文を準備する<ここ変える>全て取り出して、WHEREのところは検索する項目にする
 		String sql = "SELECT Followed_id, User.user_name \r\n"
-				+ "FROM ((SELECT  followed_id FROM FOLLOW  where follow_id = 'nekozuki75@gmail.com') intersect\r\n"
-				+ "(SELECT  follow_id FROM FOLLOW  where followed_id = 'nekozuki75@gmail.com')) LEFT JOIN User ON Followed_id = User.user_id";
+				+ "FROM ((SELECT  followed_id FROM FOLLOW  where follow_id = ?) intersect\r\n"
+				+ "(SELECT  follow_id FROM FOLLOW  where followed_id = ?)) LEFT JOIN User ON Followed_id = User.user_id";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を実行し、結果表を取得する
