@@ -1,1 +1,15 @@
 @charset "UTF-8";
+
+/* 中央寄せ */
+.cen{
+	text-align: center;
+ 	margin: auto;
+}
+
+.high{
+	margin-top: 20px;
+}
+
+td{
+	padding: 10px;
+}
