@@ -8,7 +8,7 @@
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
-<link rel="stylesheet" href="/dotchiha/css/gt.css">
+<link rel="stylesheet" href="/dotchiha/css/gc.css">
 <!-- <link rel="stylesheet" href="gt.css"> -->
 </head>
 <body>
