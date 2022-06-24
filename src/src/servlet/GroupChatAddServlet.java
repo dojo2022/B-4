@@ -39,14 +39,17 @@ public class GroupChatAddServlet extends HttpServlet {
 		//String id = request.getParameter("ID");//メッセージのID
 		String message = request.getParameter("message");//テキストエリアのnameと小文字など書き方をそろえる
 		String room_id = request.getParameter("room_id");//チャットルームのIDを送る
-		String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
+		//String sender_id = "nekozuki75@gmail.com";//セッションIDなどでログインしているユーザーのIDを送る
+		//セッションからユーザーIDを取得する
+		HttpSession session = request.getSession();
+		String sender_id = (String)session.getAttribute("user_id");
 
 		// DAOを呼び出す
 		CMessageDao cmDao = new CMessageDao();
 		cmDao.insert(new CMessage("", message, room_id, sender_id, "",""));
 		List<CSenderName> messageList = cmDao.select_username(room_id);//selectでCmessageDaoのselect内容を実行できる。それをlistに格納している
 		//検索結果をsessionスコープに格納する
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 
 		// 結果ページにフォワードする

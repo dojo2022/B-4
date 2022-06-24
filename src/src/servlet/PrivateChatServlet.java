@@ -43,13 +43,16 @@ public class PrivateChatServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String room_id = request.getParameter("room_id");
+		//セッションからユーザーIDを取得する
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
 
 		//CMessageDaoからSQLで取り出したCmessageテーブルとuserテーブルのデータをListに格納したものをselectで呼び出す
 		CMessageDao cmDao = new CMessageDao();//newの後はCmessageDaoのpublicクラスを実体化したもの
 		List<CSenderName> messageList = cmDao.select_username(room_id);//selectでCSenderName.javaのCmessageDaoクラスのselect内容を実行できる。それをlistに格納している
 
 		//Cmessageテーブルの検索結果をセッションスコープに格納する
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		session.setAttribute("messageList", messageList);
 		session.setAttribute("room_id", room_id);
 
