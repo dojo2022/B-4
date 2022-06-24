@@ -6,27 +6,29 @@
 	<meta charset="UTF-8">
 	<title>今日はどっち派？</title>
 	<link rel="stylesheet" href="/dotchiha/css/common.css">
+	<link rel="stylesheet" href="/dotchiha/css/post.css">
 </head>
 <body>
 	<div class ="wrapper">
 		<!-- ヘッダー -->
 		<header class="header">
-			<h1 id="logo" >
-				<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/titile_logo.png" width="300" height="" alt="今日はどっち派？"></a>
+			<h1 id="cen" >
+				<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a>
 			</h1>
 		</header>
 		<!-- メイン -->
 		<main>
+			<h1 class="title">投稿詳細</h1>
 			<form method="POST" action="/dotchiha/UpdatePostServlet">
-				<table>
+				<table class="cen">
 					<!-- 投稿した内容のデータを持ってくる -->
 					<!-- タイトル -->
 					<tr><td><label>
-						<input type="text" name="posttitle" value="${postList[0].posttitle}">
+						投稿タイトル<br><input type="text" name="posttitle" value="${postList[0].posttitle}">
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
-						<img src="${'/dotchiha/image/'+=image}" id="gazo">
+						画像<br><img src="${'/dotchiha/image/'+=image}" id="gazo">
 					</label></td></tr>
 					<!-- 犬猫のラジオボタン -->
 					<tr><td><label>
