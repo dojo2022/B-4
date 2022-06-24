@@ -82,11 +82,8 @@
 			</ul>
 		</div> --%>
 		<div class="bbox">
-<<<<<<< Updated upstream
 			<form method="post" action="/dotchiha/UpdatePostsubServlet">
-=======
->>>>>>> Stashed changes
-				<!-- <a href="/dotchiha/UpdatePostServlet"> -->
+
 				<table>
 				<c:forEach var="e" items="${cardPost}">
 <%-- 				cartTListにはidがないので取れない
@@ -116,15 +113,9 @@
 ​
 	<!--メインここまで-->
 	<!--フッターここから-->
-<<<<<<< Updated upstream
 		<div class="font-size">
 			<div id="footer">
 			</div>
-=======
-	<div class="font-size">
-		<div id="footer">
-		</div>
->>>>>>> Stashed changes
 			<footer>
 				<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 			</footer>
