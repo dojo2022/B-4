@@ -63,16 +63,16 @@ public class ViewBoardServlet extends HttpServlet {
 		String board_id = request.getParameter("board_id");
 
 		//セッションからユーザーIDを取得する
-//		HttpSession session = request.getSession();
-//		String sender_id = (String)session.getAttribute("user_id");
-		String sender_id = "ryouko-tanaka918.gmail.com";
+		HttpSession session = request.getSession();
+		String sender_id = (String)session.getAttribute("user_id");
+//		String sender_id = "ryouko-tanaka918.gmail.com";
 
 		// 検索処理を行う
 		BoardDao bDao = new BoardDao();
 		List<BoardUser> boardList = bDao.select_username(board_id);
 
 		// 検索結果をセッションスコープに格納する
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
 		session.setAttribute("boardList", boardList);
 
 		// 検索処理を行う

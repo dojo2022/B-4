@@ -52,8 +52,8 @@ public class ViewBoardSaveServlet extends HttpServlet {
 
 		//セッションからユーザーIDを取得する
 		HttpSession session = request.getSession();
-//		String sender_id = (String)session.getAttribute("user_id");
-		String sender_id = "ryouko-tanaka918.gmail.com";
+		String sender_id = (String)session.getAttribute("user_id");
+//		String sender_id = "ryouko-tanaka918.gmail.com";
 
 
 		//保存されていなかったら保存、保存されていたら削除

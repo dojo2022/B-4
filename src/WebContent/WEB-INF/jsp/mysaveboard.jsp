@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,15 +49,24 @@
         <br>
         <br>
         <!--保存した掲示板を表示させる-->
-        <div class="box">
+        <!-- <div class="box">
             <p><a href ="/dotchiha/MysaveBoardServlet">4/2.15:00~Zoom オフ会</a></p>
 
         </div>
         <br>
         <div class="box">
             <p><a href ="/dotchiha/MysaveBoardServlet">5月オフ会の希望日程</a></p>
-        </div>
+        </div> -->
+        <!-- 保存した掲示板一覧表示 -->
+        <form method="post" action="/dotchiha/ViewBoardServlet">
+          <table id="board_list">
+            <c:forEach var="e" items="${cardBoardS}" >
+            <tr id="board_title"><td><button type = "submit" name = "board_id" value ="${e.board_id}">${e.title}</button></td></tr>
+            </c:forEach>
+          </table>
+        </form>
         <br>
+
 
 											<!--戻るボタン--->
 								<div  class="back">

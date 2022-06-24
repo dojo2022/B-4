@@ -27,8 +27,10 @@ public class BoardSDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
+			//board_id,sender_id,title,dorc
+
 			// SQL文を準備する
-			String sql = "select b.title from Board as b  RIGHT JOIN BoardS as s on b.id = s.board_id  where s.sender_id = ?";
+			String sql = "select s.board_id, s.sender_id, b.title, b.dorc from Board as b  RIGHT JOIN BoardS as s on b.id = s.board_id  where s.sender_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -39,9 +41,10 @@ public class BoardSDao {
 
 			while (rs.next()) {
 				BoardS card = new BoardS(
-				rs.getString("Board_id"),
-				rs.getString("Board_title"),
-				rs.getString("sender_id")
+				rs.getString("board_id"),
+				rs.getString("sender_id"),
+				rs.getString("title"),
+				rs.getString("dorc")
 				);
 				cardBoardS.add(card);
 			}
