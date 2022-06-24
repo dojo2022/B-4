@@ -6,14 +6,15 @@
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
 <link rel="stylesheet" href="/dotchiha/css/common.css">
+<link rel="stylesheet" href="/dotchiha/css/post.css">
 </head>
 
 <body>
 <div class ="wrapper">
 	<!-- ヘッダー -->
 	<header class="header">
-		<h1 id="logo" >
-			<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/titile_logo.png" width="300" height="" alt="今日はどっち派？"></a>
+		<h1 id="cen high" >
+			<a href="/dotchiha/CorDBrowsServlet"><img src="/dotchiha/img/title_logo.png" width="300" height="" alt="今日はどっち派？"></a>
 		</h1>
 		<!--  ハンバーガーメニュー  -->
 		<div class="ham" id="ham">
@@ -38,10 +39,10 @@
 	<main>
 		<h1 class = "title">新規投稿</h1>
 		<form method="POST" action="/dotchiha/NewPostServlet" enctype="multipart/form-data">
-			<table>
+			<table class="cen">
 				<!-- タイトル -->
 				<tr><td><label>
-					<input type="text" name="posttitle">投稿タイトル
+					投稿タイトル<br><input type="text" name="posttitle">
 				</label></td></tr>
 				<!-- 写真・画像のアップロード -->
 				<tr><td><label>
