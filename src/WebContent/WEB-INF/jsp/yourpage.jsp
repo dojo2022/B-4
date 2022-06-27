@@ -44,7 +44,7 @@
 		</c:forEach>
 		<br>
 		<br>
-								<table>
+
 								<c:forEach var="e" items="${cardFollowList}" >
 								<tr>
 								<td rowspan="3"><img src="./icon/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
@@ -57,7 +57,7 @@
 								フォロワー数 ${followed_count}
 								</p></td>
 								</tr>
-								</table>
+
 								<form method="post" action="/dotchiha/FollowServlet">
 								<input type="submit" name="follow" value="フォロー">
 								<input type="hidden" name="followed_id" value="${followed_id}">
