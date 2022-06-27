@@ -24,12 +24,12 @@
 			<div class="menu_wrapper" id="menu_wrapper">
 				<div class="menu">
 					<ul>
-						<li><a href="/dotchiha/NewPostServlet">新規投稿</a></li>
-						<li><a href="/dotchiha/CorDBrowsServlet">閲覧</a></li>
-						<li><a href="/dotchiha/BoardListServlet">掲示板</a></li>
-						<li><a href="/dotchiha/CSelectServlet">チャット</a></li>
-						<li><a href="/dotchiha/MyPageServlet">マイページ</a></li>
-						<li><a href="/dotchiha/LogoutServlet" onclick="return confirm('ログアウトしてよろしいですか？')">ログアウト</a></li>
+							<li><a href="/dotchiha/NewPostServlet">新規投稿</a></li>
+							<li><a href="/dotchiha/CorDBrowsServlet">閲覧</a></li>
+							<li><a href="/dotchiha/BoardListServlet">掲示板</a></li>
+							<li><a href="/dotchiha/CSelectServlet">チャット</a></li>
+							<li><a href="/dotchiha/MyPageServlet">マイページ</a></li>
+							<li><a href="/dotchiha/LogoutServlet" onclick="return confirm('ログアウトしてよろしいですか？')">ログアウト</a></li>
 					</ul>
 				</div>
 			</div>
