@@ -73,19 +73,32 @@
 ​                                </c:forEach>
 
 						<h3>投稿タイトル一覧</h3>
-							<div class="bbox">
-								<form method="post" action="/dotchiha/ViewPostServlet">
-									<table>
-									<c:forEach var="e" items="${cardPost}">
-									 <tr><td>
-				 					<input type="hidden"  name="post_id" value="${e.id}" >
-				 					<button type="submit" name="posttitle" value="${e.posttitle}">${e.posttitle}</button>
-	 								</td></tr>
-									</c:forEach>
-									</table>
-								</form>
-							</div>
+						<!-- <div class="bbox">
+						<form method="POST" action="/dotchiha/CorDBrowsServlet">
+						<input type="hidden" name="ID" value="${e.id}">
+						<input type="hidden" name="USERID" value="${e.user_id}">
+						<input type="hidden" name="POSTTITLE" value="${e.posttitle}">
+						<input type="hidden" name="cord" value="${e.cord}">
+						<input type="hidden" name="POSTCOMMENT" value="${e.postcomment}">
+						<input type="hidden" name="date" value="${e.date}">
+						<input type="hidden" name="IMAGE" value="${e.image}" >
+						<input type="image" class="brows_img" alt="投稿画像" src="img/${e.image}">
+						</form>
+						</div> -->
 
+
+						<div class="bbox">
+	 					<form method="post" action="/dotchiha/CorDBrowsServlet">
+						<table>
+						<c:forEach var="e" items="${cardPost}">
+						 <tr><td>
+				 		<input type="hidden"  name="post_id" value="${e.id}" >
+				 		<button type="submit" name="posttitle" value="${e.posttitle}">${e.posttitle}</button>
+	 					</td></tr>
+						</c:forEach>
+						</table>
+						</form>
+						</div>
 
 ​
 	</main>
