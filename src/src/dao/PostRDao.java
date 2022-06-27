@@ -13,7 +13,7 @@ import model.PostR;
 public class PostRDao {
 	   //DBからリアクションした投稿のデータを取得
 		// 引数post_idで検索項目を指定し、検索結果のリストを返す
-	public List<PostR> select_post_id(String sender_id) {
+	public List<PostR> select_id(String sender_id) {
 		Connection conn = null;
 		List<PostR> cardPostR = new ArrayList<PostR>();
 
@@ -25,7 +25,7 @@ public class PostRDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select r.post_id,p.image, r.sender_id from POST as p  RIGHT JOIN POSTR as r on p.id = r.post_id  where r.sender_id = ?";
+			String sql = "select r.id,p.user_id,p.posttitle,p.image,p.cord, p.postcomment,p.date,r.sender_id from POST as p  RIGHT JOIN POSTR as r on p.id = r.id  where r.sender_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -36,7 +36,12 @@ public class PostRDao {
 
 			while (rs.next()) {
 				PostR card = new PostR(
-				rs.getString("post_id"),
+				rs.getString("id"),
+				rs.getString("user_id"),
+				rs.getString("posttitle"),
+				rs.getString("cord"),
+				rs.getString("postcomment"),
+				rs.getString("date"),
 				rs.getString("image"),
 				rs.getString("sender_id")
 				);

@@ -7,16 +7,18 @@
 <meta charset="UTF-8">
 <title>今日はどっち派？</title>
 
-<!--Bootstrapの適用-->
+<!--Bootstrapの適用
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-<!--スマホ対応適用Bootstrap-->
+-->
+<!--スマホ対応適用Bootstrap
 <meta name="viewport" content="initial-scale=1" />
-
+--<
 <!-- 共通のCSSの適用 -->
 <link rel="stylesheet" href="/dotchiha/css/common.css">
 <!-- 自分のスタイルシート -->
 <link rel="stylesheet" href="/dotchiha/css/mypage.css">
+<!-- 画像のリスト表示 -->
+<link rel="stylesheet" href="/dotchiha/css/list.css">
 
 
 </head>
@@ -51,9 +53,42 @@
 	<main>
 			<h2 class = "title">リアクションした投稿</h2>
 			<br>
+			<table>
+			<c:forEach var="e" items="${cardPostR}"  varStatus="status" >
+				<script>
+				'use strict'
+				if(${status.count} % 2 == 1 ) {
+					document.write('<tr>');
+				}
+				</script>
+				<td>
+				<form method="POST" action="/dotchiha/CorDBrowsServlet">
+				<input type="hidden" name="ID" value="${e.id}">
+				<input type="hidden" name="USERID" value="${e.user_id}">
+				<input type="hidden" name="POSTTITLE" value="${e.posttitle}">
+				<input type="hidden" name="cord" value="${e.cord}">
+				<input type="hidden" name="POSTCOMMENT" value="${e.postcomment}">
+				<input type="hidden" name="date" value="${e.date}">
+				<input type="hidden" name="IMAGE" value="${e.image}" >
+				<input type="image" class="brows_img" alt="投稿画像" src="img/${e.image}">
+				</form>
+				</td>
+				<script>
+				'use strict'
+				if(${status.last}) {
+					document.write('</tr>');
+				} else if(${status.count} % 2 == 0 ) {
+					document.write('</tr>');
+				}
+				</script>
+			</c:forEach>
+		</table>
+			<!-- ダミーデータ
 			<div class="container-fluid">
 				<div class="row">
 				        <div class="col-6">
+
+
 						<img src="./img/akitainu.png" alt="リアクションした投稿" class="rphoto">
                     	<p><a href ="/dotchiha/MyActionServlet">凛々しい柴</a></p>
 						</div>
@@ -84,12 +119,7 @@
 
 			</div>
 			<br>
-			<!-- 画像は引っ張れるのか？？？ダミーデータで実行中 -->
-			<!--
-							<c:forEach var="f" items="${cardPostR}" >
-							<img src="${'f.image'+=image}" id="gazo">
-											</c:forEach>
-											-->
+			-->
 
 
 

@@ -40,12 +40,6 @@
 	<!--メインここから-->
 	<main>
 			<h1 class = "title">保存した掲示板</h1>
-			<br>
-			        <!--犬猫の選択-->
-        <div class="box">
-        <input type="radio" name="cord" value="cat">猫
-        <input type="radio" name="cord" value="dog">犬
-        </div>
         <br>
         <br>
         <!--保存した掲示板を表示させる-->
