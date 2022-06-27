@@ -58,7 +58,7 @@
 		      <div class="user_date">
 			      <div class="user_info">
 				      <form name="yourpage" action="/dotchiha/YourPageServlet" method ="POST">
-				        <a href="javascript:document.yourpage.submit()">
+				        <a href="javascript:yourpage[].submit()">
 				        <img src="${'/dotchiha/img/'+=e.icon}" alt="アイコン" name="icon" class="icon" width="20" height="20">
 				        ${e.user_name}
 				        </a>

@@ -61,7 +61,7 @@
 	    <div class="user_date">
 	    <form name="yourpage" action="/dotchiha/YourPageServlet" method ="POST">
         <div class="user_name">
-        <a href="javascript:document.yourpage.submit()">${e.user_name}</a>
+        <a href="javascript:yourpage.submit()">${e.user_name}</a>
           </div>
         <input type="hidden" name="user_id" value="${e.sender_id}">
       </form>

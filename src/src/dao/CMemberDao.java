@@ -123,6 +123,56 @@ public class CMemberDao {
 		// 結果を返す
 		return pmList;
 	}
+	public List<String> select_gid(String user_id){
+		Connection conn = null;
+		List<String> gList = new ArrayList<String>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			// ここでJOINを利用して2つのテーブルからデータを取得する。
+			String sql = "SELECT room_id FROM CMEMBER where user_id = ? ";
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, user_id);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする <ここ変える>全ての列にする
+			while (rs.next()) {
+				gList.add(rs.getString("room_id"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			gList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			gList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					gList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return gList;
+	}
 	public String select() {
 		Connection conn = null;
 		String id ="";

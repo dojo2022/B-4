@@ -44,6 +44,7 @@
 				<p>参加するグループチャットルームをクリックしてください</p>
 				<br>
 				<div id="glist">
+				<%-- <c:forEach var="i" begin="0" end = "${roomnotList.size()}" step="1"> --%>
 				<c:forEach var="e" items="${roomList}">
 					<form method="POST" action="/dotchiha/GAddMemberServlet">
 						<button type="submit" class="buttontag" value="${e.id}"	name="room_id">
@@ -57,6 +58,7 @@
 						<br>
 					</form>
 				</c:forEach>
+				<%-- </c:forEach> --%>
 			</div>
 				<br>
 				<!--戻るボタン--->

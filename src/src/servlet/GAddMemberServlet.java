@@ -43,6 +43,25 @@ public class GAddMemberServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("roomList", roomList);
 
+
+		/*	//セッションからユーザーIDを取得する
+			HttpSession session = request.getSession();
+			String user_id = (String)session.getAttribute("user_id");
+
+			//参加しているグル―プチャットのルームIDを取り出す
+			CMemberDao cmmDao = new CMemberDao();
+			List<String> gList = cmmDao.select_gid(user_id);
+
+			CroomDao cDao = new CroomDao();
+
+			ArrayList<List<Croom>> gm= new ArrayList<List<Croom>>();
+			for(String room_id: gList) {
+
+				List<Croom> roomnotList= cDao.select_not(room_id);
+				gm.add(roomnotList);
+			}
+			session.setAttribute("roomnotList", gm);*/
+
 				 //リクエストが来たらglist.jspを表示する（フォワード）
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gaddmember.jsp");
 				dispatcher.forward(request, response);
