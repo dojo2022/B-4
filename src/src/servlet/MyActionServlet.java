@@ -37,12 +37,13 @@ public class MyActionServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("user_id");
 
+
 		//データベースから下記のデータ（リアクションした投稿）をユーザーidを元に取得する
 		//データを取得するdaoを作成する
 		PostRDao prDao = new PostRDao();
-		List<PostR> cardPostR = prDao.select_post_id(user_id);
+		List<PostR> cardPostR = prDao.select_id(user_id);
 		//取得したデータをリクエストスコープに格納
-		request.setAttribute("cardPostR",cardPostR);
+		session.setAttribute("cardPostR",cardPostR);
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaction.jsp");

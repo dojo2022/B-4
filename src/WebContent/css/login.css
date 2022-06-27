@@ -1,11 +1,4 @@
 @charset "UTF-8";
-
-/* フッターの固定 */
-
-/* 文字サイズの変更 */
-/* .footer{
-	font-size: smaller;
-} */
 /* 中央よせ */
 .cen{
 	text-align: center;
@@ -32,4 +25,18 @@ textarea{
 	width: 100%;
 	height: 4em;
 	font-size: 24px;
+}
+/* アイコンを丸く切り抜く */
+.image_circle {
+  width: 100px;
+  height:100px;
+  object-fit: cover;
+  object-position:75% 40%;
+  border-radius:50%;
+}
+.image_border {
+  width: 100px;
+  padding: 5px;
+  border-radius:50%;
+  background: linear-gradient(to right bottom, #00bfff, #afeeee);
 }

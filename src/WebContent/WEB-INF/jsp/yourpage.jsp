@@ -78,7 +78,8 @@
 									<table>
 									<c:forEach var="e" items="${cardPost}">
 									 <tr><td>
-	 								<button type="submit" name="posttitle" value="${e.id}">${e.posttitle}</button>
+				 					<input type="hidden"  name="post_id" value="${e.id}" >
+				 					<button type="submit" name="posttitle" value="${e.posttitle}">${e.posttitle}</button>
 	 								</td></tr>
 									</c:forEach>
 									</table>
