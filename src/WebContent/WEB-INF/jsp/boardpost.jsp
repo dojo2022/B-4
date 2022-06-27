@@ -26,20 +26,22 @@
     <br>
     <form method="POST" action="/dotchiha/BoardPostServlet">
     <!-- 投稿内容 -->
-      <table>
+      <table class="boardpost">
       <!-- タイトル -->
         <tr>
           <td><p>タイトル</p></td>
         </tr>
         <tr>
-          <td><input type="text" name="title"></td>
+          <td><textarea rows="2" cols="40" name="title"
+          placeholder="40字以内で入力してください。"></textarea></td>
         </tr>
         <!-- 内容 -->
         <tr>
           <td><p>投稿内容</p></td>
         </tr>
         <tr>
-          <td><input type="text" name="text"></td>
+          <td><textarea rows="10" cols="40" name="text"
+          placeholder="250字以内で入力してください。"></textarea></td>
         </tr>
         <!-- 犬猫選択ボタン -->
         <tr>
@@ -61,7 +63,9 @@
     <br>
 
     <!--戻るボタン--->
-    <button class ="exit" type = "button" onclick ="history.back()">やめる</button>
+    <div class ="exit">
+    <button type = "button" onclick ="location.href='/dotchiha/BoardListServlet'">やめる</button>
+    </div>
 
   </main>
 

@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -83,12 +82,12 @@ public class BoardPostServlet extends HttpServlet {
 		BoardDao bDao = new BoardDao();
 		bDao.insert(new Board("",user_id,title,text,"",dorc)); // 登録成功
 
-		// 検索処理を行う
-		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
-
-		// 検索結果をリクエストスコープに格納する
-//		HttpSession session = request.getSession();
-		session.setAttribute("boardList", boardList);
+//		// 検索処理を行う
+//		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
+//
+//		// 検索結果をリクエストスコープに格納する
+////		HttpSession session = request.getSession();
+//		session.setAttribute("boardList", boardList);
 
 
 		// 掲示板一覧ページにフォワードする

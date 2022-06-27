@@ -44,7 +44,7 @@
 		<h1 class = "title">マイページ</h1>
 		<br>
 		<br>
-		<tabel>
+
 		<c:forEach var="e" items="${cardFollowList}" >
 			<tr>
 			<td rowspan="3"><img src="./icon/${e.icon}" alt="アイコン" name="icon" class="icon"></td>
@@ -60,7 +60,6 @@
 			<c:forEach var="e" items="${cardFollowList}" >
 			<p>📍${e.address}</p><br>
 			</c:forEach>
-		</tabel>
 
 
 		<c:forEach var="e" items="${cardFollowList}" >​

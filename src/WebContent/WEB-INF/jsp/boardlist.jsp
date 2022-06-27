@@ -43,26 +43,45 @@
     <br>
     <br>
     <!-- 犬猫選択ボタン -->
+    <div class="dorc">
     <form action="/dotchiha/BoardListServlet" method="post">
 		  <input type="checkbox" name="cat" value="1"><label>猫</label>
       <input type="checkbox" name="dog" value="1"><label>犬</label>
 			<input type="submit" value="検索">
-		<br>
 		</form>
+		</div>
+		<br>
     <!-- 掲示板一覧表示 -->
-    <form method="post" action="/dotchiha/ViewBoardServlet">
-	    <table id="board_list">
+
+	   <div class="board_list">
 	      <c:forEach var="e" items="${boardList}" >
-	      <tr id="board_title"><td><button type = "submit" name = "board_id" value = "${e.id}">${e.title}</button></td></tr>
+		      <div class="user_date">
+			      <div class="user_info">
+				      <form name="yourpage" action="/dotchiha/YourPageServlet" method ="POST">
+				        <a href="javascript:document.yourpage.submit()">
+				        <img src="${'/dotchiha/img/'+=e.icon}" alt="アイコン" name="icon" class="icon" width="20" height="20">
+				        ${e.user_name}
+				        </a>
+				        <%-- <input type="image" name = "user_id" id="save_button" value ="${e.user_id}" src="${'/dotchiha/img/'+=e.icon}"  width="20" height="20">
+				        <a href="javascript:document.yourpage.submit()">${e.user_name}</a> --%>
+				        <input type="hidden" name="user_id" value="${e.user_id}">
+				      </form>
+			      </div>
+            <div class="board_date">${e.date}</div>
+          </div>
+		       <form method="post" action="/dotchiha/ViewBoardServlet">
+		         <button class="board_title" type = "submit" name = "board_id" value = "${e.id}">${e.title}</button>
+		       </form>
 	      </c:forEach>
-	    </table>
-    </form>
+	    </div>
+
+    <br>
     <br>
 
     <!-- 新規掲示板作成ボタン -->
+    <div class="boardpost">
     <button class ="boardpost" type = "button" onclick="location.href='/dotchiha/BoardPostServlet'">新規掲示板作成</button>
-
-
+    </div>
   </main>
 
   <!--メインここまで-->
@@ -76,6 +95,11 @@
   </div>
   <!--フッターここまで-->
 </div>
-<script src ="/dotchiha/js/common.js"></script>
+<script src ="/dotchiha/js/common.js">
+document.getElementById("user").onclick = function() {
+	  document.yourpage.submit();
+};
+
+</script>
 </body>
 </html>

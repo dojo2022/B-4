@@ -37,32 +37,53 @@
       </form>
     </div>
     <!-- タイトル -->
+    <div class="title_date">
     <h3>${boardList[0].title}</h3>
-    <!-- 投稿内容 -->
-    <p>${boardList[0].text}</p>
+    <div class="board_date">${boardList[0].date}</div>
+    </div>
+
     <!-- 保存ボタン -->
+    <div class="save_button">
     <form method="post" name="save" action="/dotchiha/ViewBoardSaveServlet">
       <input type="hidden" name="board_id" value="${boardList[0].id}">
       <input type="image" name = "board_id" id="save_button" value ="${boardList[0].id}" src="${save_button}" alt="保存">
     </form>
+    </div>
+
+    <!-- 投稿内容 -->
+    <p>${boardList[0].text}</p>
 
     <!-- コメント -->
-    <table id="board_comment">
+    <h4>-- コメント --</h4>
+
+   <div class="comment_list">
     <c:forEach var="e" items="${commentList}" >
-      <tr id="comment"><td>${e.comment}</td></tr>
-      <tr id="comment_date"><td>${e.date}</td></tr>
-      <tr id="sender_name"><td>${e.user_name}</td></tr>
+	    <div class="user_date">
+	    <form name="yourpage" action="/dotchiha/YourPageServlet" method ="POST">
+        <div class="user_name">
+        <a href="javascript:document.yourpage.submit()">${e.user_name}</a>
+          </div>
+        <input type="hidden" name="user_id" value="${e.sender_id}">
+      </form>
+	      <div class="comment_date">${e.date}</div>
+	    </div>
+	      <div class="comment">${e.comment}</div>
     </c:forEach>
-    </table>
+    </div>
+
     <!-- コメント送信ボタン -->
     <div id="board_comment">
       <form  method="POST" action="/dotchiha/ViewBoardCommentServlet">
-        <textarea name="comment" id="comment_message"></textarea>
-        <button type="submit" name = "board_id" value = "${boardList[0].id}" id="send_button">送信</button>
+        <textarea name="comment" id="comment_message" rows="4" cols="40" placeholder="100字以内で入力してください。"></textarea>
+        <div class="send_button"><button type="submit" name = "board_id" value = "${boardList[0].id}" id="send_button">送信</button></div>
       </form>
-      </div>
+    </div>
+    <br>
+
     <!--戻るボタン--->
-    <button class ="exit" type = "button" onclick ="history.back()">戻る</button>
+    <div class ="exit">
+    <button class ="exit" type = "button" onclick ="location.href='/dotchiha/BoardListServlet'">戻る</button>
+    </div>
 
   </main>
 
