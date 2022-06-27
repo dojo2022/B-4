@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardDao;
-import model.Board;
+import model.BoardUser;
 
 /**
  * Servlet implementation class BoardListServlet
@@ -42,7 +42,7 @@ public class BoardListServlet extends HttpServlet {
 
     	// 検索処理を行う
 		BoardDao bDao = new BoardDao();
-		List<Board> boardList = bDao.select(new Board("", "", "", "", "",""));
+		List<BoardUser> boardList = bDao.select(new BoardUser("", "", "", "", "","","",""));
 
 		// 検索結果をリクエストスコープに格納する
 		HttpSession session = request.getSession();
@@ -78,7 +78,7 @@ public class BoardListServlet extends HttpServlet {
 		}
 
 		// 検索処理を行う
-		List<Board> boardList = bDao.selectnot(dorc);
+		List<BoardUser> boardList = bDao.selectnot(dorc);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("boardList", boardList);

@@ -13,9 +13,9 @@ import model.BoardUser;
 
 public class BoardDao {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<Board> select(Board param) {
+	public List<BoardUser> select(BoardUser param) {
 		Connection conn = null;
-		List<Board> boardList = new ArrayList<Board>();
+		List<BoardUser> boardList = new ArrayList<BoardUser>();
 
 		//id,user_id,title,text,date,dorc
 
@@ -27,7 +27,7 @@ public class BoardDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する<<ここを改造>>
-			String sql = "select id,user_id,title,text,date,dorc from Board WHERE dorc LIKE ? ORDER BY id DESC";
+			String sql = "select Board.id,Board.user_id,title,text,date,dorc,user_name,icon FROM Board LEFT JOIN User ON Board.user_id = User.user_id WHERE dorc LIKE ? ORDER BY id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる<<ここを改造>>
@@ -51,13 +51,15 @@ public class BoardDao {
 
 			// 結果表をコレクションにコピーする<<ここを改造>>
 			while (rs.next()) {
-				Board card = new Board(
+				BoardUser card = new BoardUser(
 				rs.getString("id"),
 				rs.getString("user_id"),
 				rs.getString("title"),
 				rs.getString("text"),
 				rs.getString("date"),
-				rs.getString("dorc")
+				rs.getString("dorc"),
+				rs.getString("user_name"),
+				rs.getString("icon")
 				);
 				boardList.add(card);
 			}
@@ -87,9 +89,9 @@ public class BoardDao {
 			return boardList;
 	}
 
-	public List<Board> selectnot(String dorc) {
+	public List<BoardUser> selectnot(String dorc) {
 		Connection conn = null;
-		List<Board> boardList = new ArrayList<Board>();
+		List<BoardUser> boardList = new ArrayList<BoardUser>();
 
 		//id,user_id,title,text,date,dorc
 
@@ -101,7 +103,7 @@ public class BoardDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する<<ここを改造>>
-			String sql = "select id,user_id,title,text,date,dorc from Board WHERE dorc != ? ORDER BY id DESC";
+			String sql = "select  Board.id,Board.user_id,title,text,date,dorc,user_name,icon FROM Board LEFT JOIN User ON Board.user_id = User.user_id WHERE dorc != ? ORDER BY id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる<<ここを改造>>
@@ -125,13 +127,15 @@ public class BoardDao {
 
 			// 結果表をコレクションにコピーする<<ここを改造>>
 			while (rs.next()) {
-				Board card = new Board(
+				BoardUser card = new BoardUser(
 				rs.getString("id"),
 				rs.getString("user_id"),
 				rs.getString("title"),
 				rs.getString("text"),
 				rs.getString("date"),
-				rs.getString("dorc")
+				rs.getString("dorc"),
+				rs.getString("user_name"),
+				rs.getString("icon")
 				);
 				boardList.add(card);
 			}

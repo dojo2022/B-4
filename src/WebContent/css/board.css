@@ -5,3 +5,58 @@
  height:30%;
  position:relative;
 } */
+/* 中央揃え */
+.boardpost {
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+.dorc {
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+.boardpost {
+	text-align: center;
+  margin: 0 auto 0 auto;
+}
+
+/* 配置 */
+.board_date {
+	margin-left: auto;
+}
+.comment_date {
+  margin-left: auto;
+}
+.save_button {
+  text-align: right;
+}
+.user_date {
+  display: flex;
+}
+.title_date {
+  display: flex;
+}
+.send_button {
+	text-align: right;
+}
+
+/* 掲示板一覧表示 */
+.board_title {
+  height:60px;
+  width:280px;
+  background: #ffffff; /* 背景色 */
+  border: 2px solid #4d4a48; /* 枠の指定 */
+  box-shadow: 2px 2px 3px #d3d3d3; /* 影の設定 */
+  white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
+  outline: none;
+}
+/* スクロールバー */
+.board_list {
+  width: 300px;
+  height: 500px;
+  overflow: auto;   /* はみ出した場合は、スクロールバーを表示する */
+}
+.comment_list {
+  width: 300px;
+  height: 300px;
+  overflow: auto;   /* はみ出した場合は、スクロールバーを表示する */
+}
