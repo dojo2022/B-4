@@ -24,7 +24,7 @@
 				<!-- アイコン表示 -->
 				<tr><td class="cen"><label>
 					アイコン<br><input type="file" name="icon" accept="image/*" onchange="previewImage(this);"><br>
-					<canvas id="preview" style="max-width:200px;"></canvas><br>
+					<canvas class="image_circle image_border" id="preview" style="max-width:200px;"></canvas><br>
 				</label></td></tr>
 				<!-- 名前入力 -->
 				<tr><td><label>
@@ -108,7 +108,7 @@
 			</table>
 		</form>
 		<!-- フッター -->
-		<div class="kotei">
+		<div class="font-size">
 			<div id="footer">
 			</div>
 			<footer>
