@@ -57,7 +57,7 @@
 				<!-- 説明欄 -->
 				<tr><td><label>
 					<textarea rows="4" cols="30" name="postcomment"
-					placeholder="魅力を伝えましょう!#で詳細検索が可能になります!"></textarea>
+					placeholder="魅力を伝えましょう!"></textarea>
 				</label></td></tr>
 				<tr><td>
 					<input type="submit" name="post" value="投稿">
