@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.PostDao;
@@ -36,8 +37,8 @@ public class NewPostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("user_id");*/
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
 
 		request.setCharacterEncoding("UTF-8");
 		Part image_S=request.getPart("image");//getPartで取得
@@ -46,7 +47,7 @@ public class NewPostServlet extends HttpServlet {
 		String image = this.getFileName(image_S);
 		String cord = request.getParameter("cord");
 		String postcomment = request.getParameter("postcomment");
-		String user_id = "test@gmail.com";
+		/*String user_id = "test@gmail.com";*/
 
 		//画像のアップロード処理
 		request.setAttribute("image", image);
