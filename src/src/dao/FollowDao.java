@@ -320,7 +320,7 @@ public class FollowDao {
 
 
 	//plistの一覧表示
-	public List<Follow> select_plist() {
+	public List<Follow> select_plist(String follow_id) {
 	Connection conn = null;
 	List<Follow> pList = new ArrayList<Follow>();
 
@@ -336,6 +336,9 @@ public class FollowDao {
 				+ "FROM ((SELECT  followed_id FROM FOLLOW  where follow_id = ?) intersect\r\n"
 				+ "(SELECT  follow_id FROM FOLLOW  where followed_id = ?)) LEFT JOIN User ON Followed_id = User.user_id";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setString(1, follow_id);
+		pStmt.setString(2, follow_id);
 
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();

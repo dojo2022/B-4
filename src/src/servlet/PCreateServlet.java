@@ -42,11 +42,11 @@ public class PCreateServlet extends HttpServlet {
 
 		//セッションからユーザーIDを取得する
 		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("user_id");
+		String follow_id = (String)session.getAttribute("user_id");
 
 		//相互フォロー者を表示する
 		FollowDao fDao = new FollowDao();
-		List<Follow> pList = fDao.select_plist();
+		List<Follow> pList = fDao.select_plist(follow_id);
 		//HttpSession session = request.getSession();
 		session.setAttribute("pList", pList);
 
