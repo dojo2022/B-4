@@ -37,14 +37,17 @@ public class CorDBrowsServlet extends HttpServlet {
 		//気分をリクエストスコープに格納する
 		String choice = "";
 		if(f == 0) {
-			choice = "cat";
+			choice = "1";
 		}else if(f == 1) {
-			choice = "dog";
+			choice = "0";
 		}
 		request.setAttribute("choice", choice);
 		//気分で投稿を検索する
 		PostDao pDao = new PostDao();
 		List<Post> postList = pDao.fselect(feeling);
+		//投稿詳細画面戻るボタン用
+		String r = "CorDBrows";
+		session.setAttribute("viewReturn", r);
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("postList", postList);
 		// 閲覧ページにフォワードする

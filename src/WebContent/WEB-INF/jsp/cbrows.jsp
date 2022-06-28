@@ -19,6 +19,7 @@
 	<header class="header">
 		<h1 id="logo" >
 			<a href="/dotchiha/CorDBrowsServlet"><img src="img/title_<% out.print(choice); %>logo.png" width="300" height="" alt="今日はどっち派？"></a></h1>
+
 		<!--  ハンバーガーメニュー  -->
 		<div class="ham" id="ham">
 			<span class="ham_line ham_line1"></span>
@@ -34,6 +35,13 @@
 							<li><a href="/dotchiha/MyPageServlet">マイページ</a></li>
 							<li><a href="/dotchiha/LogoutServlet" onclick="return confirm('ログアウトしてよろしいですか？')">ログアウト</a></li>
 					</ul>
+		<!-- 切り替えボタン -->
+		<div id="switching_button">
+		<form method="POST" action="/dotchiha/CorDSelectServlet" >
+		<input type="hidden" name="FEELING" value="<% out.print(choice); %>">
+		<input type="image" class="switching_button" src="img/switching.jpg" alt="切り替え">
+		</form>
+		</div>
 				</div>
 			</div>
 		</div>

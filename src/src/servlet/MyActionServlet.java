@@ -44,7 +44,9 @@ public class MyActionServlet extends HttpServlet {
 		List<PostR> cardPostR = prDao.select_id(user_id);
 		//取得したデータをリクエストスコープに格納
 		session.setAttribute("cardPostR",cardPostR);
-
+		//投稿詳細画面戻るボタン用
+		String r = "MyAction";
+		session.setAttribute("viewReturn", r);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/myaction.jsp");
 		dispatcher.forward(request, response);

@@ -36,6 +36,7 @@ public class ViewPostServlet extends HttpServlet {
 		String image = (String) session.getAttribute("image");
 		String postcomment = (String) session.getAttribute("postcomment");
 		String date = (String) session.getAttribute("date");
+		String viewReturn = (String) session.getAttribute("viewReturn");
 		//ユーザーIDで検索してユーザー情報を得る
 		UserDao uDao = new UserDao();
 		List<User> userInfo = uDao.uselect(postuser);
@@ -55,6 +56,7 @@ public class ViewPostServlet extends HttpServlet {
 		request.setAttribute("postuser", postuser);
 		request.setAttribute("userinfo", userInfo);
 		request.setAttribute("reaction", reaction);
+		request.setAttribute("viewReturn", viewReturn);
 		// 投稿詳細ページにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/viewpost.jsp");
 		dispatcher.forward(request, response);
