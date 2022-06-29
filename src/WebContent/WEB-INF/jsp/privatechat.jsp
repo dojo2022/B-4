@@ -87,11 +87,14 @@
 	</main>
 	<!--メインここまで-->
 	<!--フッターここから-->
-	<div class="font-size">
-		<div id="footer">
-		</div>
-		<footer>
-			<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
+	 <div class="font-size">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	 	<footer>
+	 		<p>&copy;Copyright 貴方は猫派？犬派？ All rights reserved.</p>
 		</footer>
 	</div>
 	<!--フッターここまで-->

@@ -59,7 +59,7 @@
 
 							<span>${e.room_name}</span><br><!-- ルーム名を表示する -->
 							<img src="/dotchiha/img/icon_user.png" width="15" height="15"
-								alt="	人数">○○人
+								alt="	人数">15人
 						</button>
 						<input type = "hidden" name="room_name" value="${e.room_name}">
 						<!-- onsubmitでgroupchat.jspへ飛ぶ -->
