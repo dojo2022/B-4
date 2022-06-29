@@ -28,7 +28,7 @@
 					</label></td></tr>
 					<!-- 画像 -->
 					<tr><td><label>
-						画像<br><img src="${'/dotchiha/image/'+=image}" id="gazo">
+						画像<br><img src="/dotchiha/img/dog22.jpg" id="gazo"  width="320px">
 					</label></td></tr>
 					<!-- 犬猫のラジオボタン -->
 					<tr><td><label>
