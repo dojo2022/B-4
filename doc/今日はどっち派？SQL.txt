@@ -33,7 +33,8 @@ CREATE TABLE User (
   address VARCHAR(10),
   icon VARCHAR(50) DEFAULT 'icon.jpg',
   freespace VARCHAR(30),
-  pw VARCHAR(20) NOT NULL
+  pw VARCHAR(20) NOT NULL,
+  UNIQUE(user_id)
 );
 
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('nekozuki75@gmail.com', '猫大好き', '滋賀県', '猫しか勝たん!', 'nekoneko2222');
@@ -41,6 +42,16 @@ INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('inuzuki1
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('tamaki0427@gmail.com', 'タマチャン', '埼玉県', '犬猫そっちもかわいい！', 'tamaki0427');
 INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('ryouko-tanaka918.gmail.com', 'スズ', '山梨県', '癒しを求めています', 'tanaryou918');
 INSERT INTO User (user_id ,user_name ,address ,icon ,freespace ,pw ) VALUES ('nekoinu1122@gmail.com', 'レオ', '神奈川県', 'neko.jpg', '大型犬飼ってます！お話しましょう！', 'reodaisuki1122');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('lovemydog33@gmail.com', 'うちの犬を見てくれ', '北海道', 'うちの犬をぜひ見てくれかわいいんだ！', 'lovemydog');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('junguguw@gmail.com', 'AKARI ', '栃木県', '見る専', 'irohanihoheto');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('sachiko0325@gmail.com', '幸子', '千葉県', 'よろしくお願いします。', 'sachiko0325');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('animecomic@gmail.com', 'O ', '東京都', 'あ', 'tenipuri231');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('kotono021128@gmail.com', 'ことの', '京都府', 'うちの猫でも見てってください', 'kotokoto9');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('ryuujiikeda6@gmail.com', '池田隆司 ', '三重県', '自分とたける（犬）の日常', 'ryuutake');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('freestyle44@gmail.com', 'むぎくん', '埼玉県', 'むぎくんとおさんぽ', 'mugimugi');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('vivi32kiki@gmail.com', 'vivi ', '高知県', 'たまに飼い猫の写真上げます', 'viviandkiki');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('nekonekoneko3@gmail.com', '猫猫猫', '富山県', '黒猫3匹飼ってます', 'neko3');
+INSERT INTO User (user_id ,user_name ,address ,freespace ,pw ) VALUES ('runrunii@gmail.com', 'るーちゃん ', '岡山県', 'うちのるーちゃんかわいい？', 'rururu1');
 
 ②
 【Feelingテーブルを作成・登録するSQL文】
@@ -74,7 +85,34 @@ INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekoinu1122
 INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '4506970902_96cd8ae739.jpg', '気になる', '何やら外が気になるご様子', '0');
 INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', '0812110532.jpg', '視線の先には…?', 'みんなで同じ方を向いてるのが可愛い一枚', '2');
 INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', '4835109188_725430edf5.jpg', 'スヤスヤ', 'ぐっすり眠ってるうちの子', '0');
-INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('inuzuki18@gmail.com', 'Dog110229.mp4', 'もぐもぐ', '美味しいかな？', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekoinu1122@gmail.com', 'cat2.jpg', 'お昼寝中', 'フリースタイル', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat4.jpg', '見つめあい', '仲良しな二匹', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('lovemydog33@gmail.com', 'dog4.jpg', 'おすわり', 'おすわりできてえらいねえ', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat9.jpg', '美', '我が家の美しいねこちゃん', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('lovemydog33@gmail.com', 'dog5.jpg', 'ひょっこり!?', '例の芸人カナ？', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('lovemydog33@gmail.com', 'dog6.jpg', '心許しすぎ', 'リラックス状態？', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat14.jpg', 'どろぼうねこ', 'かわいいすぎる...', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', 'cat21.jpg', '振り返り美猫', '振り返ってじっとこちらをのぞく', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('runrunii@gmail.com', 'cat24.jpg', 'うるうる', 'うるうるな瞳がたまらん', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('sachiko0325@gmail.com', 'dog9.jpg', 'ぶちゃいく', '愛らしい！', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekoinu1122@gmail.com', 'dog14.jpg', 'おさんぽ', 'いい天気だお散歩日和', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat25.jpg', '黄昏猫', '絵になる', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', 'dog18.jpg', 'どこ見てるだ？', '何を見てるのかな笑', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('kotono021128@gmail.com', 'cat26.jpg', '今日のうちの子', 'どこかほかの猫と違う雰囲気があるのはなんでやろなあ', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('lovemydog33@gmail.com', 'dog13.jpg', 'スッキリ！', 'トリミング行ってきましたー！', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('ryuujiikeda6@gmail.com', 'dog26.jpg', '寝方！！', '泥酔したおやじみたいな寝方してる笑', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat27.jpg', 'だんごむし？', 'まるでダンゴムシのような丸', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('ryuujiikeda6@gmail.com', 'dog28.jpg', 'お気に入りの場所?', 'いつも足首に頭を置いてるねえ笑く', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat28.jpg', '食べたいの??', '大きな口を開けておかし食べたいのかな？', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('ryuujiikeda6@gmail.com', 'dog33.jpg', '寝顔', '愛しい寝顔', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekonekoneko3@gmail.com', 'cat30.jpg', '密です', 'かわいいの集合', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat37.jpg', 'ありがとうございます！', 'カメラ目線最高', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('tamaki0427@gmail.com', 'dog34.jpg', '愛しすぎだろ', 'たまらなくかわいくないですか!?', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('nekozuki75@gmail.com', 'cat40.jpg', 'イエローカード', '白目なのにかわいいのは反則！', '0');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('inuzuki18@gmail.com', 'dog35.jpg', '怒なのか？', 'タオル乗っけたらこの表情。怒ってる...??', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('freestyle44@gmail.com', 'dog45.jpg', 'レッツゴー！', '散歩行くぞー！', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('freestyle44@gmail.com', 'dog55.jpg', '散歩なう', '元気に歩こうなー！', '1');
+INSERT INTO Post (user_id,image,posttitle,postcomment,cord) VALUES ('vivi32kiki@gmail.com', 'cat11.jpg', 'いい写', 'いい写真だ・・・', '0');
 
 
 ④
@@ -90,6 +128,61 @@ INSERT INTO PostR (post_id,sender_id) VALUES ('1', 'ryouko-tanaka918.gmail.com')
 INSERT INTO PostR (post_id,sender_id) VALUES ('5', 'nekozuki75@gmail.com');
 INSERT INTO PostR (post_id,sender_id) VALUES ('2', 'tamaki0427@gmail.com');
 INSERT INTO PostR (post_id,sender_id) VALUES ('4', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('33', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('33', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('32', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('12', 'tamaki0427@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('4', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('30', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('15', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('23', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('22', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('24', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('11', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('11', 'animecomic@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('15', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('22', 'junguguw@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('34', 'junguguw@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('17', 'junguguw@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('14', 'junguguw@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('5', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('28', 'junguguw@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('9', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('18', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('17', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('15', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('12', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('7', 'ryuujiikeda6@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('7', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('7', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('5', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('10', 'tamaki0427@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('24', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('9', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('8', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('17', 'vivi32kiki@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('12', 'vivi32kik@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('14', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('18', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('15', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('25', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('32', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('7', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('8', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('2', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('7', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('24', 'tamaki0427@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('29', 'ryouko-tanaka918.gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('17', 'nekozuki75@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('13', 'freestyle44@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('14', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('12', 'tamaki0427@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('14', 'freestyle44@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('29', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('24', 'freestyle44@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('25', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('22', 'lovemydog33@gmail.com');
+INSERT INTO PostR (post_id,sender_id) VALUES ('21', 'vivi32kiki@gmail.com');
 
 
 ⑤
@@ -120,6 +213,29 @@ INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'tama
 INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'ryouko-tanaka918.gmail.com');
 INSERT INTO Follow (follow_id,followed_id) VALUES ('nekoinu1122@gmail.com', 'nekozuki75@gmail.com');
 INSERT INTO Follow (follow_id,followed_id) VALUES ('ryouko-tanaka918.gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('tamaki0427@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('nekozuki75@gmail.com', 'inuzuki18@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('inuzuki18@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('lovemydog33@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('lovemydog33@gmail.com', 'inuzuki18@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('lovemydog33@gmail.com', 'animecomic@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('lovemydog33@gmail.com', 'ryuujiikeda6@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('lovemydog33@gmail.com', 'tamaki0427@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('sachiko0325@gmail.com', 'lovemydog33@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('sachiko0325@gmail.com', 'inuzuki18@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'freestyle44@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'nekoinu1122@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'tamaki0427@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('runrunii@gmail.com', 'nekonekoneko3@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('ryuujiikeda6@gmail.com', 'nekonekoneko3@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('ryuujiikeda6@gmail.com', 'animecomic@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('freestyle44@gmail.com', 'nekoinu1122@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('vivi32kiki@gmail.com', 'nekonekoneko3@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('vivi32kiki@gmail.com', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('vivi32kiki@gmail.com', 'nekozuki75@gmail.com');
+INSERT INTO Follow (follow_id,followed_id) VALUES ('vivi32kiki@gmail.com', 'animecomic@gmail.com');
 
 
 ⑦
@@ -138,6 +254,11 @@ INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekozuki75@gmail.com', 'Zoo
 INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekoinu1122@gmail.com', '里親募集中', '子猫をもらってくれる方を大募集しています。場所は関東でお願いします。', '0');
 INSERT INTO Board (user_id,title,text,dorc) VALUES ('nekozuki75@gmail.com', '猫ちゃんオフ会', '猫ちゃんを連れて猫カフェに行きましょう！', '0');
 INSERT INTO Board (user_id,title,text,dorc) VALUES ('inuzuki18@gmail.com', 'うちの子見てください', 'うちのかわいいワンちゃんをお見せしたいと思います。ZoomURLはこちらです。', '1');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('lovemydog33@gmail.com', '撮影会', 'うちのわんちゃんをぜひカメラに収めたい方！反応お願いします！', '1');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('kotono021128@gmail.com', 'チェキほしい方', '需要があるかわかりませんがうちの猫ちゃんのチェキ販売しようと思いますぜひに', '0');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('ryuujiikeda6@gmail.com', '8月9日Zoomオフ会', '僕とたけるの日常をZoomでもちらっとお見せします。20時からを予定しています。', '1');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('freestyle44@gmail.com', 'おさんぽ友だち募集！', 'むぎくんと僕と一緒におさんぽしませんか？', '1');
+INSERT INTO Board (user_id,title,text,dorc) VALUES ('runrunii@gmail.com', 'るーちゃんとお話しする？', 'るーちゃんとお話しする時間:Zoom→。', '0'); 
 
 
 ⑧
@@ -155,6 +276,37 @@ INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('5', 'ryouko-tanaka918.g
 INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'tamaki0427@gmail.com', '観覧のみですが、参加したいです。');
 INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'nekoinu1122@gmail.com', 'うちのペットもお見せしたいです。');
 INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('2', 'ryouko-tanaka918.gmail.com', '私も参加したいです。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'inuzuki18@gmail.com', '参加したいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'inuzuki18@gmail.com', 'いつ頃予定ですか？');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'nekozuki75@gmail.com', '詳しく教えてください！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'lovemydog33@gmail.com', '開催ありがとうございます！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'kotono021128@gmail.com', '私も参加したいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('1', 'tamaki0427@gmail.com', '参加検討中です。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('5', 'inuzuki18@gmail.com', 'とても見たいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('6', 'kotono021128@gmail.com', 'いいですね！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('6', 'nekozuki75@gmail.com', 'ぜひ行きたいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('6', 'ryouko-tanaka918.gmail.com', '最高ですね～');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('7', 'nekoinu1122@gmail.com', '欲しいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('7', 'tamaki0427@gmail.com', 'あたいも！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('8', 'freestyle44@gmail.com', '参加したいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('8', 'ryouko-tanaka918.gmail.com', '日程未確定ですが行きたいです。');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('9', 'nekozuki75@gmail.com', 'いいですね！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('9', 'animecomic@gmail.com', 'どこら辺でお散歩しますか？');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('9', 'junguguw@gmail.com', '一緒にいいですか？');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('9', 'kotono021128@gmail.com', '私のペット連れてきます！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('9', 'lovemydog33@gmail.com', '晴れてる日に行きましょう！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'animecomic@gmail.com', 'したいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'runrunii@gmail.com', 'ぜひしてください！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'ryouko-tanaka918.gmail.com', '私もしたいです！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'tamaki0427@gmail.com', '日程を教えてください');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'junguguw@gmail.com', 'あちきも参加したいです');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'vivi32kiki@gmail.com', 'いいですね！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'runrunii@gmail.com', '皆さんありがとうございます！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'runrunii@gmail.com', '日程は6月30日予定です');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'nekozuki75@gmail.com', 'そうなんですね！');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'freestyle44@gmail.com', 'まだ大丈夫ですか？');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'runrunii@gmail.com', '全然大丈夫です！待ってます!!');
+INSERT INTO BoardC (board_id,sender_id,comment) VALUES ('10', 'sachiko0325@gmail.com', '未確定ですが行きたいです！');
 
 ⑨
 【BoardSテーブルを作成・登録するSQL文】
@@ -169,6 +321,21 @@ INSERT INTO BoardS (board_id,sender_id) VALUES ('5', 'nekozuki75@gmail.com');
 INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'nekoinu1122@gmail.com');
 INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'ryouko-tanaka918.gmail.com');
 INSERT INTO BoardS (board_id,sender_id) VALUES ('5', 'ryouko-tanaka918.gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('9', 'lovemydog33@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('9', 'inuzuki18@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('9', 'ryuujiikeda67@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('6', 'kotono021128@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('6', 'junguguw@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('6', 'ryuujiikeda6@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('8', 'lovemydog33@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('8', 'inuzuki18@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('10', 'nekonekoneko3@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('10', 'vivi32kiki@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('10', 'nekozuki75@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('7', 'nekozuki75@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('7', 'tamaki0427@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'lovemydog33@gmail.com');
+INSERT INTO BoardS (board_id,sender_id) VALUES ('2', 'ryuujiikeda6@gmail.com');
 
 
 ⑩
@@ -182,6 +349,39 @@ INSERT INTO Croom (room_name) VALUES ('コスパいいおやつ');
 INSERT INTO Croom (room_name) VALUES ('うちの子世界一');
 INSERT INTO Croom (room_name) VALUES (null);
 INSERT INTO Croom (room_name) VALUES ('猫好き');
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES ('犬好き');
+INSERT INTO Croom (room_name) VALUES ('いい病院教えてください');
+INSERT INTO Croom (room_name) VALUES ('ペットについて語り合おう！');
+INSERT INTO Croom (room_name) VALUES ('好きな犬種について');
+INSERT INTO Croom (room_name) VALUES ('好きな猫の種類');
+INSERT INTO Croom (room_name) VALUES ('柴犬飼ってる人集合～');
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES ('ペルシャ猫飼ってる人集合～');
+INSERT INTO Croom (room_name) VALUES ('トイプー飼ってる人集合～');
+INSERT INTO Croom (room_name) VALUES ('うちの子こんな芸できます！！');
+INSERT INTO Croom (room_name) VALUES ('チワワ大好き！');
+INSERT INTO Croom (room_name) VALUES ('猫の育て方について相談です');
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES ('いいご飯について');
+INSERT INTO Croom (room_name) VALUES ('全員集合～～');
+INSERT INTO Croom (room_name) VALUES ('犬の育て方について相談です');
+INSERT INTO Croom (room_name) VALUES ('マンチカン大好き！');
+INSERT INTO Croom (room_name) VALUES ('スコティッシュフォールド飼ってる人集合～');
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
+INSERT INTO Croom (room_name) VALUES (null);
 INSERT INTO Croom (room_name) VALUES (null);
 
 
@@ -206,7 +406,97 @@ INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'nekozuki75@gmail.com');
 INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'ryouko-tanaka918.gmail.com');
 INSERT INTO Cmember (room_id,user_id) VALUES ('4', 'tamaki0427@gmail.com');
 INSERT INTO Cmember (room_id,user_id) VALUES ('5', 'inuzuki18@gmail.com');
-INSERT INTO Cmember (room_id,user_id) VALUES ('5', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('5', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('6', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('6', 'inuzuki18@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('6', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('6', 'kotono021128@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('7', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('7', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('7', 'freestyle44@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('8', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('8', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('8', 'kotono021128@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('8', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('8', 'nekonekoneko3@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('9', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('9', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('9', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'inuzuki18@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'freestyle44@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('10', 'runrunii@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('11', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('11', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('11', 'freestyle44@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('11', 'runrunii@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('12', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('12', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('13', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('13', 'inuzuki18@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('14', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('14', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('15', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('15', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('15', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('16', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('16', 'lovemydog33@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('16', 'animecomic@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('17', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('17', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('17', 'nekonekoneko3@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('18', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('18', 'runrunii@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('19', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('19', 'lovemydog33@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('19', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('20', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('20', 'nekonekoneko3@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('21', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('21', 'freestyle44@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('22', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('22', 'animecomic@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('23', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('23', 'lovemydog33@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('24', 'inuzuki18@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('24', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('24', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('25', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('25', 'junguguw@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('25', 'sachiko0325@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('26', 'nekonekoneko3@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('26', 'animecomic@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('26', 'runrunii@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('27', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('27', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('27', 'junguguw@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('28', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('28', 'sachiko0325@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('28', 'nekonekoneko3@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('29', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('29', 'sachiko0325@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('30', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('30', 'junguguw@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('31', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('31', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('32', 'nekoinu1122@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('32', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('33', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('33', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('34', 'lovemydog33@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('34', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('35', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('35', 'animecomic@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('36', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('36', 'vivi32kiki@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('37', 'nekozuki75@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('37', 'tamaki0427@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('38', 'runrunii@gmail.com');
+INSERT INTO Cmember (room_id,user_id) VALUES ('38', 'nekozuki75@gmail.com');
+
+
 
 
 ⑫
@@ -232,4 +522,36 @@ INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('かわいいですね'
 INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ほんとですね！', '2', 'nekoinu1122@gmail.com');
 INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ありがとうございます。', '2', 'nekozuki75@gmail.com');
 INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('初めまして', '5', 'inuzuki18@gmail.com');
-INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('よろしくお願いします。', '5', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('よろしくお願いします。', '5', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('1番おいしそうに食べるよね～', '1', 'tamaki0427@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('そうだね～', '1', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('でも少し高いよね～', '1', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('そこがネックなんだよね', '1', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('コスパがいいのはないかな？', '1', 'tamaki0427@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ちょっと調べてみるね！','1', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('そうなんですね', '3', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('こっちは晴れです。', '3', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('いいですね！', '3', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('お散歩日和ですね！', '3', 'nekoinu1122@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('そうなんです！', '3', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('楽しみです！', '3', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('皆さん犬を飼ってるんですか？', '6', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('飼ってはないですが、大好きです！', '6', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('一応飼ってます', '6', 'inuzuki18@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('そうなんですね！', '6', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('いい動物病院知りませんか？', '7', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('私も知りたいです！', '7', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('知り合いから聞いたとこをお教えします', '7', 'freestyle44@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ペット何を飼ってますか？', '8', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('私も参考にしたいです', '8', 'ryouko-tanaka918.gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('猫を飼ってます', '8', 'kotono021128@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('マンチカンです', '8', 'kotono021128@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('私はチワワです', '8', 'vivi32kiki@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('好きな犬種を教えてください', '9', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('私はチワワです！', '9', 'nekozuki75@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('柴犬です', '9', 'ryuujiikeda6@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('ブルドッグです！', '9', 'vivi32kiki@gmail.com');
+INSERT INTO Cmessage (message,room_id,sender_id) VALUES ('いいですね！', '9', 'nekozuki75@gmail.com');
+
+
+
